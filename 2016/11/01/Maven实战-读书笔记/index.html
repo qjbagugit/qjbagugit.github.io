@@ -108,10 +108,11 @@ Maven 除了以程序构建能力为特色之外，还提供高级项目管理�
 <meta property="og:image" content="http://yoursite.com/2016/11/01/Maven实战-读书笔记/7_1.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/01/Maven实战-读书笔记/7_2.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/01/Maven实战-读书笔记/7_3.png">
+<meta property="og:image" content="http://yoursite.com/2016/11/01/Maven实战-读书笔记/8_1.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/01/Maven实战-读书笔记/appendix-pom.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/01/Maven实战-读书笔记/appendix-settings.png">
 <meta property="og:image" content="http://yoursite.com/2016/11/01/Maven实战-读书笔记/appendix-property.png">
-<meta property="og:updated_time" content="2017-01-22T02:53:05.000Z">
+<meta property="og:updated_time" content="2017-01-23T09:28:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven实战读书笔记">
 <meta name="twitter:description" content="1、Maven介绍
@@ -589,24 +590,18 @@ Maven 除了以程序构建能力为特色之外，还提供高级项目管理�
 </blockquote>
 <h2 id="8-2-仓库"><a href="#8-2-仓库" class="headerlink" title="8.2 仓库"></a>8.2 仓库</h2><blockquote>
 <ul>
-<li>1.分类</li>
+<li><p>1.分类</p>
+<ul>
 <li>group(仓库组)</li>
+<li>hosted(宿主)</li>
+<li>proxy(代理)</li>
+<li>virtual(虚拟,maven1)<br>​    <img src="/2016/11/01/Maven实战-读书笔记/8_1.png" alt=""></li>
+</ul>
+</li>
+<li><p>2.仓库的策略分为：发布版本仓库和快照版本仓库</p>
+</li>
 </ul>
 </blockquote>
-<ul>
-<li><p>hosted(宿主)</p>
-</li>
-<li><p>proxy(代理)</p>
-</li>
-<li><p>virtual(虚拟,maven1)</p>
-<pre><code>![](Maven实战-读书笔记/8_1.png)
-</code></pre><blockquote>
-<ul>
-<li>2.仓库的策略分为：发布版本仓库和快照版本仓库</li>
-</ul>
-</blockquote>
-</li>
-</ul>
 <h2 id="8-3-配置Maven从Nexus下载构件"><a href="#8-3-配置Maven从Nexus下载构件" class="headerlink" title="8.3 配置Maven从Nexus下载构件"></a>8.3 配置Maven从Nexus下载构件</h2><blockquote>
 <ul>
 <li>1.在当前项目的pom文件中配置<pre><code>&lt;project&gt;
