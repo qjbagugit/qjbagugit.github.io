@@ -95,11 +95,10 @@
 2.针对接口编程而不是针对实现编程。
 3.多用组合，少用继承。
 4.为了交互对象之间的松耦合设计而努力。
+5.类应该对扩展开放，对修改关闭。
 
 
-2､策略模式：2.1 背景：
-
-在软件开发中也常常遇到类似">
+2､策略模式：2.1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HeadFirst设计模式读书笔记">
 <meta property="og:url" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/index.html">
@@ -115,16 +114,18 @@
 2.针对接口编程而不是针对实现编程。
 3.多用组合，少用继承。
 4.为了交互对象之间的松耦合设计而努力。
+5.类应该对扩展开放，对修改关闭。
 
 
-2､策略模式：2.1 背景：
-
-在软件开发中也常常遇到类似">
+2､策略模式：2.1">
 <meta property="og:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/strategy.png">
 <meta property="og:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/strategy2.png">
 <meta property="og:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/observerable.png">
 <meta property="og:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/observerable2.png">
-<meta property="og:updated_time" content="2017-01-23T05:28:53.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/decorator.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/decorator2.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/decorator_io.jpg">
+<meta property="og:updated_time" content="2017-01-24T05:47:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HeadFirst设计模式读书笔记">
 <meta name="twitter:description" content="1､设计模式1.1 使用设计模式的最好方式：
@@ -138,11 +139,10 @@
 2.针对接口编程而不是针对实现编程。
 3.多用组合，少用继承。
 4.为了交互对象之间的松耦合设计而努力。
+5.类应该对扩展开放，对修改关闭。
 
 
-2､策略模式：2.1 背景：
-
-在软件开发中也常常遇到类似">
+2､策略模式：2.1">
 <meta name="twitter:image" content="http://yoursite.com/2017/01/22/HeadFirst设计模式读书笔记/strategy.png">
 
 
@@ -421,6 +421,7 @@
 <li>2.针对接口编程而不是针对实现编程。</li>
 <li>3.多用组合，少用继承。</li>
 <li>4.为了交互对象之间的松耦合设计而努力。</li>
+<li>5.类应该对扩展开放，对修改关闭。</li>
 </ul>
 </blockquote>
 <h1 id="2､策略模式："><a href="#2､策略模式：" class="headerlink" title="2､策略模式："></a>2､策略模式：</h1><h2 id="2-1-背景："><a href="#2-1-背景：" class="headerlink" title="2.1 背景："></a>2.1 背景：</h2><blockquote>
@@ -435,7 +436,7 @@
 </blockquote>
 <h2 id="2-3-类图结构："><a href="#2-3-类图结构：" class="headerlink" title="2.3 类图结构："></a>2.3 类图结构：</h2><p><img src="/2017/01/22/HeadFirst设计模式读书笔记/strategy.png" alt=""></p>
 <h2 id="2-4-实例关系类图："><a href="#2-4-实例关系类图：" class="headerlink" title="2.4 实例关系类图："></a>2.4 实例关系类图：</h2><p><img src="/2017/01/22/HeadFirst设计模式读书笔记/strategy2.png" alt=""></p>
-<h1 id="3､观察者模式"><a href="#3､观察者模式" class="headerlink" title="3､观察者模式"></a>3､观察者模式</h1><h2 id="3-1-背景："><a href="#3-1-背景：" class="headerlink" title="3.1 背景："></a>3.1 背景：</h2><blockquote>
+<h1 id="3､观察者模式："><a href="#3､观察者模式：" class="headerlink" title="3､观察者模式："></a>3､观察者模式：</h1><h2 id="3-1-背景："><a href="#3-1-背景：" class="headerlink" title="3.1 背景："></a>3.1 背景：</h2><blockquote>
 <ul>
 <li>当一个对象的状态发生改变时，你如何通知其他对象？是否需要一个动态方案――一个就像允许脚本的执行一样，允许自由连接的方案？</li>
 </ul>
@@ -453,6 +454,19 @@
 <li>java.util.Observable(被观察者)：类里的方法大部分使用了线程同步操作，所以减少了并发异常。同时，如果需要给观察者通知，需要先调用一个setChanged()方法，这样才可以通知到观察者。</li>
 </ul>
 </blockquote>
+<h1 id="4､-装饰者模式："><a href="#4､-装饰者模式：" class="headerlink" title="4､ 装饰者模式："></a>4､ 装饰者模式：</h1><h2 id="4-1-背景："><a href="#4-1-背景：" class="headerlink" title="4.1 背景："></a>4.1 背景：</h2><blockquote>
+<ul>
+<li>通过继承一个现有类可以使得子类在拥有自身方法的同时还拥有父类的方法。但是这种方法是静态的，用户不能控制增加行为的方式和时机。如果 你希望改变一个已经初始化的对象的行为，你怎么办？或者，你希望继承许多类的行为，该怎么办?前一个，只能在于运行时完成，后者显然是可能的，但是可能会导致产生大量的不同的类。</li>
+</ul>
+</blockquote>
+<h2 id="4-2-解决方案："><a href="#4-2-解决方案：" class="headerlink" title="4.2 解决方案："></a>4.2 解决方案：</h2><blockquote>
+<ul>
+<li>动态地将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案。</li>
+</ul>
+</blockquote>
+<h2 id="4-3-类结构图："><a href="#4-3-类结构图：" class="headerlink" title="4.3 类结构图："></a>4.3 类结构图：</h2><p><img src="/2017/01/22/HeadFirst设计模式读书笔记/decorator.png" alt=""></p>
+<h2 id="4-4-实例关系类图："><a href="#4-4-实例关系类图：" class="headerlink" title="4.4 实例关系类图："></a>4.4 实例关系类图：</h2><p><img src="/2017/01/22/HeadFirst设计模式读书笔记/decorator2.png" alt=""></p>
+<h2 id="4-5-Java世界中的装饰者：Java-I-O"><a href="#4-5-Java世界中的装饰者：Java-I-O" class="headerlink" title="4.5 Java世界中的装饰者：Java I/O"></a>4.5 Java世界中的装饰者：Java I/O</h2><p><img src="/2017/01/22/HeadFirst设计模式读书笔记/decorator_io.jpg" alt=""></p>
 <h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>[1]、<a href="http://blog.csdn.net/hguisu/article/category/1133340" target="_blank" rel="external">http://blog.csdn.net/hguisu/article/category/1133340</a></p>
 <p>[2]、<a href="http://blog.csdn.net/lovelion/article/details/17517213" target="_blank" rel="external">http://blog.csdn.net/lovelion/article/details/17517213</a></p>
 
@@ -635,7 +649,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1､设计模式"><span class="nav-number">1.</span> <span class="nav-text">1､设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-使用设计模式的最好方式："><span class="nav-number">1.1.</span> <span class="nav-text">1.1 使用设计模式的最好方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-设计原则"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 设计原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2､策略模式："><span class="nav-number">2.</span> <span class="nav-text">2､策略模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-背景："><span class="nav-number">2.1.</span> <span class="nav-text">2.1 背景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-解决方案："><span class="nav-number">2.2.</span> <span class="nav-text">2.2 解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-类图结构："><span class="nav-number">2.3.</span> <span class="nav-text">2.3 类图结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-实例关系类图："><span class="nav-number">2.4.</span> <span class="nav-text">2.4 实例关系类图：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3､观察者模式"><span class="nav-number">3.</span> <span class="nav-text">3､观察者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-背景："><span class="nav-number">3.1.</span> <span class="nav-text">3.1 背景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-解决方案："><span class="nav-number">3.2.</span> <span class="nav-text">3.2 解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-类结构图："><span class="nav-number">3.3.</span> <span class="nav-text">3.3 类结构图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-实例关系类图："><span class="nav-number">3.4.</span> <span class="nav-text">3.4 实例关系类图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-Java内置的观察者模式"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 Java内置的观察者模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-number">4.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1､设计模式"><span class="nav-number">1.</span> <span class="nav-text">1､设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-使用设计模式的最好方式："><span class="nav-number">1.1.</span> <span class="nav-text">1.1 使用设计模式的最好方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-设计原则"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 设计原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2､策略模式："><span class="nav-number">2.</span> <span class="nav-text">2､策略模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-背景："><span class="nav-number">2.1.</span> <span class="nav-text">2.1 背景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-解决方案："><span class="nav-number">2.2.</span> <span class="nav-text">2.2 解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-类图结构："><span class="nav-number">2.3.</span> <span class="nav-text">2.3 类图结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-实例关系类图："><span class="nav-number">2.4.</span> <span class="nav-text">2.4 实例关系类图：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3､观察者模式："><span class="nav-number">3.</span> <span class="nav-text">3､观察者模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-背景："><span class="nav-number">3.1.</span> <span class="nav-text">3.1 背景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-解决方案："><span class="nav-number">3.2.</span> <span class="nav-text">3.2 解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-类结构图："><span class="nav-number">3.3.</span> <span class="nav-text">3.3 类结构图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-实例关系类图："><span class="nav-number">3.4.</span> <span class="nav-text">3.4 实例关系类图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-Java内置的观察者模式"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 Java内置的观察者模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4､-装饰者模式："><span class="nav-number">4.</span> <span class="nav-text">4､ 装饰者模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-背景："><span class="nav-number">4.1.</span> <span class="nav-text">4.1 背景：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-解决方案："><span class="nav-number">4.2.</span> <span class="nav-text">4.2 解决方案：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-类结构图："><span class="nav-number">4.3.</span> <span class="nav-text">4.3 类结构图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-实例关系类图："><span class="nav-number">4.4.</span> <span class="nav-text">4.4 实例关系类图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-Java世界中的装饰者：Java-I-O"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 Java世界中的装饰者：Java I/O</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-number">5.</span> <span class="nav-text">参考：</span></a></li></ol></div>
             
 
           </div>
