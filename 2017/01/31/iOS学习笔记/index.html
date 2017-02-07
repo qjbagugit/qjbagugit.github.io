@@ -115,7 +115,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/application.png">
 <meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/nav1.png">
 <meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/nav2.png">
-<meta property="og:updated_time" content="2017-02-07T09:38:23.000Z">
+<meta property="og:updated_time" content="2017-02-07T11:52:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS学习笔记">
 <meta name="twitter:description" content="一、加载图片的方式：
@@ -850,12 +850,81 @@ NSString *version = dic[@&quot;CFBundleShortVersionString&quot;];
 <p>@package: 被@package修饰的属性 可以在当前框架中访问。</p>
 <p>@public: 公共的。被@public修饰的属性 可以在任意的地方访问。</p>
 </li>
-<li><p>注意：</p>
+<li><p>说明：</p>
 <p>在interface中声明的成员变量默认是protected。</p>
-<p>在implementation中声明的成员变量，默认是private（在没被他人import的情况下，即使加@public仍然无法被他人引用）</p>
+<p>在implementation中声明的成员变量，默认是private（在没被import的情况下，即使加@public仍然无法被他人引用）。</p>
+<p>@property  用于生成getter与setter的声明，只能用于interface中。</p>
 </li>
 </ol>
 </blockquote>
+<h2 id="十九、OC属性修饰符："><a href="#十九、OC属性修饰符：" class="headerlink" title="十九、OC属性修饰符："></a>十九、OC属性修饰符：</h2><blockquote>
+<ol>
+<li><p>修饰符分类：</p>
+<ul>
+<li>自定义getter | setter方法名修饰符 : getter和setter</li>
+<li>原子性修饰符:atomic | nonatomic</li>
+<li>读写性修饰符：readwrite | readonly</li>
+<li>setter相关修饰符：assign | retain | copy</li>
+</ul>
+</li>
+<li><p>方法名修饰符：</p>
+<p><code>getter=&lt;getMethodName&gt;,setter=&lt;setMethodName&gt;:指定该属性所使用的getter和setter方法的名称</code></p>
+<p>一般用来修改BOOL类型的getter方法。</p>
+</li>
+<li><p>原子修饰符：</p>
+<ul>
+<li>atomic：原子属性(默认),为setter方法加锁，线程安全，但比较耗性能。</li>
+<li>nonatomic：非原子属性,不为setter方法加锁，非线程安全,适合内存小的移动设备。</li>
+</ul>
+</li>
+<li><p>读写性修饰符：</p>
+<ul>
+<li>readwrite：表明这个属性是可读可写的，系统为我们生成这个属性的setter和getter方法以及下划线开头的成员变量。</li>
+<li>readonly：表明这个属性只能读不能写，系统只为我们生成一个getter方法及下划线开头的成员变量，不会创建setter方法。</li>
+<li>注意：如果手动实现了setter和getter方法则不会再生成下划线开头的成员变量。</li>
+</ul>
+</li>
+<li><p>setter相关修饰符：</p>
+<ul>
+<li><p>retain：针对对象类型进行内存管理(非ARC)。当给对象类型使用此修饰符时，setter方法会先将旧的对象属性release掉，再对新的对象进行一次赋值并进行一次retain操作。</p>
+</li>
+<li><p>assign：表示直接赋值， 基本数据类型、枚举、结构体(非OC对象) class类型。当一个对象被销毁时，指针不会被清空(所以修饰对象时容易造成坏内存 (非ARC下会用这个修饰对象)。</p>
+</li>
+<li><p>copy：以前主要用在NSString类型和Block，建立一个索引计数为1的对象，然后释放旧对象。</p>
+</li>
+<li><p>strong：除NSString\block以外(注意!这是以前的说法)的OC对象 , 强引用以保证属性作用域结束后不被销毁。</p>
+</li>
+<li><p>weak：当一个对象被销毁时，指针被清空。一般用在已经添加到父控件中的控件,因为父控件会对子控件进行引用,也就是retain,所以自己的作用域结束之后不会被释放</p>
+</li>
+<li><p>注意：</p>
+<p>​    (1).系统默认属性是assign。retain是指针的复制，copy是内容的复制。</p>
+<p>​    (2).用copy修饰字符串时：在setter方法中会判断 传入的字符串 是否是可变的  如果是可变的就分配新的内存再赋值  如果是不可变的就直接赋值地址  而实际上开发中其实大量使用的是不可变的字符串   所以最好使用 strong 修饰字符串,可以提升性能(减少一次判断)</p>
+<p>​    (3).用copy修饰Block时:</p>
+<p>​    非ARC环境下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;     block访问外部局部变量,block存放栈里面</div><div class="line">&gt;     只要block访问变量,而且是整个app都存在的变量,那么肯定在全局区</div><div class="line">&gt;     在非ARC中.不能使用retain引用block,因为不会放在堆里面,在非ARC中只能使用copy,才会把block放在堆里面</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​    ARC环境下：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;     只要block访问了外部局部变量,block就会存放到堆里面</div><div class="line">&gt;     可以使用strong去引用  因为本身就已经是存放在堆区了</div><div class="line">&gt;     也可以用copy，但是用stong性能更好</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>总结(ARC环境)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;     用strong修饰OC对象以及NSString和Block , 没添加到父控件上的控件</div><div class="line">&gt;     用weak修饰已经被添加到父控件上的控件 以及 代理对象</div><div class="line">&gt;     用assign基本数据类型、枚举、结构体(非OC对象)   class类型</div><div class="line">&gt;     用copy修饰一种情况下的NSString--&gt;不确定赋值过程中用的是可变还是不可变字符串</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​
+</code></pre></blockquote>
 
       
     </div>
@@ -1032,7 +1101,7 @@ NSString *version = dic[@&quot;CFBundleShortVersionString&quot;];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、加载图片的方式："><span class="nav-number">1.</span> <span class="nav-text">一、加载图片的方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、pch文件："><span class="nav-number">2.</span> <span class="nav-text">二、pch文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、info-plist文件："><span class="nav-number">3.</span> <span class="nav-text">三、info.plist文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、从代码加载指定的storyboard文件："><span class="nav-number">4.</span> <span class="nav-text">四、从代码加载指定的storyboard文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、ViewController中loadView方法："><span class="nav-number">5.</span> <span class="nav-text">五、ViewController中loadView方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、背景图片的拉伸："><span class="nav-number">6.</span> <span class="nav-text">六、背景图片的拉伸：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、KVC：key-value-coding-键值编码"><span class="nav-number">7.</span> <span class="nav-text">七、KVC：key value coding(键值编码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、KVO：key-value-observing-键值监听"><span class="nav-number">8.</span> <span class="nav-text">八、KVO：key value observing(键值监听)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、适配"><span class="nav-number">9.</span> <span class="nav-text">九、适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、UITableView"><span class="nav-number">10.</span> <span class="nav-text">十、UITableView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、UIApplication"><span class="nav-number">11.</span> <span class="nav-text">十一、UIApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、UIWindow"><span class="nav-number">12.</span> <span class="nav-text">十二、UIWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、多控制器：UINavigationController"><span class="nav-number">13.</span> <span class="nav-text">十三、多控制器：UINavigationController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、控制器生命周期："><span class="nav-number">14.</span> <span class="nav-text">十四、控制器生命周期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、OC中BOOL和bool的区别："><span class="nav-number">15.</span> <span class="nav-text">十五、OC中BOOL和bool的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、initialize和load方法的区别："><span class="nav-number">16.</span> <span class="nav-text">十六、initialize和load方法的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十七、instancetype和id的区别："><span class="nav-number">17.</span> <span class="nav-text">十七、instancetype和id的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十八、OC访问修饰符："><span class="nav-number">18.</span> <span class="nav-text">十八、OC访问修饰符：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、加载图片的方式："><span class="nav-number">1.</span> <span class="nav-text">一、加载图片的方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、pch文件："><span class="nav-number">2.</span> <span class="nav-text">二、pch文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、info-plist文件："><span class="nav-number">3.</span> <span class="nav-text">三、info.plist文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、从代码加载指定的storyboard文件："><span class="nav-number">4.</span> <span class="nav-text">四、从代码加载指定的storyboard文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、ViewController中loadView方法："><span class="nav-number">5.</span> <span class="nav-text">五、ViewController中loadView方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、背景图片的拉伸："><span class="nav-number">6.</span> <span class="nav-text">六、背景图片的拉伸：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、KVC：key-value-coding-键值编码"><span class="nav-number">7.</span> <span class="nav-text">七、KVC：key value coding(键值编码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、KVO：key-value-observing-键值监听"><span class="nav-number">8.</span> <span class="nav-text">八、KVO：key value observing(键值监听)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、适配"><span class="nav-number">9.</span> <span class="nav-text">九、适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、UITableView"><span class="nav-number">10.</span> <span class="nav-text">十、UITableView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、UIApplication"><span class="nav-number">11.</span> <span class="nav-text">十一、UIApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、UIWindow"><span class="nav-number">12.</span> <span class="nav-text">十二、UIWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、多控制器：UINavigationController"><span class="nav-number">13.</span> <span class="nav-text">十三、多控制器：UINavigationController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、控制器生命周期："><span class="nav-number">14.</span> <span class="nav-text">十四、控制器生命周期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、OC中BOOL和bool的区别："><span class="nav-number">15.</span> <span class="nav-text">十五、OC中BOOL和bool的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、initialize和load方法的区别："><span class="nav-number">16.</span> <span class="nav-text">十六、initialize和load方法的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十七、instancetype和id的区别："><span class="nav-number">17.</span> <span class="nav-text">十七、instancetype和id的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十八、OC访问修饰符："><span class="nav-number">18.</span> <span class="nav-text">十八、OC访问修饰符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十九、OC属性修饰符："><span class="nav-number">19.</span> <span class="nav-text">十九、OC属性修饰符：</span></a></li></ol></div>
             
 
           </div>
