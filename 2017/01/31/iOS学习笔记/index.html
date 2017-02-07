@@ -1,0 +1,1185 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,小知识点," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="一、加载图片的方式：
+
+imageNamed:
+可以从项目中直接加载，也可以从Assets.xcassets中加载
+self.imageview.image = [UIImage imageNamed:@&amp;quot;图片名&amp;quot;];
+
+imageWithContentsOfFile:
+只能从项目中加载
+NSString *path = [[NSBundle mainBundle] pathF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/01/31/iOS学习笔记/index.html">
+<meta property="og:site_name" content="Timer`s blog">
+<meta property="og:description" content="一、加载图片的方式：
+
+imageNamed:
+可以从项目中直接加载，也可以从Assets.xcassets中加载
+self.imageview.image = [UIImage imageNamed:@&amp;quot;图片名&amp;quot;];
+
+imageWithContentsOfFile:
+只能从项目中加载
+NSString *path = [[NSBundle mainBundle] pathF">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/pch.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/stretch.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/stretch1.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/stretch2.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/stretch3.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/fit.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/application.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/nav1.png">
+<meta property="og:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/nav2.png">
+<meta property="og:updated_time" content="2017-02-07T09:38:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS学习笔记">
+<meta name="twitter:description" content="一、加载图片的方式：
+
+imageNamed:
+可以从项目中直接加载，也可以从Assets.xcassets中加载
+self.imageview.image = [UIImage imageNamed:@&amp;quot;图片名&amp;quot;];
+
+imageWithContentsOfFile:
+只能从项目中加载
+NSString *path = [[NSBundle mainBundle] pathF">
+<meta name="twitter:image" content="http://yoursite.com/2017/01/31/iOS学习笔记/pch.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/31/iOS学习笔记/"/>
+
+
+
+
+
+  <title> iOS学习笔记 | Timer`s blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Timer`s blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/31/iOS学习笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Timer">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Timer`s blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Timer`s blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-31T13:44:43+08:00">
+                2017-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/小知识点/" itemprop="url" rel="index">
+                    <span itemprop="name">小知识点</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/小知识点/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、加载图片的方式："><a href="#一、加载图片的方式：" class="headerlink" title="一、加载图片的方式："></a>一、加载图片的方式：</h2><blockquote>
+<ol>
+<li><p>imageNamed:</p>
+<p>可以从项目中直接加载，也可以从Assets.xcassets中加载</p>
+<p><code>self.imageview.image = [UIImage imageNamed:@&quot;图片名&quot;];</code></p>
+</li>
+<li><p>imageWithContentsOfFile:</p>
+<p>只能从项目中加载</p>
+<p><code>NSString *path = [[NSBundle mainBundle] pathForResource:@&quot;图片名&quot; ofType:@&quot;后缀&quot;];</code></p>
+<p><code>self.imageview.image = [UIImage imageWithContentsOfFile:path];</code></p>
+</li>
+</ol>
+</blockquote>
+<h2 id="二、pch文件："><a href="#二、pch文件：" class="headerlink" title="二、pch文件："></a>二、pch文件：</h2><blockquote>
+<ol>
+<li><p>pch文件里的内容可以被项目中的所有文件共有。</p>
+</li>
+<li><p>注意事项：</p>
+<ol>
+<li>pch文件使用前需要先编译。</li>
+<li>需要做一些判断，例如：判断是否有c文件，如果有，则不导入oc文件及语法。</li>
+</ol>
+</li>
+<li><p>使用步骤：</p>
+<p>(1). 在项目中创建pch文件。</p>
+<p>(2). 在target的<code>Apple LLVM-Language</code>中设置Precompile Prefix Header为Yes。</p>
+<p>(3). 在target的<code>Apple LLVM-Language</code>中配置相应的pch文件地址。</p>
+<p><img src="/2017/01/31/iOS学习笔记/pch.png" alt=""></p>
+</li>
+<li><p>作用：</p>
+<ol>
+<li>存放公用的宏。</li>
+<li>存放公用的头文件。</li>
+<li>自定义Log输出日志。</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<h2 id="三、info-plist文件："><a href="#三、info-plist文件：" class="headerlink" title="三、info.plist文件："></a>三、info.plist文件：</h2><blockquote>
+<ul>
+<li>从info.plist文件获取应用版本的方式一：<pre><code>NSString *path = [[NSBundle mainBundle] pathForResource:@&quot;Info.plist&quot; ofType:nil];
+NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
+NSString *version = dic[@&quot;CFBundleShortVersionString&quot;];
+</code></pre></li>
+<li><p>从info.plist文件获取应用版本的方式二：</p>
+<pre><code>NSString *version = [NSBundle mainBundle].infoDictionary[@&quot;CFBundleShortVersionString&quot;];
+</code></pre><h2 id="四、从代码加载指定的storyboard文件："><a href="#四、从代码加载指定的storyboard文件：" class="headerlink" title="四、从代码加载指定的storyboard文件："></a>四、从代码加载指定的storyboard文件：</h2></li>
+<li><p>在AppDelegate.m文件的(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:方法中(注意：取消Targets-&gt;Deployment Info中所指定的storyboard文件)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&quot;Main&quot; bundle:nil];</div><div class="line">UIViewController *vc = [storyboard instantiateInitialViewController];</div><div class="line">self.window.rootViewController = vc;</div><div class="line">[self.window makeKeyAndVisible];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h2 id="五、ViewController中loadView方法："><a href="#五、ViewController中loadView方法：" class="headerlink" title="五、ViewController中loadView方法："></a>五、ViewController中loadView方法：</h2><blockquote>
+<ul>
+<li>作用：加载控制器的View。</li>
+<li>调用时间：当控制器的view第一次使用的时候就会调用。</li>
+<li>具体使用：<ul>
+<li>不会再调用[supper loadView]</li>
+<li>只要想自定义控制器的view就调用这个方法(如下代码，其中MyView为自定义的view)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MyView *myview = [[MyView alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">self.view = myview;</div><div class="line">self.view.backgroundColor = [UIColor redColor];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="六、背景图片的拉伸："><a href="#六、背景图片的拉伸：" class="headerlink" title="六、背景图片的拉伸："></a>六、背景图片的拉伸：</h2><blockquote>
+<p>控件背景在拉伸的情况下可能会出现失真的效果(锯齿)，如下：</p>
+<p><img src="/2017/01/31/iOS学习笔记/stretch.png" width="300" height="300/"></p>
+<p>可以用代码进行处理</p>
+<p>方式一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; UIImage *image = [UIImage imageNamed:@&quot;lumaqq&quot;];</div><div class="line">&gt; CGFloat width = image.size.width;</div><div class="line">&gt; CGFloat height = image.size.height;</div><div class="line">&gt; //UIImage * resizeImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(height/2, width/2, height/2-1, width/2-1)];</div><div class="line">&gt; UIImage *resizeImage = [image resizableImageWithCapInsets:UIEdgeInsetsMake(height/2, 5, height/2-1, width/2-1) resizingMode:UIImageResizingModeStretch];</div><div class="line">&gt; [self.mButton setBackgroundImage:resizeImage forState:UIControlStateNormal];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>其中第5行代码的上、右、下、左分别代表被保护不被拉伸的区域，具体如下：</p>
+<p><img src="/2017/01/31/iOS学习笔记/stretch1.png" width="300" height="300/"></p>
+<p>进行代码拉伸后的效果如下：</p>
+<p><img src="/2017/01/31/iOS学习笔记/stretch2.png" width="300" height="300/"></p>
+<p>方式二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; UIImage *resizeImage = [image stretchableImageWithLeftCapWidth:width/2 topCapHeight:height/2];</div><div class="line">&gt; [self.mButton setBackgroundImage:resizeImage forState:UIControlStateNormal];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>这种方式只需要提供左边和上边的被保护区域，然后就可以计算出另两个被保护区域：</p>
+<ul>
+<li>右边被保护的区域 = 图片的宽度 - 左边的被保护区域 - 1</li>
+<li>下边被保护的区域 = 图片的高度 - 上边的被保护区域 - 1</li>
+</ul>
+<p>这样主可以在中心形成一个1x1的拉伸区域。</p>
+<p>方式三：</p>
+<p>直接选择图片，然后在右边的Slicing中选择拉伸模式即可自动进行拉伸(也可自行调整相应的保护值)，如下图：</p>
+<p><img src="/2017/01/31/iOS学习笔记/stretch3.png" width="700" height="300/"></p>
+</blockquote>
+<h2 id="七、KVC：key-value-coding-键值编码"><a href="#七、KVC：key-value-coding-键值编码" class="headerlink" title="七、KVC：key value coding(键值编码)"></a>七、KVC：key value coding(键值编码)</h2><blockquote>
+<ol>
+<li><p>应用场景：简单的字典转模型。—&gt;框架：MJExtension</p>
+</li>
+<li><p>设置值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    [person setValue:@&quot;旺财&quot; forKeyPath:@&quot;dog.name&quot;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>取值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    [person valueForKeyPath:@&quot;name&quot;]</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>字典转模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    [person setValuesForKeysWithDictionary:dictionary];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>模型转字典：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    NSDictionary *dict = [person dictionaryWithValuesForKeys:@[@&quot;name&quot;, @&quot;money&quot;]];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>取出数组中所有模型的某个属性值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;    NSArray *allPersons = @[person1, person2, person3];</div><div class="line">&gt;    NSArray *allPersonName = [allPersons valueForKeyPath:@&quot;name&quot;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="八、KVO：key-value-observing-键值监听"><a href="#八、KVO：key-value-observing-键值监听" class="headerlink" title="八、KVO：key value observing(键值监听)"></a>八、KVO：key value observing(键值监听)</h2><blockquote>
+<ol>
+<li>当某个对象的属性发生改变的时候用KVO进行监听</li>
+<li>使用如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt; Person *person = [[Person alloc] init];</div><div class="line">&gt; person.name = @&quot;zhangsam&quot;;</div><div class="line">&gt; /*</div><div class="line">&gt;  作用:给对象绑定一个监听器(观察者)</div><div class="line">&gt;  - Observer 观察者</div><div class="line">&gt;  - KeyPath 要监听的属性</div><div class="line">&gt;  - options 选项(方法方法中拿到属性值)</div><div class="line">&gt;  */</div><div class="line">&gt; [person addObserver:self forKeyPath:@&quot;name&quot; options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil]; </div><div class="line">&gt; person.name = @&quot;lisi&quot;; </div><div class="line">&gt; [person removeObserver:self forKeyPath:@&quot;name&quot;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>并使用以下方法进行临听：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; /**</div><div class="line">&gt;  *  当监听的属性值发生改变</div><div class="line">&gt;  *</div><div class="line">&gt;  *  @param keyPath 要改变的属性</div><div class="line">&gt;  *  @param object  要改变的属性所属的对象</div><div class="line">&gt;  *  @param change  改变的内容</div><div class="line">&gt;  *  @param context 上下文</div><div class="line">&gt;  */</div><div class="line">&gt; - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSKeyValueChangeKey,id&gt; *)change context:(void *)context</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="九、适配"><a href="#九、适配" class="headerlink" title="九、适配"></a>九、适配</h2><blockquote>
+<ol>
+<li><p>系统适配-不同的系统版本适配</p>
+</li>
+<li><p>屏幕适配-不同的屏幕尺寸适配</p>
+<ul>
+<li>iPhone的尺寸：3.5､4.0､4.7､5.5</li>
+<li>iPad的尺寸：7.9､9.7､12.9</li>
+<li>屏幕方向：横屏、竖屏</li>
+</ul>
+<p><img src="/2017/01/31/iOS学习笔记/fit.png" alt=""></p>
+</li>
+<li><p>屏幕适配技术</p>
+<ol>
+<li><p>Autoresizing：解决子控件和父控件之间的相对关系问题</p>
+<p>在代码中实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;       myView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>给view设置需要拉伸的方向或者宽高即可。
+
+或者在xcode中对需要拉伸的界面进行如下设置：
+
+&lt;img src=&quot;iOS学习笔记/fit2.png&quot;  width=&quot;300&quot; height=300/&gt;
+</code></pre><ol>
+<li><p>AutoLayout：</p>
+<p>自动布局的核心公式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;       obj1.property1 = (obj2.property2 * multiplier) + constant value</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>界面实现：
+
+代码实现：很少用，太麻烦。注意使用代码方式需要禁止将Autoresizing转为AutoLayout约束，使用以下代码禁止：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;       myview.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>VFL实现：Visual Format Language，可视化格式语言:
+
+&lt;img src=&quot;iOS学习笔记/fit3.png&quot;  width=&quot;200&quot; height=100/&gt;
+</code></pre><ol>
+<li>Masonry框架实现：<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">https://github.com/SnapKit/Masonry</a></li>
+</ol>
+</blockquote>
+<h2 id="十、UITableView"><a href="#十、UITableView" class="headerlink" title="十、UITableView"></a>十、UITableView</h2><blockquote>
+<ol>
+<li><p>注意点：</p>
+<ul>
+<li><p>若UITableView的数据不够一页，剩余的界面部分会出现分隔线，解决方法：</p>
+<p>(1).将tableview的样式必成Grouped的。</p>
+<p>(2).给tableview设置一个footer view。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      [self.tableView setTableFooterView:[[UIView alloc] init]];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​
+</code></pre><ol>
+<li><p>性能优化：</p>
+<ul>
+<li><p>方式1:</p>
+<p>在(UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath方法中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;      static NSString *ID = @&quot;flag&quot;;</div><div class="line">&gt;      UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">&gt;          if (cell == nil) &#123;</div><div class="line">&gt;              cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];</div><div class="line">&gt;          &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>方式2:常用于自定义Cell</p>
+<p>定义flag：<code>NSString *ID = @&quot;flag&quot;;</code></p>
+<p>在viewDidLoad方法中进行注册</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>在(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath方法中：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​
+</code></pre></blockquote>
+<h2 id="十一、UIApplication"><a href="#十一、UIApplication" class="headerlink" title="十一、UIApplication"></a>十一、UIApplication</h2><blockquote>
+<ol>
+<li><p>UIApplication的常用属性：</p>
+<ul>
+<li>applicationIconBadgeNumber：应用程序图标右上角的红色提醒数字.</li>
+<li>networkActivityIndicatorVisible：状态栏的网络加载图标(小菊花)</li>
+</ul>
+</li>
+<li><p>UIApplication的代理事件：</p>
+<ul>
+<li><p>当应用程序启动完毕时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>当应用程序将要失去焦点时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      (void)applicationWillResignActive:(UIApplication *)application</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>当应用程序进入后台时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      (void)applicationDidEnterBackground:(UIApplication *)application</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>当应用程序进入前台时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      (void)applicationWillEnterForeground:(UIApplication *)application</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>当应用程序获取焦点时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      (void)applicationDidBecomeActive:(UIApplication *)application</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>当应用程序退出时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      (void)applicationWillTerminate:(UIApplication *)application</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>当应用程序收到内存警告时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      (void)applicationDidReceiveMemoryWarning:(UIApplication *)application</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​
+</code></pre><ol>
+<li><p>应用程序启动流程：</p>
+<ul>
+<li><p>执行main函数</p>
+</li>
+<li><p>执行UIApplicationMain，创建UIApplication对象，并设置UIApplication它的对象</p>
+</li>
+<li><p>开启一个事件循环(主运行循环，死循环：保证应用程序不退出)</p>
+</li>
+<li><p>加载info.plist(判断info.plist中有没有Main，如果有，加载Main.storyBoard)</p>
+</li>
+<li><p>应用程序启动完毕(通知代理应用程序启动完毕)</p>
+<p><img src="/2017/01/31/iOS学习笔记/application.png" width="500" height="300/"></p>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h2 id="十二、UIWindow"><a href="#十二、UIWindow" class="headerlink" title="十二、UIWindow"></a>十二、UIWindow</h2><blockquote>
+<ol>
+<li><p>代码创建Window及ViewController：</p>
+<p>在(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;    // 1.创建窗口</div><div class="line">&gt;    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">&gt;    // 2.设置窗口的根控制器</div><div class="line">&gt;    UIViewController *vc = [[UIViewController alloc] init];</div><div class="line">&gt;    vc.view.backgroundColor = [UIColor redColor];</div><div class="line">&gt;    self.window.rootViewController = vc;</div><div class="line">&gt;    // 3.显示窗口</div><div class="line">&gt;    [self.window makeKeyAndVisible];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>通过StoryBoard加载控制器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">&gt;    UIStoryboard *board = [UIStoryboard storyboardWithName:@&quot;Main&quot; bundle:nil];</div><div class="line">&gt;    // 加载初始化的控制器</div><div class="line">&gt;    // UIViewController *vc = [board instantiateInitialViewController];</div><div class="line">&gt;    // 加载指定的控制器</div><div class="line">&gt;    UIViewController *vc = [board instantiateViewControllerWithIdentifier:@&quot;mvc&quot;];</div><div class="line">&gt;    self.window.rootViewController = vc;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>通过xib文件加载控制器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];</div><div class="line">&gt;    // initWithNibName如果指定为nil，首先会加载和控制器名字相同的xib文件；如果没有则去查找和控制器名字相同但是去掉Controller的xib文件。</div><div class="line">&gt;    // 并且可以直接使用：[[UIViewController alloc] init]</div><div class="line">&gt;    UIViewController *vc = [[UIViewController alloc] initWithNibName:@&quot;CPView&quot; bundle:nil];</div><div class="line">&gt;    self.window.rootViewController = vc;</div><div class="line">&gt;    [self.window makeKeyAndVisible];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="十三、多控制器：UINavigationController"><a href="#十三、多控制器：UINavigationController" class="headerlink" title="十三、多控制器：UINavigationController"></a>十三、多控制器：UINavigationController</h2><blockquote>
+<ol>
+<li><p>使用步骤：</p>
+<ul>
+<li>1.初始化UINavigationController</li>
+<li>2.设置UIWindow的rootViewController为UINavigationController</li>
+<li>3.根据具体情况，通过push方法添加对应的子控制器</li>
+</ul>
+</li>
+<li><p>UINavigationController常见属性：</p>
+<p><img src="/2017/01/31/iOS学习笔记/nav1.png" width="600" height="300/"></p>
+</li>
+<li><p>UINavigationController标题属性：</p>
+<p><img src="/2017/01/31/iOS学习笔记/nav2.png" width="600" height="300/"></p>
+</li>
+</ol>
+</blockquote>
+<h2 id="十四、控制器生命周期："><a href="#十四、控制器生命周期：" class="headerlink" title="十四、控制器生命周期："></a>十四、控制器生命周期：</h2><blockquote>
+<ol>
+<li><p>当控制器加载完毕时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    (void)viewDidLoad</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>当控制器的view即将显示的时候调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    (void)viewWillAppear:(BOOL)animated</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>当控制器的view显示完毕时调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    (void)viewDidAppear:(BOOL)animated</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>当控制器的view将要布局子控件的时候调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    (void)viewWillLayoutSubviews</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>当控制器的view布局子控件完毕的时候调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    (void)viewDidLayoutSubviews</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>当控制器的view即将消失的时候调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    (void)viewWillDisappear:(BOOL)animated</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>当控制器的view消失完毕的时候调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    (void)viewDidDisappear:(BOOL)animated</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="十五、OC中BOOL和bool的区别："><a href="#十五、OC中BOOL和bool的区别：" class="headerlink" title="十五、OC中BOOL和bool的区别："></a>十五、OC中BOOL和bool的区别：</h2><blockquote>
+<ol>
+<li><p>BOOL是一种带符号的字符类型(<code>signed char</code>)的类型定义(<code>typedef</code>)，它使用8位的存储空间。通过#define命令把YES定义为1,NO定义为0。</p>
+<p>注意：OC并不会将BOOL作为仅能保存YES或NO值的真正布尔类型来处理。编译器仍将BOOL认作8位二进制数，YES 和 NO 值只是在习惯上的一种理解。<code>例：如果不小心将一个大于1字节的整型值（比如short或int）赋给一个BOOL变量，那么只有低位字节会用作BOOL值。如果该低位字节刚好为0（比如8960，写成十六进制为0x2300），BOOL值将会被认作是0，即NO值。</code></p>
+</li>
+<li><p>bool只有true和false的区别，即0为false，非0为true。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="十六、initialize和load方法的区别："><a href="#十六、initialize和load方法的区别：" class="headerlink" title="十六、initialize和load方法的区别："></a>十六、initialize和load方法的区别：</h2><blockquote>
+<ol>
+<li>initialize方法：在 <strong>第一次初始化这个类之前</strong> 被调用，我们用它来初始化静态变量。先调用类中的，再调用类别中的(类别中如果有重写)；如果该类只是引用，没有调用，则不会执行initialize方法。</li>
+<li>load方法：会在加载类的时候就被调用，也就是 ios 应用启动的时候，就会加载所有的类，就会调用每个类的 + load 方法。且在main函数之前，先调用类中的，再调用类别中的(类别中如果有重写)。</li>
+</ol>
+</blockquote>
+<h2 id="十七、instancetype和id的区别："><a href="#十七、instancetype和id的区别：" class="headerlink" title="十七、instancetype和id的区别："></a>十七、instancetype和id的区别：</h2><blockquote>
+<ol>
+<li>instancetype用来在编译期确定实例的类型,而使用id的话,编译器不检查类型, 运行时检查。</li>
+<li>id可以作为方法的参数,但instancetype不可以；instancetype只适用于初始化方法和便利构造器的返回值类型。</li>
+</ol>
+</blockquote>
+<h2 id="十八、OC访问修饰符："><a href="#十八、OC访问修饰符：" class="headerlink" title="十八、OC访问修饰符："></a>十八、OC访问修饰符：</h2><blockquote>
+<ol>
+<li><p>属性访问符：</p>
+<p>@private: 私有 被@private修饰的属性只能在本类的内部访问。只能在本类的方法实现中访问。</p>
+<p>@protected: 受保护的(默认) 被@protected修饰的属性只能在本类和本类的子类中访问.。只能在本类和子类的方法实现中访问。</p>
+<p>@package: 被@package修饰的属性 可以在当前框架中访问。</p>
+<p>@public: 公共的。被@public修饰的属性 可以在任意的地方访问。</p>
+</li>
+<li><p>注意：</p>
+<p>在interface中声明的成员变量默认是protected。</p>
+<p>在implementation中声明的成员变量，默认是private（在没被他人import的情况下，即使加@public仍然无法被他人引用）</p>
+</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/小知识点/" rel="tag"># 小知识点</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/25/iOS之UI总结/" rel="next" title="iOS之UI总结">
+                <i class="fa fa-chevron-left"></i> iOS之UI总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Timer" />
+          <p class="site-author-name" itemprop="name">Timer</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/qjbagu/" title="CSDN" target="_blank">CSDN</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、加载图片的方式："><span class="nav-number">1.</span> <span class="nav-text">一、加载图片的方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、pch文件："><span class="nav-number">2.</span> <span class="nav-text">二、pch文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、info-plist文件："><span class="nav-number">3.</span> <span class="nav-text">三、info.plist文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、从代码加载指定的storyboard文件："><span class="nav-number">4.</span> <span class="nav-text">四、从代码加载指定的storyboard文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、ViewController中loadView方法："><span class="nav-number">5.</span> <span class="nav-text">五、ViewController中loadView方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、背景图片的拉伸："><span class="nav-number">6.</span> <span class="nav-text">六、背景图片的拉伸：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、KVC：key-value-coding-键值编码"><span class="nav-number">7.</span> <span class="nav-text">七、KVC：key value coding(键值编码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、KVO：key-value-observing-键值监听"><span class="nav-number">8.</span> <span class="nav-text">八、KVO：key value observing(键值监听)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、适配"><span class="nav-number">9.</span> <span class="nav-text">九、适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、UITableView"><span class="nav-number">10.</span> <span class="nav-text">十、UITableView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、UIApplication"><span class="nav-number">11.</span> <span class="nav-text">十一、UIApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、UIWindow"><span class="nav-number">12.</span> <span class="nav-text">十二、UIWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、多控制器：UINavigationController"><span class="nav-number">13.</span> <span class="nav-text">十三、多控制器：UINavigationController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、控制器生命周期："><span class="nav-number">14.</span> <span class="nav-text">十四、控制器生命周期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、OC中BOOL和bool的区别："><span class="nav-number">15.</span> <span class="nav-text">十五、OC中BOOL和bool的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、initialize和load方法的区别："><span class="nav-number">16.</span> <span class="nav-text">十六、initialize和load方法的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十七、instancetype和id的区别："><span class="nav-number">17.</span> <span class="nav-text">十七、instancetype和id的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十八、OC访问修饰符："><span class="nav-number">18.</span> <span class="nav-text">十八、OC访问修饰符：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Timer</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
