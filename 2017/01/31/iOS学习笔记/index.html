@@ -115,13 +115,19 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/application.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/nav1.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/nav2.png">
-<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/file1.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/20_1.jpeg">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/cell1.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/31.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/32.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/32_1.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/36_1.png">
-<meta property="og:updated_time" content="2017-02-23T02:34:56.000Z">
+<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/37_1.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_1.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_2.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_3.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_4.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/44_1.png">
+<meta property="og:updated_time" content="2017-02-27T14:39:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS学习笔记">
 <meta name="twitter:description" content="一、加载图片的方式：
@@ -980,9 +986,9 @@ NSString *path = [[NSBundle mainBundle] pathF">
 </blockquote>
 <p>&gt;</p>
 <h2 id="二十、iOS文件系统"><a href="#二十、iOS文件系统" class="headerlink" title="二十、iOS文件系统"></a>二十、iOS文件系统</h2><blockquote>
+<p><img width="600" height="300" src="/2017/01/31/iOS学习笔记/20_1.jpeg"></p>
 <ol>
-<li><p>iOS程序为沙盒机制,APP只能访问自己目录下的文件,不能直接访问其他目录内容，每个APP默认都会创建以下目录结构Documents、Library、tmp。</p>
-<ul>
+<li>iOS程序为沙盒机制,APP只能访问自己目录下的文件,不能直接访问其他目录内容，每个APP默认都会创建以下目录结构Documents、Library、tmp。<ul>
 <li>NSBundle：包含所有的资源文件和可执行文件，并且是只读文件目录。</li>
 </ul>
 </li>
@@ -997,8 +1003,8 @@ NSString *path = [[NSBundle mainBundle] pathF">
 </ul>
 </li>
 <li><p>tmp：存放临时数据,当不在用时应该删除掉临时文件,系统也有可能在程序不运行时删除该文件夹下内容。</p>
-<p><img src="/2017/01/31/iOS学习笔记/file1.png" width="400" height="300/"></p>
-</li>
+<pre><code>&lt;img src=&quot;iOS学习笔记/file1.png&quot;  width=&quot;400&quot; height=300/&gt;
+</code></pre></li>
 </ul>
 <ol>
 <li><p>获取方式：</p>
@@ -1041,7 +1047,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <blockquote>
 <ul>
 <li><p>Caches目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);</div><div class="line">&gt;         NSString *libPath = [paths objectAtIndex:0]; </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);</div><div class="line">&gt;            NSString *libPath = [paths objectAtIndex:0]; </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -1610,8 +1616,15 @@ NSString *path = [[NSBundle mainBundle] pathF">
 </blockquote>
 <p>&gt;</p>
 <blockquote>
-<pre><code>​
-</code></pre><ol>
+<ul>
+<li><p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;      - (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event&#123;</div><div class="line">&gt;        	// 开启子线程</div><div class="line">&gt;          NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(downloadImage:) object:@&quot;http://images.csdn.net/20170112/1.jpg&quot;];</div><div class="line">&gt;          [thread start];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;      - (void)downloadImage:(NSString *)url&#123;</div><div class="line">&gt;          NSURL *nsurl = [NSURL URLWithString:url];</div><div class="line">&gt;          NSData *data = [NSData dataWithContentsOfURL:nsurl];</div><div class="line">&gt;          UIImage *image = [UIImage imageWithData:data];</div><div class="line">&gt;        	// 主线程刷新UI</div><div class="line">&gt;        	// self performSelectorOnMainThread:@selector(showImage:) withObject:image waitUntilDone:YES];</div><div class="line">&gt;          [self.mImage performSelector:@selector(setImage:) onThread:[NSThread mainThread] withObject:image waitUntilDone:YES];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
 <li><p>GCD(Grand Central Dispatch):</p>
 <ul>
 <li><p>GCD使用步骤：</p>
@@ -1709,8 +1722,15 @@ NSString *path = [[NSBundle mainBundle] pathF">
 </blockquote>
 <p>&gt;</p>
 <blockquote>
-<pre><code>​
-</code></pre><ol>
+<ul>
+<li><p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&gt;      //0.获取一个全局的队列</div><div class="line">&gt;      dispatch_queue_t queue = dispatch_get_global_queue(0, 0);</div><div class="line">&gt;      //1.先开启一个线程，把下载图片的操作放在子线程中处理</div><div class="line">&gt;      dispatch_async(queue, ^&#123;</div><div class="line">&gt;         //2.下载图片</div><div class="line">&gt;          NSURL *url = [NSURL URLWithString:@&quot;http://images.csdn.net/20170112/1.jpg&quot;];</div><div class="line">&gt;          NSData *data = [NSData dataWithContentsOfURL:url];</div><div class="line">&gt;          UIImage *image = [UIImage imageWithData:data];</div><div class="line">&gt;          //3.回到主线程刷新UI</div><div class="line">&gt;          dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">&gt;             self.imageView.image = image;</div><div class="line">&gt;          &#125;);</div><div class="line">&gt;      &#125;);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
 <li><p>NSOperation：</p>
 <ul>
 <li><p>NSOperation实现多线程的具体步骤：</p>
@@ -1721,15 +1741,31 @@ NSString *path = [[NSBundle mainBundle] pathF">
 </li>
 <li><p>使用NSOperation子类的方式有3种(<code>NSOperation是个抽象类，并不具备封装操作的能力，必须使用它的子类</code>)</p>
 <p>​    a.NSInvocationOperation</p>
-<p>​    b.NSBlockOperation</p>
-<p>​    c.自定义子类继承NSOperation，实现内部相应的方法</p>
-</li>
-<li><p>最大并发数:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      - (NSInteger)maxConcurrentOperationCount;</div><div class="line">&gt;      - (void)setMaxConcurrentOperationCount:(NSInteger)cnt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&gt;      - (void)callInvocationOperation&#123;</div><div class="line">&gt;        	// 创建队列，默认运行在主队列</div><div class="line">&gt;      	NSOperationQueue *queue = [[NSOperationQueue alloc] init];</div><div class="line">&gt;      //    NSOperationQueue *queue = [NSOperationQueue mainQueue];</div><div class="line">&gt;          NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(download) object:nil];</div><div class="line">&gt;          [operation setCompletionBlock:^&#123;</div><div class="line">&gt;            	// 子线程运行</div><div class="line">&gt;              NSLog(@&quot;completion---&gt;%@&quot;, [NSThread currentThread]);</div><div class="line">&gt;          &#125;];</div><div class="line">&gt;          [queue addOperation:operation];</div><div class="line">&gt;        	// 不添加到队列中需要调用此方法</div><div class="line">&gt;      //    [operation start];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;      - (void)download&#123;</div><div class="line">&gt;        	// 默认主线程，加入到创建队列，则运行在子线程</div><div class="line">&gt;          NSLog(@&quot;download---&gt;%@&quot;, [NSThread currentThread]);</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​    b.NSBlockOperation
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;      /*</div><div class="line">&gt;      NSBlockOperation提供了一个类方法，在该类方法中封装操作</div><div class="line">&gt;      */</div><div class="line">&gt;      NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^&#123;</div><div class="line">&gt;         //在主线程中执行</div><div class="line">&gt;         NSLog(@&quot;---download1--%@&quot;,[NSThread currentThread]);</div><div class="line">&gt;      &#125;];</div><div class="line">&gt;      //2.追加操作，追加的操作在子线程中执行</div><div class="line">&gt;      [operation addExecutionBlock:^&#123;</div><div class="line">&gt;          NSLog(@&quot;---download2--%@&quot;,[NSThread currentThread]);</div><div class="line">&gt;      &#125;];</div><div class="line">&gt;      [operation addExecutionBlock:^&#123;</div><div class="line">&gt;           NSLog(@&quot;---download3--%@&quot;,[NSThread currentThread]);</div><div class="line">&gt;      &#125;];</div><div class="line">&gt;      //3.启动执行操作</div><div class="line">&gt;      [operation start];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​    c.自定义子类继承NSOperation，实现内部相应的方法
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;      //自定义的NSOperation,通过重写内部的main方法实现封装操作</div><div class="line">&gt;      -(void)main&#123;</div><div class="line">&gt;          NSLog(@&quot;--main--%@&quot;,[NSThread currentThread]);</div><div class="line">&gt;      &#125;</div><div class="line">&gt;      //1.实例化一个自定义操作对象</div><div class="line">&gt;      MyOperation *op = [[MyOperation alloc]init];</div><div class="line">&gt;      //2.执行操作</div><div class="line">&gt;      [op start];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>最大并发数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      - (NSInteger)maxConcurrentOperationCount;</div><div class="line">&gt;      - (void)setMaxConcurrentOperationCount:(NSInteger)cnt;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 </blockquote>
 <p>&gt;</p>
 <blockquote>
@@ -1765,9 +1801,67 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <p>​        自己创建自动释放池（因为如果是异步操作，无法访问主线程的自动释放池）</p>
 <p>​        经常通过-(BOOL)isCancelled方法检测操作是否被取消，对取消做出响应</p>
 </li>
+<li><p>实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&gt;      // 1.创建队列</div><div class="line">&gt;      NSOperationQueue *queue = [[NSOperationQueue alloc]init];</div><div class="line">&gt;      //2.使用简便方法封装操作并添加到队列中</div><div class="line">&gt;      [queue addOperationWithBlock:^&#123;</div><div class="line">&gt;          //3.在该block中下载图片</div><div class="line">&gt;          NSURL *url = [NSURL URLWithString:@&quot;http://images.csdn.net/20170112/1.jpg&quot;];</div><div class="line">&gt;          NSData *data = [NSData dataWithContentsOfURL:url];</div><div class="line">&gt;          UIImage *image = [UIImage imageWithData:data];</div><div class="line">&gt;          NSLog(@&quot;下载图片操作--%@&quot;,[NSThread currentThread]);</div><div class="line">&gt;          //4.回到主线程刷新UI</div><div class="line">&gt;          [[NSOperationQueue mainQueue] addOperationWithBlock:^&#123;</div><div class="line">&gt;              self.imageView.image = image;</div><div class="line">&gt;              NSLog(@&quot;刷新UI操作---%@&quot;,[NSThread currentThread]);</div><div class="line">&gt;          &#125;];</div><div class="line">&gt;      &#125;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </blockquote>
-<h2 id="三十七、单例模式："><a href="#三十七、单例模式：" class="headerlink" title="三十七、单例模式："></a>三十七、单例模式：</h2><blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​
+</code></pre></blockquote>
+<h2 id="三十七、SDWebImage使用："><a href="#三十七、SDWebImage使用：" class="headerlink" title="三十七、SDWebImage使用："></a>三十七、SDWebImage使用：</h2><blockquote>
+<ol>
+<li><p>设置imageView的图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:app.icon] placeholderImage:[UIImage imageNamed:@&quot;placehoder&quot;]];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>设置图片并计算下载进度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&gt;    /*</div><div class="line">&gt;     第一个参数：要下载图片的url地址</div><div class="line">&gt;     第二个参数：设置该imageView的占位图片</div><div class="line">&gt;     第三个参数：传一个枚举值，告诉程序你下载图片的策略是什么</div><div class="line">&gt;     第一个block块：获取当前图片数据的下载进度</div><div class="line">&gt;     receivedSize：已经下载完成的数据大小</div><div class="line">&gt;     expectedSize：该文件的数据总大小</div><div class="line">&gt;     第二个block块：当图片下载完成之后执行该block中的代码</div><div class="line">&gt;     image:下载得到的图片数据</div><div class="line">&gt;     error:下载出现的错误信息</div><div class="line">&gt;     SDImageCacheType：图片的缓存策略（不缓存，内存缓存，沙盒缓存）</div><div class="line">&gt;     imageURL：下载的图片的url地址</div><div class="line">&gt;     */</div><div class="line">&gt;    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:app.icon] placeholderImage:[UIImage imageNamed:@&quot;placehoder&quot;] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) &#123;</div><div class="line">&gt;        //计算当前图片的下载进度</div><div class="line">&gt;        NSLog(@&quot;%.2f&quot;,1.0 *receivedSize / expectedSize);</div><div class="line">&gt;    &#125; completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) &#123;  </div><div class="line">&gt;    &#125;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>系统级内存警告如何处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;    //取消当前正在进行的所有下载操作</div><div class="line">&gt;    [[SDWebImageManager sharedManager] cancelAll];</div><div class="line">&gt;    //清除缓存数据</div><div class="line">&gt;    //cleanDisk：删除过期的文件数据，计算当前未过期的已经下载的文件数据的大小，如果发现该数据大小大于我们设置的最大缓存数据大小，那么程序内部会按照按文件数据缓存的时间从远到近删除，知道小于最大缓存数据为止。</div><div class="line">&gt;    //clearMemory:直接删除文件，重新创建新的文件夹</div><div class="line">&gt;    //[[SDWebImageManager sharedManager].imageCache cleanDisk];</div><div class="line">&gt;    [[SDWebImageManager sharedManager].imageCache clearMemory];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>判断图片类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;    + (NSString *)sd_contentTypeForImageData:(NSData *)data;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>SDWebImage内部结构</p>
+<p><img widht="400" height="300" src="/2017/01/31/iOS学习笔记/37_1.png"></p>
+</li>
+<li><p>其他说明：</p>
+<ul>
+<li>SDWebImage默认的缓存时间是1周</li>
+<li>SDWebImage做沙盒缓存时图片的命名机制是拿到图片的URL后直接对URL进行MD5加密</li>
+<li>SDWebImage图片的下载顺序，默认是先进先出的</li>
+<li>SDWebImage当接收到内存警告之后，内部会自动清理内存缓存</li>
+<li>SDWebImage队列最大并发数为6</li>
+<li>SDWebImage内部设置下载图片超时时间为15m</li>
+<li>SDWebImage图片下载操作使用了NSURLConnection类发送网络请求实现</li>
+<li>SDWebImage内部使用NSCache类来进行缓存处理</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h2 id="三十八、单例模式："><a href="#三十八、单例模式：" class="headerlink" title="三十八、单例模式："></a>三十八、单例模式：</h2><blockquote>
 <ol>
 <li><p>单例演示：</p>
 <ul>
@@ -1789,16 +1883,475 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <blockquote>
 <ol>
 <li><p>单例宏：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">&gt;    #define singleH(name) +(instancetype)share##name;</div><div class="line">&gt;     </div><div class="line">&gt;    #if __has_feature(objc_arc)</div><div class="line">&gt;     </div><div class="line">&gt;    #define singleM(name) static id _instance;\</div><div class="line">&gt;    +(instancetype)allocWithZone:(struct _NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        static dispatch_once_t onceToken;\</div><div class="line">&gt;        dispatch_once(&amp;onceToken, ^&#123;\</div><div class="line">&gt;            _instance = [super allocWithZone:zone];\</div><div class="line">&gt;        &#125;);\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    +(instancetype)share##name\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return [[self alloc]init];\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(id)copyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    -(id)mutableCopyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;</div><div class="line">&gt;    #else</div><div class="line">&gt;    #define singleM static id _instance;\</div><div class="line">&gt;    +(instancetype)allocWithZone:(struct _NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    static dispatch_once_t onceToken;\</div><div class="line">&gt;    dispatch_once(&amp;onceToken, ^&#123;\</div><div class="line">&gt;    _instance = [super allocWithZone:zone];\</div><div class="line">&gt;    &#125;);\</div><div class="line">&gt;    return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    +(instancetype)shareTools\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    return [[self alloc]init];\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(id)copyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(id)mutableCopyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(oneway void)release\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    -(instancetype)retain\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    -(NSUInteger)retainCount\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return MAXFLOAT;\</div><div class="line">&gt;    &#125;</div><div class="line">&gt;    #endif</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">&gt;    // 创建一个.h头文件，并将内容替换成以下内容：</div><div class="line">&gt;    #define singleH(name) +(instancetype)share##name;</div><div class="line">&gt;     </div><div class="line">&gt;    #if __has_feature(objc_arc)</div><div class="line">&gt;     </div><div class="line">&gt;    #define singleM(name) static id _instance;\</div><div class="line">&gt;    +(instancetype)allocWithZone:(struct _NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        static dispatch_once_t onceToken;\</div><div class="line">&gt;        dispatch_once(&amp;onceToken, ^&#123;\</div><div class="line">&gt;            _instance = [super allocWithZone:zone];\</div><div class="line">&gt;        &#125;);\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    +(instancetype)share##name\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return [[self alloc]init];\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(id)copyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    -(id)mutableCopyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;</div><div class="line">&gt;    #else</div><div class="line">&gt;    #define singleM static id _instance;\</div><div class="line">&gt;    +(instancetype)allocWithZone:(struct _NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    static dispatch_once_t onceToken;\</div><div class="line">&gt;    dispatch_once(&amp;onceToken, ^&#123;\</div><div class="line">&gt;    _instance = [super allocWithZone:zone];\</div><div class="line">&gt;    &#125;);\</div><div class="line">&gt;    return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    +(instancetype)shareTools\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    return [[self alloc]init];\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(id)copyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(id)mutableCopyWithZone:(NSZone *)zone\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    -(oneway void)release\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    -(instancetype)retain\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return _instance;\</div><div class="line">&gt;    &#125;\</div><div class="line">&gt;    \</div><div class="line">&gt;    -(NSUInteger)retainCount\</div><div class="line">&gt;    &#123;\</div><div class="line">&gt;        return MAXFLOAT;\</div><div class="line">&gt;    &#125;</div><div class="line">&gt;    #endif</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;    // .h文件</div><div class="line">&gt;    @interface SingleInstance : NSObject</div><div class="line">&gt;    singleH(Instance)</div><div class="line">&gt;    @end</div><div class="line">&gt;    // .m文件</div><div class="line">&gt;    @implementation SingleInstance</div><div class="line">&gt;    singleM(Instance)</div><div class="line">&gt;    @end</div><div class="line">&gt;    // 使用：</div><div class="line">&gt;    SingleInstance *s1 = [SingleInstance shareInstance];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h2 id="三十九、常见响应状态码："><a href="#三十九、常见响应状态码：" class="headerlink" title="三十九、常见响应状态码："></a>三十九、常见响应状态码：</h2><blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">状态码</th>
+<th style="text-align:center">英文名称</th>
+<th style="text-align:center">中文描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">200</td>
+<td style="text-align:center">OK</td>
+<td style="text-align:center">请求成功</td>
+</tr>
+<tr>
+<td style="text-align:center">400</td>
+<td style="text-align:center">Bad Request</td>
+<td style="text-align:center">客户端请求的语法错误，服务器无法解析</td>
+</tr>
+<tr>
+<td style="text-align:center">404</td>
+<td style="text-align:center">Not Found</td>
+<td style="text-align:center">服务器无法根据客户端的请求找到资源</td>
+</tr>
+<tr>
+<td style="text-align:center">500</td>
+<td style="text-align:center">InternalServer Error</td>
+<td style="text-align:center">服务器内部错误，无法完成请求</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="四十、RunLoop："><a href="#四十、RunLoop：" class="headerlink" title="四十、RunLoop："></a>四十、RunLoop：</h2><blockquote>
+<ol>
+<li><p>RunLoop对象</p>
+<p>iOS中有2套API来访问和使用RunLoop</p>
+<ul>
+<li>Foundation：NSRunLoop</li>
+<li>Core Foundation：CFRunLoopRef</li>
+</ul>
+<p>NSRunLoop和CFRunLoopRef都代表着RunLoop对象。</p>
+<p>NSRunLoop是基于CFRunLoopRef的一层OC包装，所以要了解RunLoop内部结构，需要多研究CFRunLoopRef层面的API（Core Foundation层面）。</p>
+</li>
+<li><p>RunLoop与线程</p>
+<ul>
+<li>每条线程都有唯一的一个与之对应的RunLoop对象</li>
+<li>主线程的RunLoop已经自动创建好了，子线程的RunLoop需要主动创建</li>
+<li>RunLoop在第一次获取时创建，在线程结束时销毁</li>
+</ul>
+</li>
+<li><p>获得RunLoop对象</p>
+<ul>
+<li><p>Foundation：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      [NSRunLoop currentRunLoop]; // 获得当前线程的RunLoop对象</div><div class="line">&gt;      [NSRunLoop mainRunLoop]; // 获得主线程的RunLoop对象</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>Core Foundation：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      CFRunLoopGetCurrent(); // 获得当前线程的RunLoop对象</div><div class="line">&gt;      CFRunLoopGetMain(); // 获得主线程的RunLoop对象</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>Runloop运行原理图</p>
+<p><img width="600" height="300" src="/2017/01/31/iOS学习笔记/40_1.png"></p>
+</li>
+<li><p>五个相关的类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;    a.CFRunloopRef</div><div class="line">&gt;    b.CFRunloopModeRef【Runloop的运行模式】</div><div class="line">&gt;    c.CFRunloopSourceRef【Runloop要处理的事件源】</div><div class="line">&gt;    d.CFRunloopTimerRef【Timer事件】</div><div class="line">&gt;    e.CFRunloopObserverRef【Runloop的观察者（监听者）】</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>Runloop和相关类之间的关系图</p>
+<ul>
+<li>在Runloop中有多种运行模式，但Runloop只能选择一种模式运行； Mode里面至少有一个Timer或者Source，Observer用来监听Runloop的状态。</li>
+</ul>
+<p><img width="600" height="300" src="/2017/01/31/iOS学习笔记/40_2.png"></p>
+</li>
+<li><p>CFRunloopModeRef</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt;    CFRunloopModeRef代表着Runloop的运行模式</div><div class="line">&gt;    一个Runloop中可以有多个mode,一个mode里面又可以有多个source\observer\timer等等</div><div class="line">&gt;    每次runloop启动的时候，只能指定一个mode,这个mode被称为该Runloop的当前mode</div><div class="line">&gt;    如果需要切换mode,只能先退出当前Runloop,再重新指定一个mode进入</div><div class="line">&gt;    这样做主要是为了分割不同组的定时器等，让他们相互之间不受影响</div><div class="line">&gt;    系统默认注册了5个mode</div><div class="line">&gt;      a.kCFRunLoopDefaultMode：App的默认Mode，通常主线程是在这个Mode下运行</div><div class="line">&gt;      b.UITrackingRunLoopMode：界面跟踪 Mode，用于 crollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响</div><div class="line">&gt;      c.UIInitializationRunLoopMode: 在刚启动 App时第进入的第一个 Mode,启动完成后就不再使用</div><div class="line">&gt;      d.GSEventReceiveRunLoopMode: 接受系统事件的内部 Mode，通常用不到</div><div class="line">&gt;      e.kCFRunLoopCommonModes: 这是一个占位用的Mode，不是一种真正的Mode</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>CFRunloopTimerRef</p>
+<p>(1) NSTimer两种使用方式的相关代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&gt;    /*</div><div class="line">&gt;    （1）runloop一启动就会选中一种模式，当选中了一种模式之后其它的模式就都不鸟。一个mode里面可以添加多个NSTimer,也就是说以后当创建NSTimer的时候，可以指定它是在什么模式下运行的。</div><div class="line">&gt;    （2）它是基于时间的触发器，说直白点那就是时间到了我就触发一个事件，触发一个操作。基本上说的就是NSTimer</div><div class="line">&gt;    */</div><div class="line">&gt;    - (void)timer2&#123;</div><div class="line">&gt;     	//NSTimer 调用了scheduledTimer方法，那么会自动添加到当前的runloop里面去，而且runloop的运行模式kCFRunLoopDefaultMode(默认模式)</div><div class="line">&gt;        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(run) userInfo:nil repeats:YES];</div><div class="line">&gt;        //更改模式</div><div class="line">&gt;        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];</div><div class="line">&gt;    &#125;</div><div class="line">&gt;    - (void)timer1&#123;</div><div class="line">&gt;        NSTimer *timer = [NSTimer timerWithTimeInterval:2.0 target:self selector:@selector(run) userInfo:nil repeats:YES];</div><div class="line">&gt;        //定时器添加到UITrackingRunLoopMode模式，一旦runloop切换模式，那么定时器就不工作</div><div class="line">&gt;      	//例：当界面滑动时为UITrackingRunLoopMode模式，如果滑动结束，则模式切换，定时器不工作</div><div class="line">&gt;    //    [[NSRunLoop currentRunLoop] addTimer:timer forMode:UITrackingRunLoopMode];</div><div class="line">&gt;        //定时器添加到NSDefaultRunLoopMode模式，一旦runloop切换模式，那么定时器就不工作</div><div class="line">&gt;       	//例：如果界面滑动开始，则模式切换，从NSDefaultRunLoopMode变成UITrackingRunLoopMode，定时器不工作</div><div class="line">&gt;    //    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];</div><div class="line">&gt;        //占位模式：common modes标记，此时无论界面是否滑动定时器都工作</div><div class="line">&gt;        //被标记为common modes的模式 kCFRunLoopDefaultMode  UITrackingRunLoopMode</div><div class="line">&gt;        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];</div><div class="line">&gt;    &#125;</div><div class="line">&gt;    - (void)run&#123;</div><div class="line">&gt;        NSLog(@&quot;---run---%@&quot;,[NSRunLoop currentRunLoop].currentMode);</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>如果从子线程启动NSTimer，则需要手动启动中NSRunLoop，主线程如上，不用手动启动NSRunLoop</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;    [NSThread detachNewThreadSelector:@selector(timer3) toTarget:self withObject:nil];</div><div class="line">&gt;    // 子线程运行方法：</div><div class="line">&gt;    - (void)timer3&#123;</div><div class="line">&gt;        // 获取NSRunLoop</div><div class="line">&gt;        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];</div><div class="line">&gt;        // 该方法内部自动添加到NSRunLoop中，并且设置成默认的运行模式</div><div class="line">&gt;        [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(run) userInfo:nil repeats:YES];</div><div class="line">&gt;        // 启动NSRunLoop</div><div class="line">&gt;        [runLoop run];</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>GCD中的定时器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&gt;    - (void)gcdTimer&#123;</div><div class="line">&gt;        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line">&gt;        // 第一个参数：说明这是一个定时器</div><div class="line">&gt;        // 第四个参数：GCD的回调任务添加到那个队列中执行，如果是主队列则在主线程执行</div><div class="line">&gt;        dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);</div><div class="line">&gt;        // 设置定时器的开始时间，间隔时间以及精准度:三秒钟之后调用</div><div class="line">&gt;        dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 3.0*NSEC_PER_SEC);</div><div class="line">&gt;        uint64_t interval = 1.0 * NSEC_PER_SEC;</div><div class="line">&gt;        // 第四个参数：定时器的精准度，如果传0则表示采用最精准的方式计算</div><div class="line">&gt;        // 该参数的意义：可以适当的提高程序的性能,GCD定时器中的时间以纳秒为单位（</div><div class="line">&gt;        dispatch_source_set_timer(timer, start, interval, 0 * NSEC_PER_SEC);</div><div class="line">&gt;        // 设置定时器开启后回调的方法</div><div class="line">&gt;        dispatch_source_set_event_handler(timer, ^&#123;</div><div class="line">&gt;           NSLog(@&quot;------%@&quot;,[NSThread currentThread]);</div><div class="line">&gt;        &#125;);</div><div class="line">&gt;        // 执行定时器</div><div class="line">&gt;        dispatch_resume(timer);</div><div class="line">&gt;        //注意：dispatch_source_t本质上是OC类，在这里是个局部变量，需要强引用</div><div class="line">&gt;        self.timer = timer;</div><div class="line">&gt;    &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>GCD定时器补充</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt;    DISPATCH_SOURCE_TYPE_TIMER         定时响应（定时器事件）</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_SIGNAL        接收到UNIX信号时响应</div><div class="line">&gt;</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_READ          IO操作，如对文件的操作、socket操作的读响应</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_WRITE         IO操作，如对文件的操作、socket操作的写响应</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_VNODE         文件状态监听，文件被删除、移动、重命名</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_PROC          进程监听,如进程的退出、创建一个或更多的子线程、进程收到UNIX信号</div><div class="line">&gt;</div><div class="line">&gt;    下面两个都属于Mach相关事件响应</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_MACH_SEND</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_MACH_RECV</div><div class="line">&gt;    下面两个都属于自定义的事件，并且也是有自己来触发</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_DATA_ADD</div><div class="line">&gt;    DISPATCH_SOURCE_TYPE_DATA_OR</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>CFRunloopSourceRef</p>
+<ul>
+<li>是事件源也就是输入源，有两种分类模式： 一种是按照苹果官方文档进行划分的    另一种是基于函数的调用栈来进行划分的（source0和source1）。</li>
+<li>Source0：非基于Port的，Source1：基于Port的</li>
+<li>可以通过打断点的方式查看一个方法的函数调用栈</li>
+</ul>
+</li>
+<li><p>CFRunLoopObserverRef</p>
+</li>
+</ol>
+<ul>
+<li><p>CFRunLoopObserverRef是观察者，能够监听RunLoop的状态改变</p>
+</li>
+<li><p>监听实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;       //创建一个runloop监听者</div><div class="line">&gt;       CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(),kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) &#123;</div><div class="line">&gt;           NSLog(@&quot;监听runloop状态改变---%zd&quot;,activity);</div><div class="line">&gt;       &#125;);</div><div class="line">&gt;       //为runloop添加一个监听者</div><div class="line">&gt;       CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);</div><div class="line">&gt;       CFRelease(observer);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>监听的状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;      typedef CF_OPTIONS(CFOptionFlags, CFRunLoopActivity) &#123;</div><div class="line">&gt;          kCFRunLoopEntry = (1UL &lt;&lt; 0),   //即将进入Runloop</div><div class="line">&gt;          kCFRunLoopBeforeTimers = (1UL &lt;&lt; 1),    //即将处理NSTimer</div><div class="line">&gt;          kCFRunLoopBeforeSources = (1UL &lt;&lt; 2),   //即将处理Sources</div><div class="line">&gt;          kCFRunLoopBeforeWaiting = (1UL &lt;&lt; 5),   //即将进入休眠</div><div class="line">&gt;          kCFRunLoopAfterWaiting = (1UL &lt;&lt; 6),    //刚从休眠中唤醒</div><div class="line">&gt;          kCFRunLoopExit = (1UL &lt;&lt; 7),            //即将退出runloop</div><div class="line">&gt;          kCFRunLoopAllActivities = 0x0FFFFFFFU   //所有状态改变</div><div class="line">&gt;      &#125;;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>Runloop运行逻辑</p>
+<p><img width="700" height="400" src="/2017/01/31/iOS学习笔记/40_3.png"></p>
+<p><img width="700" height="400" src="/2017/01/31/iOS学习笔记/40_4.png"></p>
+</li>
+<li><p>Runloop应用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;      1）NSTimer</div><div class="line">&gt;      2）ImageView显示：控制方法在特定的模式下可用  ？</div><div class="line">&gt;      3）PerformSelector  ？</div><div class="line">&gt;      4）常驻线程：在子线程中开启一个runloop</div><div class="line">&gt;      5）自动释放池</div><div class="line">&gt;          第一次创建：进入runloop的时候</div><div class="line">&gt;          最后一次释放：runloop退出的时候</div><div class="line">&gt;          其它创建和释放：当runloop即将休眠的时候会把之前的自动释放池释放，然后重新创建一个新的释放池</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h2 id="四十一、Json和Xml数据解析："><a href="#四十一、Json和Xml数据解析：" class="headerlink" title="四十一、Json和Xml数据解析："></a>四十一、Json和Xml数据解析：</h2><blockquote>
+<ol>
+<li><p>Json数据解析：</p>
+<ul>
+<li><p>常用解析方案：</p>
+<ul>
+<li>第三方框架：JSONKit、SBJson、TouchJSON(性能从左到右，越差)</li>
+<li>苹果原生(自带)：NSJSONSerialization(性能最好)</li>
+</ul>
+</li>
+<li><p>NSJSONSerialization的常见方法</p>
+<ul>
+<li>JSON数据—&gt;OC对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      + (id)JSONObjectWithData:(NSData *)data options:(NSJSONReadingOptions)opt error:(NSError **)error;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>* OC对象—&gt;JSON数据 
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      + (NSData *)dataWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError **)error;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</code></pre></blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>Xml数据解析：</p>
+<ul>
+<li>常用解析方案：<ul>
+<li>苹果原生：NSXMLParser，SAX方式解析，使用简单</li>
+</ul>
+</li>
+<li>NSXMLParser使用：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;    // 传入XML数据，创建解析器</div><div class="line">&gt;    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];</div><div class="line">&gt;    // 设置代理，监听解析过程</div><div class="line">&gt;    parser.delegate = self;</div><div class="line">&gt;    // 开始解析</div><div class="line">&gt;    [parser parse];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>NSXMLParserDelegate：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;    // 当扫描到文档的开始时调用（开始解析）</div><div class="line">&gt;    - (void)parserDidStartDocument:(NSXMLParser *)parser</div><div class="line">&gt;    // 当扫描到文档的结束时调用（解析完毕）</div><div class="line">&gt;    - (void)parserDidEndDocument:(NSXMLParser *)parser</div><div class="line">&gt;    // 当扫描到元素的开始时调用（attributeDict存放着元素的属性）</div><div class="line">&gt;    - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict</div><div class="line">&gt;    // 当扫描到元素的结束时调用</div><div class="line">&gt;    - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h2 id="四十二、NSURLSession"><a href="#四十二、NSURLSession" class="headerlink" title="四十二、NSURLSession"></a>四十二、NSURLSession</h2><blockquote>
+<ol>
+<li><p>使用介绍：</p>
+<ul>
+<li><p>使用步骤：</p>
+<p>使用NSURLSession创建task,然后执行task</p>
+</li>
+<li><p>Task介绍：</p>
+<p>a.NSURLSessionTask是一个抽象类，本身不能使用，只能使用它的子类</p>
+<p>b.NSURLSessionDataTask\NSURLSessionUploadTask\NSURLSessionDownloadTask</p>
+</li>
+</ul>
+</li>
+<li><p>NSURLSession的基本使用</p>
+<ul>
+<li>发送get请求</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;    //1.创建NSURLSession对象（可以获取单例对象）</div><div class="line">&gt;    NSURLSession *session = [NSURLSession sharedSession];</div><div class="line">&gt;    //2.根据NSURLSession对象创建一个Task</div><div class="line">&gt;    NSURL *url = [NSURL URLWithString:@&quot;http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42&quot;];</div><div class="line">&gt;    NSURLRequest *request = [NSURLRequest requestWithURL:url];</div><div class="line">&gt;    // 注意：该block是在子线程中调用的，如果拿到数据之后要做一些UI刷新操作，那么需要回到主线程刷新</div><div class="line">&gt;    // block-NSURLResponse:存放本次请求的响应信息，响应头，真实类型为NSHTTPURLResponse</div><div class="line">&gt;    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">&gt;        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;</div><div class="line">&gt;        NSLog(@&quot;%@\n%@&quot;,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding],res.allHeaderFields);</div><div class="line">&gt;    &#125;];</div><div class="line">&gt;    //3.执行Task 注意：刚创建出来的task默认是挂起状态的，需要调用该方法来启动任务（执行任务）</div><div class="line">&gt;    [dataTask resume];</div><div class="line">&gt;</div><div class="line">&gt;    // 发送get请求的第二种方式</div><div class="line">&gt;    - (nullable NSURLSessionDataTask *)dataTaskWithURL:(NSURL *)url completionHandler:(void (^)(NSData * __nullable data, NSURLResponse * __nullable response, NSError * __nullable error))completionHandler</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>发送post请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt;    NSURLSession *session = [NSURLSession sharedSession];</div><div class="line">&gt;    NSURL *url = [NSURL URLWithString:@&quot;http://ip.taobao.com/service/getIpInfo.php?ip=63.223.108.42&quot;];</div><div class="line">&gt;    //创建一个请求对象，并且设置请求方法为POST，把参数放在请求体中传递</div><div class="line">&gt;    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];</div><div class="line">&gt;    request.HTTPMethod = @&quot;POST&quot;;</div><div class="line">&gt;    request.HTTPBody = [@&quot;username=520it&amp;pwd=520it&amp;type=JSON&quot; dataUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&gt;    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line">&gt;        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;</div><div class="line">&gt;        NSLog(@&quot;%@\n%@&quot;,[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding],res.allHeaderFields);</div><div class="line">&gt;    &#125;];</div><div class="line">&gt;    [dataTask resume];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>NSURLSession下载文件-代理(NSURLSessionDataDelegate)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&gt; - (void)download1&#123;</div><div class="line">&gt;     // 创建NSURLSession对象，设置代理（默认配置）</div><div class="line">&gt;     // 第三个参数：代理方法在哪个队列中执行（在哪个线程中调用）,如果是主队列那么在主线程中执行，如果是非主队列，那么在子线程中执行</div><div class="line">&gt;     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];</div><div class="line">&gt;     NSURL *url = [NSURL URLWithString:@&quot;http://120.25.226.186:32812/resources/images/minion_01.png&quot;];</div><div class="line">&gt;     //注意：如果要发送POST请求，那么请使用dataTaskWithRequest,设置一些请求头信息</div><div class="line">&gt;     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];</div><div class="line">&gt;     [dataTask resume]; //启动task</div><div class="line">&gt; //    [dataTask cancel]; //取消任务</div><div class="line">&gt; //    [dataTask suspend]; //暂停任务</div><div class="line">&gt; &#125;</div><div class="line">&gt; // 当接收到服务器响应的时候调用</div><div class="line">&gt; // completionHandler：通过该block回调，告诉服务器端是否接收返回的数据</div><div class="line">&gt; - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler&#123;</div><div class="line">&gt;     completionHandler(NSURLSessionResponseAllow);</div><div class="line">&gt; &#125;</div><div class="line">&gt; // 当接收到服务器返回的数据时调用,该方法可能会被调用多次</div><div class="line">&gt; - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data&#123;</div><div class="line">&gt; &#125;</div><div class="line">&gt; // 当请求完成之后调用该方法,如果请求失败，那么error对象有值，否则那么error对象为空</div><div class="line">&gt; - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error&#123;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; //默认情况下，当接收到服务器响应之后，服务器认为客户端不需要接收数据，所以后面的代理方法不会调用</div><div class="line">&gt; //如果需要继续接收服务器返回的数据，那么需要调用block,并传入对应的策略</div><div class="line">&gt; /*</div><div class="line">&gt;  NSURLSessionResponseCancel = 0, 取消任务</div><div class="line">&gt;  NSURLSessionResponseAllow = 1,  接收任务</div><div class="line">&gt;  NSURLSessionResponseBecomeDownload = 2, 转变成下载</div><div class="line">&gt;  NSURLSessionResponseBecomeStream NS_ENUM_AVAILABLE(10_11, 9_0) = 3, 转变成流</div><div class="line">&gt;  */</div><div class="line">&gt; completionHandler(NSURLSessionResponseAllow);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>使用NSURLSessionDownloadTask实现大文件下载-监听下载进度</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&gt; - (void)download2&#123;</div><div class="line">&gt;     // 创建NSURLSession并设置代理，通过NSURLSessionDownloadTask并以代理的方式来完成大文件的下载</div><div class="line">&gt;     self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];</div><div class="line">&gt;     self.downloadTask = [self.session downloadTaskWithURL:[NSURL URLWithString:@&quot;http://120.25.226.186:32812/resources/videos/minion_01.mp4&quot;]];</div><div class="line">&gt;     [self.downloadTask resume];</div><div class="line">&gt; &#125;</div><div class="line">&gt; // 常用代理方法的说明</div><div class="line">&gt; /*</div><div class="line">&gt;  1.当接收到下载数据的时候调用,可以在该方法中监听文件下载的进度</div><div class="line">&gt;  该方法会被调用多次</div><div class="line">&gt;  totalBytesWritten:已经写入到文件中的数据大小</div><div class="line">&gt;  totalBytesExpectedToWrite:目前文件的总大小</div><div class="line">&gt;  bytesWritten:本次下载的文件数据大小</div><div class="line">&gt;  */</div><div class="line">&gt; -(void)URLSession:(nonnull NSURLSession *)session downloadTask:(nonnull NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite</div><div class="line">&gt; /*</div><div class="line">&gt;  2.恢复下载的时候调用该方法</div><div class="line">&gt;  fileOffset:恢复之后，要从文件的什么地方开发下载</div><div class="line">&gt;  expectedTotalBytes：该文件数据的总大小</div><div class="line">&gt;  */</div><div class="line">&gt; -(void)URLSession:(nonnull NSURLSession *)session downloadTask:(nonnull NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes</div><div class="line">&gt; /*</div><div class="line">&gt;  3.下载完成之后调用该方法</div><div class="line">&gt;  */</div><div class="line">&gt; -(void)URLSession:(nonnull NSURLSession *)session downloadTask:(nonnull NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(nonnull NSURL *)location</div><div class="line">&gt; /*</div><div class="line">&gt;  4.请求完成之后调用</div><div class="line">&gt;  如果请求失败，那么error有值</div><div class="line">&gt;  */</div><div class="line">&gt; -(void)URLSession:(nonnull NSURLSession *)session task:(nonnull NSURLSessionTask *)task didCompleteWithError:(nullable NSError *)error</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>实现断点下载相关代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;      //  [self.downloadTask cancel]; ---&gt; 如果任务取消了那么以后就不能恢复了</div><div class="line">&gt;      //如果采取这种方式来取消任务，那么该方法会通过resumeData保存当前文件的下载信息</div><div class="line">&gt;      //只要有了这份信息，以后就可以通过这些信息来恢复下载</div><div class="line">&gt;      [self.downloadTask cancelByProducingResumeData:^(NSData * __nullable resumeData) &#123;</div><div class="line">&gt;          self.resumeData = resumeData;</div><div class="line">&gt;      &#125;];</div><div class="line">&gt;      -----------</div><div class="line">&gt;      //继续下载 : 首先通过之前保存的resumeData信息，创建一个下载任务</div><div class="line">&gt;      self.downloadTask = [self.session downloadTaskWithResumeData:self.resumeData];</div><div class="line">&gt;      [self.downloadTask resume];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>计算当前下载进度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      //获取文件下载进度</div><div class="line">&gt;      self.progress.progress = 1.0 * totalBytesWritten/totalBytesExpectedToWrite;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>注意点:</p>
+<p>​    a. 将已下载的追加写到本地文件中</p>
+<p>​    b. 下次请求数据时指定从哪个地方开始下载文件数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      NSString *range = [NSString stringWithFormat:@&quot;bytes=%zd-&quot;,self.currentContentLength];</div><div class="line">&gt;      [request setValue:range forHTTPHeaderField:@&quot;Range&quot;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>NSURLSession对象的释放</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;      -(void)dealloc&#123;</div><div class="line">&gt;          //在最后的时候应该把session释放，以免造成内存泄露</div><div class="line">&gt;          //    NSURLSession设置过代理后，需要在最后（比如控制器销毁的时候）调用session的invalidateAndCancel或者resetWithCompletionHandler，才不会有内存泄露</div><div class="line">&gt;      //    [self.session invalidateAndCancel];</div><div class="line">&gt;          [self.session resetWithCompletionHandler:^&#123;</div><div class="line">&gt;              NSLog(@&quot;释放---&quot;);</div><div class="line">&gt;          &#125;];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>NSURLSession实现文件上传</li>
+</ol>
+<ul>
+<li><p>实现文件上传的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;   // 第二个参数：请求体（要上传的文件数据）</div><div class="line">&gt;   NSURLSessionUploadTask *uploadTask =  [session uploadTaskWithRequest:request fromData:data completionHandler:^(NSData * __nullable data, NSURLResponse * __nullable response, NSError * __nullable error)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>设置代理，在代理方法中监听文件上传进度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;   -(void)URLSession:(nonnull NSURLSession *)session task:(nonnull NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend&#123;</div><div class="line">&gt;       NSLog(@&quot;%.2f&quot;,1.0 * totalBytesSent/totalBytesExpectedToSend);</div><div class="line">&gt;   &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>关于NSURLSessionConfiguration相关</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&gt; //创建配置的三种方式</div><div class="line">&gt; // 默认配置，使用硬盘来存储缓存数据</div><div class="line">&gt; + (NSURLSessionConfiguration *)defaultSessionConfiguration;</div><div class="line">&gt; // 临时session配置，与默认配置相比，这个配置不会将缓存、cookie等存在本地，只会存在内存里，所以当程序退出时，所有的数据都会消失</div><div class="line">&gt; + (NSURLSessionConfiguration *)ephemeralSessionConfiguration;</div><div class="line">&gt; // 后台session配置，与默认配置类似，不同的是会在后台开启另一个线程来处理网络数据.注意: 这里如果设置了超时限制的话，可能会导致一直下载失败。因为后台下载会根据设备的负载程度决定分配下载的资源。</div><div class="line">&gt; + (NSURLSessionConfiguration *)backgroundSessionConfigurationWithIdentifier:(NSString *)identifier NS_AVAILABLE(10_10, 8_0);</div><div class="line">&gt;</div><div class="line">&gt; //统一配置NSURLSession</div><div class="line">&gt; -(NSURLSession *)session&#123;</div><div class="line">&gt;     if (_session == nil) &#123;      </div><div class="line">&gt;         //创建NSURLSessionConfiguration</div><div class="line">&gt;         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];    </div><div class="line">&gt;         //设置请求超时为10秒钟</div><div class="line">&gt;         config.timeoutIntervalForRequest = 10;</div><div class="line">&gt;         //在蜂窝网络情况下是否继续请求（上传或下载）</div><div class="line">&gt;         config.allowsCellularAccess = NO;</div><div class="line">&gt;         _session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue mainQueue]];</div><div class="line">&gt;     &#125;</div><div class="line">&gt;     return _session;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="四十三、Reachability"><a href="#四十三、Reachability" class="headerlink" title="四十三、Reachability"></a>四十三、Reachability</h2><blockquote>
+<ol>
+<li>使用步骤：<ul>
+<li>添加框架 SystemConfiguration.framework</li>
+<li>添加源代码：Reachability.h、Reachability.m</li>
+<li>包含头文件：import “Reachability.h”</li>
+</ul>
+</li>
+<li>常见用法：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt; // 是否WIFI</div><div class="line">&gt; + (BOOL) IsEnableWIFI &#123;</div><div class="line">&gt;     return ([[Reachability reachabilityForLocalWiFi] currentReachabilityStatus] != NotReachable);</div><div class="line">&gt; &#125;</div><div class="line">&gt; // 是否3G</div><div class="line">&gt; + (BOOL) IsEnable3G &#123;</div><div class="line">&gt;     return ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != NotReachable);</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li>网络监控：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt; [[NSNotificationCenter defaultCenter] addObserver:self</div><div class="line">&gt;  selector:@selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];</div><div class="line">&gt; self.netReachability = [Reachability reachabilityForInternetConnection];</div><div class="line">&gt; [self.netReachability startNotifier];</div><div class="line">&gt;</div><div class="line">&gt; - (void)dealloc</div><div class="line">&gt; &#123;</div><div class="line">&gt;     [self.netReachability stopNotifier];</div><div class="line">&gt;     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="四十四、AFNetworking"><a href="#四十四、AFNetworking" class="headerlink" title="四十四、AFNetworking"></a>四十四、AFNetworking</h2><blockquote>
+<ol>
+<li><a href="/downloads/code/iOS学习笔记/HttpRequest.zip">网络请求工具类</a>：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">&gt; #import &quot;AFNetworking.h&quot;</div><div class="line">&gt;</div><div class="line">&gt; @interface YYHttpTool : NSObject</div><div class="line">&gt; /**</div><div class="line">&gt;  *  发送一个GET请求</div><div class="line">&gt;  *</div><div class="line">&gt;  *  @param url     请求路径</div><div class="line">&gt;  *  @param params  请求参数</div><div class="line">&gt;  *  @param success 请求成功后的回调（请将请求成功后想做的事情写到这个block中）</div><div class="line">&gt;  *  @param failure 请求失败后的回调（请将请求失败后想做的事情写到这个block中）</div><div class="line">&gt;  */</div><div class="line">&gt; + (void)get:(NSString *)url params:(NSDictionary *)params success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;</div><div class="line">&gt;</div><div class="line">&gt; /**</div><div class="line">&gt;  *  发送一个POST请求</div><div class="line">&gt;  *</div><div class="line">&gt;  *  @param url     请求路径</div><div class="line">&gt;  *  @param params  请求参数</div><div class="line">&gt;  *  @param success 请求成功后的回调（请将请求成功后想做的事情写到这个block中）</div><div class="line">&gt;  *  @param failure 请求失败后的回调（请将请求失败后想做的事情写到这个block中）</div><div class="line">&gt;  */</div><div class="line">&gt; + (NSURLSessionDataTask *)post:(NSString *)url params:(NSDictionary *)params success:(void(^)(id responseObj))success failure:(void(^)(NSError *error))failure;</div><div class="line">&gt; @end</div><div class="line">&gt; /********************************************************************************/</div><div class="line">&gt;   @implementation YYHttpTool</div><div class="line">&gt; +(void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure&#123;</div><div class="line">&gt;     //1.获得请求管理者</div><div class="line">&gt;     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];</div><div class="line">&gt;     //2.发送Get请求</div><div class="line">&gt;     [mgr GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</div><div class="line">&gt;         if (success) &#123;</div><div class="line">&gt;             success(responseObject);</div><div class="line">&gt;         &#125;</div><div class="line">&gt;     &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</div><div class="line">&gt;         if (failure) &#123;</div><div class="line">&gt;             failure(error);</div><div class="line">&gt;         &#125;</div><div class="line">&gt;     &#125;];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; +(NSURLSessionDataTask *)post:(NSString *)url params:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure&#123;</div><div class="line">&gt;     //1.获得请求管理者</div><div class="line">&gt;     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];  </div><div class="line">&gt;    NSURLSessionDataTask *dataTask = [mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</div><div class="line">&gt;        if (success) &#123;</div><div class="line">&gt;            success(responseObject);</div><div class="line">&gt;        &#125;</div><div class="line">&gt;    &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</div><div class="line">&gt;        if (failure) &#123;</div><div class="line">&gt;            failure(error);</div><div class="line">&gt;        &#125;</div><div class="line">&gt;    &#125;];</div><div class="line">&gt;     return dataTask;</div><div class="line">&gt; &#125;</div><div class="line">&gt; @end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><a href="/downloads/code/iOS学习笔记/MyUpload.zip">文件上传分类</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&gt; -(void)upload1&#123;</div><div class="line">&gt;     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];//2.处理参数(非文件参数)</div><div class="line">&gt;     NSDictionary *dict = @&#123;@&quot;username&quot;:@&quot;123&quot;&#125;;</div><div class="line">&gt;     // constructingBodyWithBlock 在该回调中拼接文件参数</div><div class="line">&gt;     [manager POST:@&quot;http://120.25.226.186:32812/upload&quot; parameters:dict constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt;  _Nonnull formData) &#123;</div><div class="line">&gt;         UIImage *image = [UIImage imageNamed:@&quot;Snip20160117_1&quot;];</div><div class="line">&gt;         NSData *imageData = UIImagePNGRepresentation(image);</div><div class="line">&gt;         // 在该block中拼接要上传的文件参数</div><div class="line">&gt;         // 第二个参数：文件参数对应的参数名称，此处为file是该台服务器规定的（通常会在接口文档中提供）</div><div class="line">&gt;         // 第三个参数：该文件上传到服务后以什么名称保存</div><div class="line">&gt;         [formData appendPartWithFileData:imageData name:@&quot;file&quot; fileName:@&quot;123.png&quot; mimeType:@&quot;image/png&quot;];</div><div class="line">&gt;     &#125; progress:^(NSProgress * _Nonnull uploadProgress) &#123;</div><div class="line">&gt;         NSLog(@&quot;%f&quot;,1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);</div><div class="line">&gt;     &#125; success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</div><div class="line">&gt;         NSLog(@&quot;请求成功----%@&quot;,responseObject);</div><div class="line">&gt;     &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</div><div class="line">&gt;         NSLog(@&quot;请求失败----%@&quot;,error);</div><div class="line">&gt;     &#125;];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; -(void)upload2&#123;</div><div class="line">&gt;     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</div><div class="line">&gt;     NSDictionary *dict = @&#123;@&quot;username&quot;:@&quot;123&quot;&#125;;</div><div class="line">&gt;     [manager POST:@&quot;http://120.25.226.186:32812/upload&quot; parameters:dict constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt;  _Nonnull formData) &#123;</div><div class="line">&gt;         NSURL *fileUrl = [NSURL fileURLWithPath:@&quot;/Users/***/***.png&quot;];</div><div class="line">&gt;         // 说明：AFN内部自动获得路径URL地址的最后一个节点作为文件的名称，内部调用C语言的API获得文件的类型</div><div class="line">&gt;         [formData appendPartWithFileURL:fileUrl name:@&quot;file&quot; error:nil];</div><div class="line">&gt;     &#125; progress:^(NSProgress * _Nonnull uploadProgress) &#123;</div><div class="line">&gt;         NSLog(@&quot;%f&quot;,1.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount);</div><div class="line">&gt;     &#125; success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) &#123;</div><div class="line">&gt;         NSLog(@&quot;请求成功----%@&quot;,responseObject);</div><div class="line">&gt;     &#125; failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) &#123;</div><div class="line">&gt;         NSLog(@&quot;请求失败----%@&quot;,error);</div><div class="line">&gt;     &#125;];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="四十五、设置应用使用HTTP访问："><a href="#四十五、设置应用使用HTTP访问：" class="headerlink" title="四十五、设置应用使用HTTP访问："></a>四十五、设置应用使用HTTP访问：</h2><blockquote>
+<ul>
+<li>打开 工程主目录下info.plist-&gt;增加属性字典 App Transport Security Settings-&gt;在这个属性下增加节点 Allow Arbitrary Loads, value 为 YES</li>
+</ul>
+<p><img width="500" height="70" src="/2017/01/31/iOS学习笔记/44_1.png"></p>
+</blockquote>
+<h2 id="四十六、NSInvocation的基本使用"><a href="#四十六、NSInvocation的基本使用" class="headerlink" title="四十六、NSInvocation的基本使用"></a>四十六、NSInvocation的基本使用</h2><blockquote>
+<ol>
+<li><p>简介：</p>
+<ul>
+<li>在 iOS中可以直接调用某个对象的消息方式有两种：<ul>
+<li>一种是 performSelector:withObject</li>
+<li>一种就是 NSInvocation</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&gt;   //1.创建一个MethodSignature，签名中保存了方法的名称，参数和返回值</div><div class="line">&gt;   //这个方法属于谁，那么就用谁来进行创建</div><div class="line">&gt;   //注意：签名一般是用来设置参数和获得返回值的，和方法的调用没有太大的关系</div><div class="line">&gt;   NSMethodSignature *signature = [ViewController instanceMethodSignatureForSelector:@selector(callWithNumber:andContext:withStatus:)];</div><div class="line">&gt;</div><div class="line">&gt;   //2.通过MethodSignature来创建一个NSInvocation</div><div class="line">&gt;   //NSInvocation中保存了方法所属于的对象|方法名称|参数|返回值等等</div><div class="line">&gt;   NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];</div><div class="line">&gt;</div><div class="line">&gt;   //3.设置invocation</div><div class="line">&gt;   invocation.target = self;</div><div class="line">&gt;   invocation.selector = @selector(callWithNumber:andContext:withStatus:);</div><div class="line">&gt;</div><div class="line">&gt;   NSString *number = @&quot;10086&quot;;</div><div class="line">&gt;   NSString *context = @&quot;下课了&quot;;</div><div class="line">&gt;   NSString *status = @&quot;睡觉的时候&quot;;</div><div class="line">&gt;</div><div class="line">&gt;   //注意：</div><div class="line">&gt;   //1.自定义的参数索引从2开始，0和1已经被self and _cmd占用了</div><div class="line">&gt;   //2.方法签名中保存的方法名称必须和调用的名称一致</div><div class="line">&gt;   [invocation setArgument:&amp;number atIndex:2];</div><div class="line">&gt;   [invocation setArgument:&amp;context atIndex:3];</div><div class="line">&gt;   [invocation setArgument:&amp;status atIndex:4];</div><div class="line">&gt;</div><div class="line">&gt;   //4.调用invok方法来执行</div><div class="line">&gt;   [invocation invoke];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><a href="/downloads/code/iOS学习笔记/Invocation.zip">分类封装</a></li>
+</ol>
+</blockquote>
+<h2 id="四十七、NSInputStream、NSOutputStream的简单使用："><a href="#四十七、NSInputStream、NSOutputStream的简单使用：" class="headerlink" title="四十七、NSInputStream、NSOutputStream的简单使用："></a>四十七、NSInputStream、NSOutputStream的简单使用：</h2><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line">&gt; - (void)viewDidLoad &#123;</div><div class="line">&gt;     [super viewDidLoad];</div><div class="line">&gt;     [self createTestFile];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; // 创建一个测试文件。</div><div class="line">&gt; - (void)createTestFile&#123;</div><div class="line">&gt;     _filePath = NSHomeDirectory();</div><div class="line">&gt;     _filePath = [_filePath stringByAppendingPathComponent:@&quot;Documents/test_data.txt&quot;];</div><div class="line">&gt;     NSError *error;</div><div class="line">&gt;     NSString *msg = @&quot;测试数据，需要的测试数据，测试数据显示。&quot;;</div><div class="line">&gt;     bool  isSuccess = [msg writeToFile:_filePath atomically:true encoding:NSUTF8StringEncoding error:&amp;error];</div><div class="line">&gt;     if (isSuccess) &#123;</div><div class="line">&gt;         NSLog(@&quot;数据写入成功了&quot;);</div><div class="line">&gt;     &#125;else&#123;</div><div class="line">&gt;         NSLog(@&quot;error is %@&quot;,error.description);</div><div class="line">&gt;     &#125;</div><div class="line">&gt;     // 追加数据</div><div class="line">&gt;     NSFileHandle *handle = [NSFileHandle fileHandleForWritingAtPath:_filePath];</div><div class="line">&gt;     [handle seekToEndOfFile];</div><div class="line">&gt;     NSString *newMsg = @&quot;.....我将添加到末尾你处&quot;;</div><div class="line">&gt;     NSData *data = [newMsg dataUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&gt;     [handle writeData:data];</div><div class="line">&gt;     [handle closeFile];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; // NSOutPutStream 处理  写</div><div class="line">&gt; - (IBAction)outPutStramAction:(id)sender &#123;</div><div class="line">&gt;     NSString *path = @&quot;/Users/yubo/Desktop/stream_ios.txt&quot;;</div><div class="line">&gt;     NSOutputStream *writeStream = [[NSOutputStream alloc]initToFileAtPath:path append:true];</div><div class="line">&gt;     // 手动创建文件， 如果是系统创建的话， 格式编码不一样。</div><div class="line">&gt;     bool flag = [@&quot;Ios-----&gt;&quot; writeToFile:path atomically:true encoding:NSUTF8StringEncoding error:nil];</div><div class="line">&gt;     if (flag) &#123;</div><div class="line">&gt;         NSLog(@&quot;创建成功&quot;);</div><div class="line">&gt;     &#125;</div><div class="line">&gt;     writeStream.delegate = self;</div><div class="line">&gt;     [writeStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];</div><div class="line">&gt;     [writeStream open];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; // NSInPutStream 处理   读</div><div class="line">&gt; - (IBAction)inPutStreamAction:(id)sender &#123;</div><div class="line">&gt;     NSInputStream *readStream = [[NSInputStream alloc]initWithFileAtPath:_filePath];</div><div class="line">&gt;     [readStream setDelegate:self];</div><div class="line">&gt;     // 这个runLoop就相当于死循环，一直会对这个流进行操作。</div><div class="line">&gt;     [readStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];</div><div class="line">&gt;     [readStream open];</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; #pragma mark  NSStreamDelegate代理</div><div class="line">&gt; - (void)stream:(NSStream *)aStream handleEvent:(NSStreamEvent)eventCode&#123;</div><div class="line">&gt;     switch (eventCode) &#123;</div><div class="line">&gt;         case NSStreamEventHasSpaceAvailable:&#123; // 写</div><div class="line">&gt;             NSString *content = [NSString stringWithContentsOfFile:_filePath encoding:NSUTF8StringEncoding error:nil];</div><div class="line">&gt;             NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];</div><div class="line">&gt;             NSOutputStream *writeStream = (NSOutputStream *)aStream;</div><div class="line">&gt;             [writeStream write:data.bytes maxLength:data.length];</div><div class="line">&gt;             [aStream close];</div><div class="line">&gt;             break;</div><div class="line">&gt;         &#125;</div><div class="line">&gt;         case NSStreamEventHasBytesAvailable:&#123; // 读</div><div class="line">&gt;             uint8_t buf[1024];</div><div class="line">&gt;             NSInputStream *reads = (NSInputStream *)aStream;</div><div class="line">&gt;             NSInteger blength = [reads read:buf maxLength:sizeof(buf)];</div><div class="line">&gt;             if (blength != 0) &#123;</div><div class="line">&gt;                 NSData *data = [NSData dataWithBytes:(voidvoid *)buf length:blength];</div><div class="line">&gt;                 NSString *msg = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];</div><div class="line">&gt;                 NSLog(@&quot;文件内容如下：-----&gt;%@&quot;,msg);</div><div class="line">&gt;             &#125;else&#123;</div><div class="line">&gt;                 [aStream close];</div><div class="line">&gt;             &#125;</div><div class="line">&gt;             break;</div><div class="line">&gt;         &#125;</div><div class="line">&gt;         case NSStreamEventErrorOccurred:&#123;// 错误处理</div><div class="line">&gt;             NSLog(@&quot;错误处理&quot;);</div><div class="line">&gt;             break;</div><div class="line">&gt;         &#125;</div><div class="line">&gt;         case NSStreamEventEndEncountered: &#123;</div><div class="line">&gt;             [aStream close];</div><div class="line">&gt;             break;</div><div class="line">&gt;         &#125;</div><div class="line">&gt;         case NSStreamEventNone:&#123;// 无事件处理</div><div class="line">&gt;             NSLog(@&quot;无事件处理&quot;);</div><div class="line">&gt;             break;</div><div class="line">&gt;         &#125;</div><div class="line">&gt;         case  NSStreamEventOpenCompleted:&#123;// 打开完成</div><div class="line">&gt;             NSLog(@&quot;打开文件&quot;);</div><div class="line">&gt;             break;</div><div class="line">&gt;         &#125;</div><div class="line">&gt;         default:</div><div class="line">&gt;             break;</div><div class="line">&gt;     &#125;</div><div class="line">&gt; &#125;</div><div class="line">&gt;</div><div class="line">&gt; @end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="四十八、类扩展、分类、协议："><a href="#四十八、类扩展、分类、协议：" class="headerlink" title="四十八、类扩展、分类、协议："></a>四十八、类扩展、分类、协议：</h2><blockquote>
+<ol>
+<li><p>类扩展：</p>
+<ul>
+<li><p>作用：</p>
+<ul>
+<li>能为某个类附加额外的属性，成员变量，方法声明</li>
+<li>一般的类扩展写到.m文件中</li>
+<li>一般的私有属性写到类扩展</li>
+</ul>
+</li>
+<li><p>使用格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;     @interface Mitchell()</div><div class="line">&gt;     //属性</div><div class="line">&gt;     //方法</div><div class="line">&gt;     @end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>分类：</p>
+<ul>
+<li><p>与类扩展的区另：</p>
+<ul>
+<li>分类的小括号中必须有名字</li>
+<li>分类只能扩充方法,不能扩展属性和成员变量(如果包含成员变量会直接报错)</li>
+<li>如果分类中声明了一个属性，<strong>那么分类只会生成这个属性的set、get方法声明</strong>，也就是不会有实现</li>
+</ul>
+</li>
+<li><p>使用格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;     @interface 类名（分类名字）</div><div class="line">&gt;     /*方法声明*/</div><div class="line">&gt;     @end</div><div class="line">&gt;     @implementation类名（分类名字）</div><div class="line">&gt;     /*方法实现*/</div><div class="line">&gt;     @end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ol>
+<li><p>协议：</p>
+<ul>
+<li><p>作用：</p>
+<ul>
+<li>定义一套公用的接口(Public)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;     @required：必须实现的方法</div><div class="line">&gt;     @optional：可选 实现的方法（可以全部都不实现）</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>* 委托代理（Delegate）传值
+</code></pre><ul>
+<li><p>定义格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&gt;   //定义一个协议</div><div class="line">&gt;   @protocol MyDelegate &lt;NSObject&gt;</div><div class="line">&gt;   //必须实现的方法</div><div class="line">&gt;   @required</div><div class="line">&gt;   - (void) methodA;</div><div class="line">&gt;   - (void) methodB;</div><div class="line">&gt;   //可选实现的方法</div><div class="line">&gt;   @optional</div><div class="line">&gt;   - (void) methodC;</div><div class="line">&gt;   - (void) methodD;</div><div class="line">&gt;   @end</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 </blockquote>
 <h2 id="附录一：常用第三方框架"><a href="#附录一：常用第三方框架" class="headerlink" title="附录一：常用第三方框架"></a>附录一：常用第三方框架</h2><ol>
 <li><a href="https://github.com/SnapKit/Masonry/" title="github" target="_blank" rel="external">Masonry</a>：是iOS控件布局中经常使用的一个轻量级AutoLayout框架。</li>
 <li><a href="https://github.com/jdg/MBProgressHUD/ github" target="_blank" rel="external">MBProgressHUD</a>：是一个表示进度的loading视图和两个可选的文本提示的HUD窗口。</li>
 <li><a href="https://github.com/CoderMJLee/MJExtension/ github" target="_blank" rel="external">MJExtension</a>：是一个字典转模型框架。</li>
 <li><a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a>：是一个带缓存的异步的图片下载的UIImageView的分类。</li>
+<li><a href="https://github.com/ZipArchive/ZipArchive" target="_blank" rel="external">ZipArchive</a>：是一个解压缩框架。</li>
+<li><a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking</a>：是一个网络框架。</li>
+<li><a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">FMDB</a>：是一个对Sqlite操作进行封装的框架。</li>
+<li><a href="https://github.com/liric28/FLAnimatedImage" target="_blank" rel="external">FLAnimatedImage</a>：是一个iOS的gif动画库。</li>
+<li><a href="https://github.com/intuit/LocationManager" target="_blank" rel="external">LocationManager</a>：是一个简单的iOS定位库。</li>
+<li><a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">ijkplayer</a>：B站开源的视频播放器，支持Android和iOS。</li>
 </ol>
+<p>参考：<a href="http://www.cocoachina.com/ios/20170215/18692.html" target="_blank" rel="external">iOS超全开源框架、项目和学习资料汇总</a></p>
 <h2 id="附录二：常用宏"><a href="#附录二：常用宏" class="headerlink" title="附录二：常用宏"></a>附录二：常用宏</h2><ol>
 <li><p>获取屏幕宽度与高度:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">if</span> __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= 80000 <span class="comment">// 当前Xcode支持iOS8及以上</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SCREEN_WIDTH ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.width)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SCREENH_HEIGHT ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.height)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SCREEN_SIZE ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?CGSizeMake([UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale,[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale):[UIScreen mainScreen].bounds.size)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> SCREEN_SIZE [UIScreen mainScreen].bounds.size</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
@@ -1828,10 +2381,10 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// rgb颜色转换（16进制-&gt;10进制）</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue &amp; 0xFF0000) &gt;&gt; 16))/255.0 green:((float)((rgbValue &amp; 0xFF00) &gt;&gt; 8))/255.0 blue:((float)(rgbValue &amp; 0xFF))/255.0 alpha:1.0]</span></div><div class="line"><span class="comment">//带有RGBA的颜色设置</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> COLOR(R, G, B, A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]</span></div><div class="line"><span class="comment">// 获取RGB颜色</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RGB(r,g,b) RGBA(r,g,b,1.0f)</span></div><div class="line"><span class="comment">//背景色</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BACKGROUND_COLOR [UIColor colorWithRed:242.0/255.0 green:236.0/255.0 blue:231.0/255.0 alpha:1.0]</span></div><div class="line"><span class="comment">//清除背景色</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> CLEARCOLOR [UIColor clearColor]</span></div><div class="line"><span class="meta">#<span class="meta-keyword">pragma</span> mark - color functions</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>其他宏：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方正黑体简体字体定义</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> FONT(F) [UIFont fontWithName:@<span class="meta-string">"FZHTJW--GB1-0"</span> size:F]</span></div><div class="line"><span class="comment">//定义一个API</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> APIURL                @<span class="meta-string">"http://xxxxx/"</span></span></div><div class="line"><span class="comment">//登陆API</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> APILogin              [APIURL stringByAppendingString:@<span class="meta-string">"Login"</span>]</span></div><div class="line"><span class="comment">//设置View的tag属性</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> VIEWWITHTAG(_OBJECT, _TAG)    [_OBJECT viewWithTag : _TAG]</span></div><div class="line"><span class="comment">//程序的本地化,引用国际化的文件</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MyLocal(x, ...) NSLocalizedString(x, nil)</span></div><div class="line"><span class="comment">//G－C－D</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAIN(block) dispatch_async(dispatch_get_main_queue(),block)</span></div><div class="line"><span class="comment">//NSUserDefaults 实例化</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USER_DEFAULT [NSUserDefaults standardUserDefaults]</span></div><div class="line"><span class="comment">//由角度获取弧度 有弧度获取角度</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> degreesToRadian(x) (M_PI * (x) / 180.0)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> radianToDegrees(radian) (radian*180.0)/(M_PI)</span></div><div class="line"><span class="comment">//获取temp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathTemp NSTemporaryDirectory()</span></div><div class="line"><span class="comment">//获取沙盒 Document</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]</span></div><div class="line"><span class="comment">//获取沙盒 Cache</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]</span></div><div class="line"><span class="comment">//弱引用和强引用</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LRWeakSelf(type)  __weak typeof(type) weak##type = type;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LRStrongSelf(type)  __strong typeof(type) type = weak##type;</span></div></pre></td></tr></table></figure>
-<p>​</p>
 </li>
 </ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方正黑体简体字体定义</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> FONT(F) [UIFont fontWithName:@<span class="meta-string">"FZHTJW--GB1-0"</span> size:F]</span></div><div class="line"><span class="comment">//定义一个API</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> APIURL                @<span class="meta-string">"http://xxxxx/"</span></span></div><div class="line"><span class="comment">//登陆API</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> APILogin              [APIURL stringByAppendingString:@<span class="meta-string">"Login"</span>]</span></div><div class="line"><span class="comment">//设置View的tag属性</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> VIEWWITHTAG(_OBJECT, _TAG)    [_OBJECT viewWithTag : _TAG]</span></div><div class="line"><span class="comment">//程序的本地化,引用国际化的文件</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MyLocal(x, ...) NSLocalizedString(x, nil)</span></div><div class="line"><span class="comment">//G－C－D</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAIN(block) dispatch_async(dispatch_get_main_queue(),block)</span></div><div class="line"><span class="comment">//NSUserDefaults 实例化</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> USER_DEFAULT [NSUserDefaults standardUserDefaults]</span></div><div class="line"><span class="comment">//由角度获取弧度 有弧度获取角度</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> degreesToRadian(x) (M_PI * (x) / 180.0)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> radianToDegrees(radian) (radian*180.0)/(M_PI)</span></div><div class="line"><span class="comment">//获取temp</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathTemp NSTemporaryDirectory()</span></div><div class="line"><span class="comment">//获取沙盒 Document</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]</span></div><div class="line"><span class="comment">//获取沙盒 Cache</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]</span></div><div class="line"><span class="comment">//弱引用和强引用</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LRWeakSelf(type)  __weak typeof(type) weak##type = type;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LRStrongSelf(type)  __strong typeof(type) type = weak##type;</span></div></pre></td></tr></table></figure>
+<p>   ​</p>
 
       
     </div>
@@ -2016,7 +2569,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、加载图片的方式："><span class="nav-number">1.</span> <span class="nav-text">一、加载图片的方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、pch文件："><span class="nav-number">2.</span> <span class="nav-text">二、pch文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、info-plist文件："><span class="nav-number">3.</span> <span class="nav-text">三、info.plist文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、从代码加载指定的storyboard文件："><span class="nav-number">4.</span> <span class="nav-text">四、从代码加载指定的storyboard文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、ViewController中loadView方法："><span class="nav-number">5.</span> <span class="nav-text">五、ViewController中loadView方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、背景图片的拉伸："><span class="nav-number">6.</span> <span class="nav-text">六、背景图片的拉伸：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、KVC：key-value-coding-键值编码"><span class="nav-number">7.</span> <span class="nav-text">七、KVC：key value coding(键值编码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、KVO：key-value-observing-键值监听"><span class="nav-number">8.</span> <span class="nav-text">八、KVO：key value observing(键值监听)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、适配"><span class="nav-number">9.</span> <span class="nav-text">九、适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、UITableView"><span class="nav-number">10.</span> <span class="nav-text">十、UITableView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、UIApplication"><span class="nav-number">11.</span> <span class="nav-text">十一、UIApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、UIWindow"><span class="nav-number">12.</span> <span class="nav-text">十二、UIWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、多控制器：UINavigationController"><span class="nav-number">13.</span> <span class="nav-text">十三、多控制器：UINavigationController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、控制器生命周期："><span class="nav-number">14.</span> <span class="nav-text">十四、控制器生命周期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、OC中BOOL和bool的区别："><span class="nav-number">15.</span> <span class="nav-text">十五、OC中BOOL和bool的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、initialize和load方法的区别："><span class="nav-number">16.</span> <span class="nav-text">十六、initialize和load方法的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十七、instancetype和id的区别："><span class="nav-number">17.</span> <span class="nav-text">十七、instancetype和id的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十八、OC访问修饰符："><span class="nav-number">18.</span> <span class="nav-text">十八、OC访问修饰符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十九、OC属性修饰符："><span class="nav-number">19.</span> <span class="nav-text">十九、OC属性修饰符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十、iOS文件系统"><span class="nav-number">20.</span> <span class="nav-text">二十、iOS文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十一、iOS文件操作："><span class="nav-number">21.</span> <span class="nav-text">二十一、iOS文件操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十二、iOS归档："><span class="nav-number">22.</span> <span class="nav-text">二十二、iOS归档：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十三、自定义UITableViewCell："><span class="nav-number">23.</span> <span class="nav-text">二十三、自定义UITableViewCell：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十四、代理的使用步骤："><span class="nav-number">24.</span> <span class="nav-text">二十四、代理的使用步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十五、iOS监听事件的方法比较"><span class="nav-number">25.</span> <span class="nav-text">二十五、iOS监听事件的方法比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十六、UIView形变"><span class="nav-number">26.</span> <span class="nav-text">二十六、UIView形变:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十七：hitTest与pointInside方法："><span class="nav-number">27.</span> <span class="nav-text">二十七：hitTest与pointInside方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十八、事件传递过程："><span class="nav-number">28.</span> <span class="nav-text">二十八、事件传递过程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十九、Quartz2D："><span class="nav-number">29.</span> <span class="nav-text">二十九、Quartz2D：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十、CALayer："><span class="nav-number">30.</span> <span class="nav-text">三十、CALayer：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十一、frame、bounds和center："><span class="nav-number">31.</span> <span class="nav-text">三十一、frame、bounds和center：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十二、Core-Animation："><span class="nav-number">32.</span> <span class="nav-text">三十二、Core Animation：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十三、UIAppearance"><span class="nav-number">33.</span> <span class="nav-text">三十三、UIAppearance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十四、layoutSubviews的调用时机："><span class="nav-number">34.</span> <span class="nav-text">三十四、layoutSubviews的调用时机：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十五、Block详解："><span class="nav-number">35.</span> <span class="nav-text">三十五、Block详解：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十六、多线程"><span class="nav-number">36.</span> <span class="nav-text">三十六、多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十七、单例模式："><span class="nav-number">37.</span> <span class="nav-text">三十七、单例模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录一：常用第三方框架"><span class="nav-number">38.</span> <span class="nav-text">附录一：常用第三方框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录二：常用宏"><span class="nav-number">39.</span> <span class="nav-text">附录二：常用宏</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、加载图片的方式："><span class="nav-number">1.</span> <span class="nav-text">一、加载图片的方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、pch文件："><span class="nav-number">2.</span> <span class="nav-text">二、pch文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、info-plist文件："><span class="nav-number">3.</span> <span class="nav-text">三、info.plist文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、从代码加载指定的storyboard文件："><span class="nav-number">4.</span> <span class="nav-text">四、从代码加载指定的storyboard文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、ViewController中loadView方法："><span class="nav-number">5.</span> <span class="nav-text">五、ViewController中loadView方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、背景图片的拉伸："><span class="nav-number">6.</span> <span class="nav-text">六、背景图片的拉伸：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、KVC：key-value-coding-键值编码"><span class="nav-number">7.</span> <span class="nav-text">七、KVC：key value coding(键值编码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、KVO：key-value-observing-键值监听"><span class="nav-number">8.</span> <span class="nav-text">八、KVO：key value observing(键值监听)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、适配"><span class="nav-number">9.</span> <span class="nav-text">九、适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、UITableView"><span class="nav-number">10.</span> <span class="nav-text">十、UITableView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、UIApplication"><span class="nav-number">11.</span> <span class="nav-text">十一、UIApplication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十二、UIWindow"><span class="nav-number">12.</span> <span class="nav-text">十二、UIWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十三、多控制器：UINavigationController"><span class="nav-number">13.</span> <span class="nav-text">十三、多控制器：UINavigationController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十四、控制器生命周期："><span class="nav-number">14.</span> <span class="nav-text">十四、控制器生命周期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十五、OC中BOOL和bool的区别："><span class="nav-number">15.</span> <span class="nav-text">十五、OC中BOOL和bool的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十六、initialize和load方法的区别："><span class="nav-number">16.</span> <span class="nav-text">十六、initialize和load方法的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十七、instancetype和id的区别："><span class="nav-number">17.</span> <span class="nav-text">十七、instancetype和id的区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十八、OC访问修饰符："><span class="nav-number">18.</span> <span class="nav-text">十八、OC访问修饰符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十九、OC属性修饰符："><span class="nav-number">19.</span> <span class="nav-text">十九、OC属性修饰符：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十、iOS文件系统"><span class="nav-number">20.</span> <span class="nav-text">二十、iOS文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十一、iOS文件操作："><span class="nav-number">21.</span> <span class="nav-text">二十一、iOS文件操作：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十二、iOS归档："><span class="nav-number">22.</span> <span class="nav-text">二十二、iOS归档：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十三、自定义UITableViewCell："><span class="nav-number">23.</span> <span class="nav-text">二十三、自定义UITableViewCell：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十四、代理的使用步骤："><span class="nav-number">24.</span> <span class="nav-text">二十四、代理的使用步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十五、iOS监听事件的方法比较"><span class="nav-number">25.</span> <span class="nav-text">二十五、iOS监听事件的方法比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十六、UIView形变"><span class="nav-number">26.</span> <span class="nav-text">二十六、UIView形变:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十七：hitTest与pointInside方法："><span class="nav-number">27.</span> <span class="nav-text">二十七：hitTest与pointInside方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十八、事件传递过程："><span class="nav-number">28.</span> <span class="nav-text">二十八、事件传递过程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二十九、Quartz2D："><span class="nav-number">29.</span> <span class="nav-text">二十九、Quartz2D：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十、CALayer："><span class="nav-number">30.</span> <span class="nav-text">三十、CALayer：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十一、frame、bounds和center："><span class="nav-number">31.</span> <span class="nav-text">三十一、frame、bounds和center：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十二、Core-Animation："><span class="nav-number">32.</span> <span class="nav-text">三十二、Core Animation：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十三、UIAppearance"><span class="nav-number">33.</span> <span class="nav-text">三十三、UIAppearance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十四、layoutSubviews的调用时机："><span class="nav-number">34.</span> <span class="nav-text">三十四、layoutSubviews的调用时机：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十五、Block详解："><span class="nav-number">35.</span> <span class="nav-text">三十五、Block详解：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十六、多线程"><span class="nav-number">36.</span> <span class="nav-text">三十六、多线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十七、SDWebImage使用："><span class="nav-number">37.</span> <span class="nav-text">三十七、SDWebImage使用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十八、单例模式："><span class="nav-number">38.</span> <span class="nav-text">三十八、单例模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三十九、常见响应状态码："><span class="nav-number">39.</span> <span class="nav-text">三十九、常见响应状态码：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十、RunLoop："><span class="nav-number">40.</span> <span class="nav-text">四十、RunLoop：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十一、Json和Xml数据解析："><span class="nav-number">41.</span> <span class="nav-text">四十一、Json和Xml数据解析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十二、NSURLSession"><span class="nav-number">42.</span> <span class="nav-text">四十二、NSURLSession</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十三、Reachability"><span class="nav-number">43.</span> <span class="nav-text">四十三、Reachability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十四、AFNetworking"><span class="nav-number">44.</span> <span class="nav-text">四十四、AFNetworking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十五、设置应用使用HTTP访问："><span class="nav-number">45.</span> <span class="nav-text">四十五、设置应用使用HTTP访问：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十六、NSInvocation的基本使用"><span class="nav-number">46.</span> <span class="nav-text">四十六、NSInvocation的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十七、NSInputStream、NSOutputStream的简单使用："><span class="nav-number">47.</span> <span class="nav-text">四十七、NSInputStream、NSOutputStream的简单使用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四十八、类扩展、分类、协议："><span class="nav-number">48.</span> <span class="nav-text">四十八、类扩展、分类、协议：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录一：常用第三方框架"><span class="nav-number">49.</span> <span class="nav-text">附录一：常用第三方框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录二：常用宏"><span class="nav-number">50.</span> <span class="nav-text">附录二：常用宏</span></a></li></ol></div>
             
 
           </div>
