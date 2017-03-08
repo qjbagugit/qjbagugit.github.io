@@ -101,7 +101,7 @@ Proguard官网
 代码混淆(Obfuscated code)亦称花指令，是将计算机程序的代码，转换成一种功能上等价，但是难于阅读和理解的形式的行为。代码混淆可以用于程序源代码，也可以用于程序编译而成的中间代码。执行代码混淆的程序被称作代码混淆器。目前已经存在许多种功能各异的代码混淆器。
 将代码中的各种元素，如变量，函数，类的名字改写成无意义的名字。比如改写成单个字母，或是简短的">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/02/20/Android代码混淆总结/2_5_1.png">
-<meta property="og:updated_time" content="2017-02-21T04:50:56.000Z">
+<meta property="og:updated_time" content="2017-03-08T02:24:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android代码混淆总结">
 <meta name="twitter:description" content="1、简介：
@@ -478,31 +478,31 @@ Proguard官网
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><field></field></td>
+<td style="text-align:center">&lt; field&gt;</td>
 <td style="text-align:left">匹配类中的所有字段</td>
 </tr>
 <tr>
-<td style="text-align:center"><method></method></td>
+<td style="text-align:center">&lt; method&gt;</td>
 <td style="text-align:left">匹配类中的所有方法</td>
 </tr>
 <tr>
-<td style="text-align:center"><init></init></td>
+<td style="text-align:center">&lt; init&gt;</td>
 <td style="text-align:left">匹配类中的所有构造函数</td>
 </tr>
 <tr>
-<td style="text-align:center">*</td>
+<td style="text-align:center"><strong>*</strong></td>
 <td style="text-align:left">匹配任意长度字符，但不含包名分隔符(.)。比如说我们的完整类名是com.example.test.MyActivity，使用com.<em>，或者com.exmaple.</em>都是无法匹配的，因为<em>无法匹配包名中的分隔符，正确的匹配方式是com.exmaple.</em>.<em>，或者com.exmaple.test.</em>，这些都是可以的。但如果你不写任何其它内容，只有一个*，那就表示匹配所有的东西。</td>
 </tr>
 <tr>
-<td style="text-align:center">**</td>
+<td style="text-align:center"><strong>**</strong></td>
 <td style="text-align:left">匹配任意长度字符，并且包含包名分隔符(.)。比如proguard-android.txt中使用的-dontwarn android.support.**就可以匹配android.support包下的所有内容，包括任意长度的子包。</td>
 </tr>
 <tr>
-<td style="text-align:center"><em>*</em></td>
+<td style="text-align:center"><strong><em>*</em></strong></td>
 <td style="text-align:left">匹配任意参数类型。比如void set<em>(**</em>)就能匹配任意传入的参数类型，<em>** get</em>()就能匹配任意返回值的类型。</td>
 </tr>
 <tr>
-<td style="text-align:center">…</td>
+<td style="text-align:center"><strong>…</strong></td>
 <td style="text-align:left">匹配任意长度的任意类型参数。比如void test(…)就能匹配任意void test(String a)或者是void test(int a, String b)这些方法。</td>
 </tr>
 </tbody>
@@ -575,6 +575,7 @@ Proguard官网
 <p>其他未显式声明的语言资源将被移除。</p>
 <h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p>1.<a href="http://www.jianshu.com/p/158aa484da13" target="_blank" rel="external">写给Android开发者的混淆使用手册</a></p>
 <p>2.<a href="http://blog.csdn.net/guolin_blog/article/details/50451259" target="_blank" rel="external">Android安全攻防战，反编译与混淆技术完全解析（下）</a></p>
+<p>3.<a href="http://mp.weixin.qq.com/s/rpDFA-h5t2RA9Dih3gVqVA?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">混淆的另一重境界</a></p>
 
       
     </div>
