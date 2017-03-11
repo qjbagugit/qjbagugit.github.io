@@ -127,7 +127,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_3.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_4.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/44_1.png">
-<meta property="og:updated_time" content="2017-02-27T16:33:45.000Z">
+<meta property="og:updated_time" content="2017-03-10T01:55:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS学习笔记">
 <meta name="twitter:description" content="一、加载图片的方式：
@@ -443,6 +443,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <ol>
 <li>pch文件使用前需要先编译。</li>
 <li>需要做一些判断，例如：判断是否有c文件，如果有，则不导入oc文件及语法。</li>
+<li>pch文件名称和项目名称一致。</li>
 </ol>
 </li>
 <li><p>使用步骤：</p>
@@ -1056,7 +1057,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <blockquote>
 <ul>
 <li><p>Caches目录：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);</div><div class="line">&gt;            NSString *libPath = [paths objectAtIndex:0]; </div><div class="line">&gt;</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);</div><div class="line">&gt;            NSString *libPath = [paths objectAtIndex:0]; </div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -1485,6 +1486,18 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <ul>
 <li><p>让某一类控件在另一种控件中同时变现某种属性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;   // 使UIView上面的UIButton的titleColor都变成灰色的效果</div><div class="line">&gt;   [[UIButton appearanceWhenContainedInInstancesOfClasses:@[[UIView class]]] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li><p>注意：</p>
+<ul>
+<li>appearance只有在控件显示之前设置，才有效果。</li>
+<li>只有被宏UI_APPEARANCE_SELECTOR修饰才能使用appearance进行修改。</li>
+<li>字体只有在Normal状态可以正常设置，否则无效。</li>
+</ul>
 </li>
 </ul>
 </blockquote>
@@ -2050,7 +2063,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <li><p>CFRunLoopObserverRef是观察者，能够监听RunLoop的状态改变</p>
 </li>
 <li><p>监听实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;       //创建一个runloop监听者</div><div class="line">&gt;       CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(),kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) &#123;</div><div class="line">&gt;           NSLog(@&quot;监听runloop状态改变---%zd&quot;,activity);</div><div class="line">&gt;       &#125;);</div><div class="line">&gt;       //为runloop添加一个监听者</div><div class="line">&gt;       CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);</div><div class="line">&gt;       CFRelease(observer);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;       //创建一个runloop监听者</div><div class="line">&gt;       CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(),kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) &#123;</div><div class="line">&gt;           NSLog(@&quot;监听runloop状态改变---%zd&quot;,activity);</div><div class="line">&gt;       &#125;);</div><div class="line">&gt;       //为runloop添加一个监听者</div><div class="line">&gt;       CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, kCFRunLoopDefaultMode);</div><div class="line">&gt;       CFRelease(observer);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -2178,7 +2191,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <blockquote>
 <ul>
 <li><p>计算当前下载进度</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      //获取文件下载进度</div><div class="line">&gt;      self.progress.progress = 1.0 * totalBytesWritten/totalBytesExpectedToWrite;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      //获取文件下载进度</div><div class="line">&gt;      self.progress.progress = 1.0 * totalBytesWritten/totalBytesExpectedToWrite;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -2186,9 +2199,9 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <blockquote>
 <ul>
 <li><p>注意点:</p>
-<p>​    a. 将已下载的追加写到本地文件中</p>
-<p>​    b. 下次请求数据时指定从哪个地方开始下载文件数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      NSString *range = [NSString stringWithFormat:@&quot;bytes=%zd-&quot;,self.currentContentLength];</div><div class="line">&gt;      [request setValue:range forHTTPHeaderField:@&quot;Range&quot;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>   ​    a. 将已下载的追加写到本地文件中</p>
+<p>   ​    b. 下次请求数据时指定从哪个地方开始下载文件数据</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;      NSString *range = [NSString stringWithFormat:@&quot;bytes=%zd-&quot;,self.currentContentLength];</div><div class="line">&gt;      [request setValue:range forHTTPHeaderField:@&quot;Range&quot;];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -2196,7 +2209,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <blockquote>
 <ul>
 <li><p>NSURLSession对象的释放</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;      -(void)dealloc&#123;</div><div class="line">&gt;          //在最后的时候应该把session释放，以免造成内存泄露</div><div class="line">&gt;          //    NSURLSession设置过代理后，需要在最后（比如控制器销毁的时候）调用session的invalidateAndCancel或者resetWithCompletionHandler，才不会有内存泄露</div><div class="line">&gt;      //    [self.session invalidateAndCancel];</div><div class="line">&gt;          [self.session resetWithCompletionHandler:^&#123;</div><div class="line">&gt;              NSLog(@&quot;释放---&quot;);</div><div class="line">&gt;          &#125;];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&gt;      -(void)dealloc&#123;</div><div class="line">&gt;          //在最后的时候应该把session释放，以免造成内存泄露</div><div class="line">&gt;          //    NSURLSession设置过代理后，需要在最后（比如控制器销毁的时候）调用session的invalidateAndCancel或者resetWithCompletionHandler，才不会有内存泄露</div><div class="line">&gt;      //    [self.session invalidateAndCancel];</div><div class="line">&gt;          [self.session resetWithCompletionHandler:^&#123;</div><div class="line">&gt;              NSLog(@&quot;释放---&quot;);</div><div class="line">&gt;          &#125;];</div><div class="line">&gt;      &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -2359,6 +2372,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <li><a href="https://github.com/liric28/FLAnimatedImage" target="_blank" rel="external">FLAnimatedImage</a>：是一个iOS的gif动画库。</li>
 <li><a href="https://github.com/intuit/LocationManager" target="_blank" rel="external">LocationManager</a>：是一个简单的iOS定位库。</li>
 <li><a href="https://github.com/Bilibili/ijkplayer" target="_blank" rel="external">ijkplayer</a>：B站开源的视频播放器，支持Android和iOS。</li>
+<li><a href="https://github.com/CocoaLumberjack/CocoaLumberjack" target="_blank" rel="external">CocoaLumberjack</a>：是一个iOS的日志框架。</li>
 </ol>
 <p>参考：<a href="http://www.cocoachina.com/ios/20170215/18692.html" target="_blank" rel="external">iOS超全开源框架、项目和学习资料汇总</a></p>
 <h2 id="附录二：常用宏"><a href="#附录二：常用宏" class="headerlink" title="附录二：常用宏"></a>附录二：常用宏</h2><ol>
