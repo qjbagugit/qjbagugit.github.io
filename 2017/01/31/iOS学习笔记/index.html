@@ -127,7 +127,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_3.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/40_4.png">
 <meta property="og:image" content="https://qjbagugit.github.io/2017/01/31/iOS学习笔记/44_1.png">
-<meta property="og:updated_time" content="2017-03-10T01:55:18.000Z">
+<meta property="og:updated_time" content="2017-03-18T02:04:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS学习笔记">
 <meta name="twitter:description" content="一、加载图片的方式：
@@ -655,7 +655,7 @@ NSString *path = [[NSBundle mainBundle] pathF">
 <li><p>方式2:常用于自定义Cell</p>
 <p>定义flag：<code>NSString *ID = @&quot;flag&quot;;</code></p>
 <p>在viewDidLoad方法中进行注册</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;      [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:ID];</div><div class="line">&gt;      // 如果Cell使用xib显示，必须使用registerNib，否则无法显示</div><div class="line">&gt;      // [self.tableView registerNib:[UINib nibWithNibName:@&quot;CPSubTagCell&quot; bundle:nil] forCellReuseIdentifier:ID];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -665,10 +665,9 @@ NSString *path = [[NSBundle mainBundle] pathF">
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;      UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ID];</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </code></pre></blockquote>
-<p>&gt;</p>
+<p>&gt;<br>&gt;</p>
 <blockquote>
-<pre><code>​
-</code></pre><ol>
+<ol>
 <li><p>数据刷新：</p>
 <ul>
 <li><p>全局刷新：<code>[self.tableview reloadData]</code></p>
