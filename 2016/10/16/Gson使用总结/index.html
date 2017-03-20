@@ -1,0 +1,1195 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术总结,Gson,转载," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="转载出处：
+你真的会用Gson吗?Gson使用指南（一）
+你真的会用Gson吗?Gson使用指南（二）
+你真的会用Gson吗?Gson使用指南（三）
+你真的会用Gson吗?Gson使用指南（四）
+
+注：此系列基于Gson 2.4。
+你真的会用Gson吗?Gson使用指南（一）本篇文章的主要内容：
+
+Gson的基本用法
+属性重命名 @SerializedName 注解的使用
+Gson中使用泛型
+
+一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gson使用总结">
+<meta property="og:url" content="https://qjbagugit.github.io/2016/10/16/Gson使用总结/index.html">
+<meta property="og:site_name" content="Timer`s blog">
+<meta property="og:description" content="转载出处：
+你真的会用Gson吗?Gson使用指南（一）
+你真的会用Gson吗?Gson使用指南（二）
+你真的会用Gson吗?Gson使用指南（三）
+你真的会用Gson吗?Gson使用指南（四）
+
+注：此系列基于Gson 2.4。
+你真的会用Gson吗?Gson使用指南（一）本篇文章的主要内容：
+
+Gson的基本用法
+属性重命名 @SerializedName 注解的使用
+Gson中使用泛型
+
+一">
+<meta property="og:updated_time" content="2017-03-20T08:02:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gson使用总结">
+<meta name="twitter:description" content="转载出处：
+你真的会用Gson吗?Gson使用指南（一）
+你真的会用Gson吗?Gson使用指南（二）
+你真的会用Gson吗?Gson使用指南（三）
+你真的会用Gson吗?Gson使用指南（四）
+
+注：此系列基于Gson 2.4。
+你真的会用Gson吗?Gson使用指南（一）本篇文章的主要内容：
+
+Gson的基本用法
+属性重命名 @SerializedName 注解的使用
+Gson中使用泛型
+
+一">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://qjbagugit.github.io/2016/10/16/Gson使用总结/"/>
+
+
+
+
+
+  <title> Gson使用总结 | Timer`s blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Timer`s blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://qjbagugit.github.io/2016/10/16/Gson使用总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Timer">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Timer`s blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Timer`s blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gson使用总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-16T12:57:26+08:00">
+                2016-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术总结/" itemprop="url" rel="index">
+                    <span itemprop="name">技术总结</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术总结/Gson/" itemprop="url" rel="index">
+                    <span itemprop="name">Gson</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/10/16/Gson使用总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/16/Gson使用总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/10/16/Gson使用总结/" class="leancloud_visitors" data-flag-title="Gson使用总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="转载出处："><a href="#转载出处：" class="headerlink" title="转载出处："></a>转载出处：</h2><ul>
+<li><a href="http://www.jianshu.com/p/e740196225a4" target="_blank" rel="external">你真的会用Gson吗?Gson使用指南（一）</a></li>
+<li><a href="http://www.jianshu.com/p/c88260adaf5e" target="_blank" rel="external">你真的会用Gson吗?Gson使用指南（二）</a></li>
+<li><a href="http://www.jianshu.com/p/0e40a52c0063" target="_blank" rel="external">你真的会用Gson吗?Gson使用指南（三）</a></li>
+<li><a href="http://www.jianshu.com/p/3108f1e44155" target="_blank" rel="external">你真的会用Gson吗?Gson使用指南（四）</a></li>
+</ul>
+<p><strong>注：此系列基于Gson 2.4。</strong></p>
+<h1 id="你真的会用Gson吗-Gson使用指南（一）"><a href="#你真的会用Gson吗-Gson使用指南（一）" class="headerlink" title="你真的会用Gson吗?Gson使用指南（一）"></a>你真的会用Gson吗?Gson使用指南（一）</h1><p>本篇文章的主要内容：</p>
+<ul>
+<li>Gson的基本用法</li>
+<li>属性重命名 <code>@SerializedName</code> 注解的使用</li>
+<li>Gson中使用泛型</li>
+</ul>
+<h2 id="一、Gson的基本用法"><a href="#一、Gson的基本用法" class="headerlink" title="一、Gson的基本用法"></a>一、Gson的基本用法</h2><p>Gson提供了<code>fromJson()</code> 和<code>toJson()</code> 两个直接用于解析和生成的方法，前者实现反序列化，后者实现了序列化。同时每个方法都提供了重载方法，我常用的总共有5个。</p>
+<p><strong>基本数据类型的解析</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line"><span class="keyword">int</span> i = gson.fromJson(<span class="string">"100"</span>, <span class="keyword">int</span>.class);              <span class="comment">//100</span></div><div class="line"><span class="keyword">double</span> d = gson.fromJson(<span class="string">"\"99.99\""</span>, <span class="keyword">double</span>.class);  <span class="comment">//99.99</span></div><div class="line"><span class="keyword">boolean</span> b = gson.fromJson(<span class="string">"true"</span>, <span class="keyword">boolean</span>.class);     <span class="comment">// true</span></div><div class="line">String str = gson.fromJson(<span class="string">"String"</span>, String.class);   <span class="comment">// String</span></div></pre></td></tr></table></figure>
+<p>注：不知道你是否注意到了第2、3行有什么不一样没</p>
+<p><strong>基本数据类型的生成</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">String jsonNumber = gson.toJson(<span class="number">100</span>);       <span class="comment">// 100</span></div><div class="line">String jsonBoolean = gson.toJson(<span class="keyword">false</span>);    <span class="comment">// false</span></div><div class="line">String jsonString = gson.toJson(<span class="string">"String"</span>); <span class="comment">//"String"</span></div></pre></td></tr></table></figure>
+<p><strong>POJO类的生成与解析</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">    <span class="comment">//省略其它</span></div><div class="line">    <span class="keyword">public</span> String name;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="keyword">public</span> String emailAddress;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>生成JSON：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">User user = <span class="keyword">new</span> User(<span class="string">"怪盗kidou"</span>,<span class="number">24</span>);</div><div class="line">String jsonObject = gson.toJson(user); <span class="comment">// &#123;"name":"怪盗kidou","age":24&#125;</span></div></pre></td></tr></table></figure>
+<p>解析JSON：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">String jsonString = <span class="string">"&#123;\"name\":\"怪盗kidou\",\"age\":24&#125;"</span>;</div><div class="line">User user = gson.fromJson(jsonString, User.class);</div></pre></td></tr></table></figure>
+<h2 id="二、属性重命名-SerializedName-注解的使用"><a href="#二、属性重命名-SerializedName-注解的使用" class="headerlink" title="二、属性重命名 @SerializedName 注解的使用"></a>二、属性重命名 @SerializedName 注解的使用</h2><p>从上面POJO的生成与解析可以看出json的字段和值是的名称和类型是一一对应的，但也有一定容错机制(如第一个例子第3行将字符串的99.99转成double型，你可别告诉我都是字符串啊)，但有时候也会出现一些不和谐的情况，如：<br>期望的json格式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"name"</span>:<span class="string">"怪盗kidou"</span>,<span class="string">"age"</span>:<span class="number">24</span>,<span class="string">"emailAddress"</span>:<span class="string">"ikidou@example.com"</span>&#125;</div></pre></td></tr></table></figure>
+<p>实际</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"name"</span>:<span class="string">"怪盗kidou"</span>,<span class="string">"age"</span>:<span class="number">24</span>,<span class="string">"email_address"</span>:<span class="string">"ikidou@example.com"</span>&#125;</div></pre></td></tr></table></figure>
+<p>这对于使用PHP作为后台开发语言时很常见的情况，php和js在命名时一般采用下划线风格，而Java中一般采用的驼峰法，让后台的哥们改吧 前端和后台都不爽，但要自己使用下划线风格时我会感到不适应，怎么办?难到没有两全齐美的方法么?</p>
+<p>我们知道Gson在序列化和反序列化时需要使用反射，说到反射就不得不想到注解,一般各类库都将注解放到<code>annotations</code>包下，打开源码在<code>com.google.gson</code>包下果然有一个<code>annotations</code>，里面有一个<code>SerializedName</code>的注解类，这应该就是我们要找的。</p>
+<p>那么对于json中<code>email_address</code>这个属性对应POJO的属性则变成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SerializedName</span>(<span class="string">"email_address"</span>)</div><div class="line"><span class="keyword">public</span> String emailAddress;</div></pre></td></tr></table></figure>
+<p>这样的话，很好的保留了前端、后台、Android/java各自的命名习惯。</p>
+<p>你以为这样就完了么?</p>
+<p>如果接中设计不严谨或者其它地方可以重用该类，其它字段都一样，就<code>emailAddress</code> 字段不一样，比如有下面三种情况那怎么?重新写一个?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"name"</span>:<span class="string">"怪盗kidou"</span>,<span class="string">"age"</span>:<span class="number">24</span>,<span class="string">"emailAddress"</span>:<span class="string">"ikidou@example.com"</span>&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"name"</span>:<span class="string">"怪盗kidou"</span>,<span class="string">"age"</span>:<span class="number">24</span>,<span class="string">"email_address"</span>:<span class="string">"ikidou@example.com"</span>&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"name"</span>:<span class="string">"怪盗kidou"</span>,<span class="string">"age"</span>:<span class="number">24</span>,<span class="string">"email"</span>:<span class="string">"ikidou@example.com"</span>&#125;</div></pre></td></tr></table></figure>
+<p><strong>为POJO字段提供备选属性名</strong><br><code>SerializedName</code>注解提供了两个属性，上面用到了其中一个，别外还有一个属性<code>alternate</code>，接收一个String数组。<br>注：<code>alternate</code>需要2.4版本</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SerializedName</span>(value = <span class="string">"emailAddress"</span>, alternate = &#123;<span class="string">"email"</span>, <span class="string">"email_address"</span>&#125;)</div><div class="line"><span class="keyword">public</span> String emailAddress;</div></pre></td></tr></table></figure>
+<p>当上面的三个属性(email_address、email、emailAddress)都中出现任意一个时均可以得到正确的结果。<br>注：当多种情况同时出时，以最后一个出现的值为准。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">String json = <span class="string">"&#123;\"name\":\"怪盗kidou\",\"age\":24,\"emailAddress\":\"ikidou_1@example.com\",\"email\":\"ikidou_2@example.com\",\"email_address\":\"ikidou_3@example.com\"&#125;"</span>;</div><div class="line">User user = gson.fromJson(json, User.class);</div><div class="line">System.out.println(user.emailAddress); <span class="comment">// ikidou_3@example.com</span></div></pre></td></tr></table></figure>
+<h2 id="三、Gson中使用泛型"><a href="#三、Gson中使用泛型" class="headerlink" title="三、Gson中使用泛型"></a>三、Gson中使用泛型</h2><p>上面了解的JSON中的Number、boolean、Object和String，现在说一下Array。</p>
+<p>例：JSON字符串数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">"Android"</span>,<span class="string">"Java"</span>,<span class="string">"PHP"</span>]</div></pre></td></tr></table></figure>
+<p>当我们要通过Gson解析这个json时，一般有两种方式：使用数组，使用List。而List对于增删都是比较方便的，所以实际使用是还是List比较多。</p>
+<p>数组比较简单</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">String jsonArray = <span class="string">"[\"Android\",\"Java\",\"PHP\"]"</span>;</div><div class="line">String[] strings = gson.fromJson(jsonArray, String[].class);</div></pre></td></tr></table></figure>
+<p>但对于List将上面的代码中的 <code>String[].class</code> 直接改为 <code>List&lt;String&gt;.class</code> 是行不通的。对于Java来说<code>List&lt;String&gt;</code> 和<code>List&lt;User&gt;</code> 这俩个的字节码文件只一个那就是<code>List.class</code>，这是Java泛型使用时要注意的问题 <strong>泛型擦除</strong>。</p>
+<p>为了解决的上面的问题，Gson为我们提供了<code>TypeToken</code>来实现对泛型的支持，所以当我们希望使用将以上的数据解析为<code>List&lt;String&gt;</code>时需要这样写。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">String jsonArray = <span class="string">"[\"Android\",\"Java\",\"PHP\"]"</span>;</div><div class="line">String[] strings = gson.fromJson(jsonArray, String[].class);</div><div class="line">List&lt;String&gt; stringList = gson.fromJson(jsonArray, <span class="keyword">new</span> TypeToken&lt;List&lt;String&gt;&gt;() &#123;&#125;.getType());</div></pre></td></tr></table></figure>
+<p>注：<code>TypeToken</code>的构造方法是<code>protected</code>修饰的,所以上面才会写成<code>new TypeToken&lt;List&lt;String&gt;&gt;() {}.getType()</code> 而不是 <code>new TypeToken&lt;List&lt;String&gt;&gt;().getType()</code></p>
+<p><strong>泛型解析对接口POJO的设计影响</strong><br>泛型的引入可以减少无关的代码，如我现在所在公司接口返回的数据分为两类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"code"</span>:<span class="string">"0"</span>,<span class="string">"message"</span>:<span class="string">"success"</span>,<span class="string">"data"</span>:&#123;&#125;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"code"</span>:<span class="string">"0"</span>,<span class="string">"message"</span>:<span class="string">"success"</span>,<span class="string">"data"</span>:[]&#125;</div></pre></td></tr></table></figure>
+<p>我们真正需要的<code>data</code>所包含的数据，而<code>code</code>只使用一次，<code>message</code>则几乎不用。如果Gson不支持泛型或不知道Gson支持泛型的同学一定会这么定义POJO。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserResponse</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> code;</div><div class="line">    <span class="keyword">public</span> String message;</div><div class="line">    <span class="keyword">public</span> User data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当其它接口的时候又重新定义一个<code>XXResponse</code>将<code>data</code>的类型改成XX，很明显<code>code</code>，和<code>message</code>被重复定义了多次，通过泛型的话我们可以将<code>code</code>和<code>message</code>字段抽取到一个<code>Result</code>的类中，这样我们只需要编写<code>data</code>字段所对应的POJO即可，更专注于我们的业务逻辑。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Result</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> code;</div><div class="line">    <span class="keyword">public</span> String message;</div><div class="line">    <span class="keyword">public</span> T data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么对于<code>data</code>字段是<code>User</code>时则可以写为 <code>Result&lt;User&gt;</code> ,当是个列表的时候为 <code>Result&lt;List&lt;User&gt;&gt;</code>，其它同理。</p>
+<p>PS：嫌每次 <code>new TypeToken&lt;Result&lt;XXX&gt;</code> 和 <code>new TypeToken&lt;Result&lt;List&lt;XXX&gt;&gt;</code> 太麻烦, 想进一步封装? 查看我的另一篇博客：<strong> 《搞定Gson泛型封装》</strong></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本文主要通过代码向各位读者讲解了Gson的基本用法，以后还会更新更多更高级的用法，如果你还不熟悉 <strong>注解</strong>和<strong>泛型</strong> 那么你要多多努力啦。</p>
+<p>如果你有其它的想了解的内容(不限于Gson)请给我留言评论，水平有限，欢迎拍砖。</p>
+<hr>
+<p><strong>4月6日补充</strong><br>有说看不懂Result那段怎么个简化法，下面给个两个完整的例子，User和List<user> 。</user></p>
+<p>没有引入泛型之前时写法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserResult</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> code;</div><div class="line">    <span class="keyword">public</span> String message;</div><div class="line">    <span class="keyword">public</span> User data;</div><div class="line">&#125;</div><div class="line"><span class="comment">//=========</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserListResult</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> code;</div><div class="line">    <span class="keyword">public</span> String message;</div><div class="line">    <span class="keyword">public</span> List&lt;User&gt; data;</div><div class="line">&#125;</div><div class="line"><span class="comment">//=========</span></div><div class="line">String json = <span class="string">"&#123;..........&#125;"</span>;</div><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">UserResult userResult = gson.fromJson(json,UserResult.class);</div><div class="line">User user = userResult.data;</div><div class="line"></div><div class="line">UserListResult userListResult = gson.fromJson(json,UserListResult.class);</div><div class="line">List&lt;User&gt; users = userListResult.data;</div></pre></td></tr></table></figure>
+<p>上面有两个类<code>UserResult</code>和<code>UserListResult</code>，有两个字段重复，一两个接口就算了，如果有上百个怎么办?不得累死?所以引入泛型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不再重复定义Result类</span></div><div class="line">Type userType = <span class="keyword">new</span> TypeToken&lt;Result&lt;User&gt;&gt;()&#123;&#125;.getType();</div><div class="line">Result&lt;User&gt; userResult = gson.fromJson(json,userType);</div><div class="line">User user = userResult.data;</div><div class="line"></div><div class="line">Type userListType = <span class="keyword">new</span> TypeToken&lt;Result&lt;List&lt;User&gt;&gt;&gt;()&#123;&#125;.getType();</div><div class="line">Result&lt;List&lt;User&gt;&gt; userListResult = gson.fromJson(json,userListType);</div><div class="line">List&lt;User&gt; users = userListResult.data;</div></pre></td></tr></table></figure>
+<p>看出区别了么?引入了泛型之后虽然要多写一句话用于获取泛型信息，但是返回值类型很直观，也少定义了很多无关类。</p>
+<h1 id="你真的会用Gson吗-Gson使用指南（二）"><a href="#你真的会用Gson吗-Gson使用指南（二）" class="headerlink" title="你真的会用Gson吗?Gson使用指南（二）"></a>你真的会用Gson吗?Gson使用指南（二）</h1><p><strong>本次的主要内容：</strong></p>
+<ul>
+<li>Gson的流式反序列化</li>
+<li>Gson的流式序列化</li>
+<li>使用GsonBuilder导出null值、格式化输出、日期时间及其它小功能</li>
+</ul>
+<h2 id="一、Gson的流式反序列化"><a href="#一、Gson的流式反序列化" class="headerlink" title="一、Gson的流式反序列化"></a>一、Gson的流式反序列化</h2><p><strong>自动方式</strong></p>
+<blockquote>
+<p>Gson提供了<code>fromJson()</code>和<code>toJson()</code> 两个直接用于解析和生成的方法，前者实现反序列化，后者实现了序列化。同时每个方法都提供了重载方法，我常用的总共有5个。</p>
+</blockquote>
+<p>这是我在上一篇文章开头说的，但我到最后也一直没有是哪5个，这次我给列出来之后，你就知道这次讲的是哪个了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Gson.toJson(Object);</div><div class="line">Gson.fromJson(Reader,Class);</div><div class="line">Gson.fromJson(String,Class);</div><div class="line">Gson.fromJson(Reader,Type);</div><div class="line">Gson.fromJson(String,Type);</div></pre></td></tr></table></figure>
+<p>好了，本节结束！</p>
+<p>看第2、4行,Reader懂了吧</p>
+<p><strong>手动方式</strong><br>手动的方式就是使用<code>stream</code>包下的<code>JsonReader</code>类来手动实现反序列化，和Android中使用pull解析XML是比较类似的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">String json = <span class="string">"&#123;\"name\":\"怪盗kidou\",\"age\":\"24\"&#125;"</span>;</div><div class="line">User user = <span class="keyword">new</span> User();</div><div class="line">JsonReader reader = <span class="keyword">new</span> JsonReader(<span class="keyword">new</span> StringReader(json));</div><div class="line">reader.beginObject(); <span class="comment">// throws IOException</span></div><div class="line"><span class="keyword">while</span> (reader.hasNext()) &#123;</div><div class="line">    String s = reader.nextName();</div><div class="line">    <span class="keyword">switch</span> (s) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">"name"</span>:</div><div class="line">            user.name = reader.nextString();</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">"age"</span>:</div><div class="line">            user.age = reader.nextInt(); <span class="comment">//自动转换</span></div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">"email"</span>:</div><div class="line">            user.email = reader.nextString();</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">reader.endObject(); <span class="comment">// throws IOException</span></div><div class="line">System.out.println(user.name);  <span class="comment">// 怪盗kidou</span></div><div class="line">System.out.println(user.age);   <span class="comment">// 24</span></div><div class="line">System.out.println(user.email); <span class="comment">// ikidou@example.com</span></div></pre></td></tr></table></figure>
+<p>其实自动方式最终都是通过<code>JsonReader</code>来实现的，如果第一个参数是<code>String</code>类型，那么Gson会创建一个<code>StringReader</code>转换成流操作。</p>
+<p>Gson流式解析</p>
+<h2 id="二、Gson的流式序列化"><a href="#二、Gson的流式序列化" class="headerlink" title="二、Gson的流式序列化"></a>二、Gson的流式序列化</h2><p><strong>自动方式</strong></p>
+<p>Gson.toJson方法列表</p>
+<p>所以啊，学会利用IDE的自动完成是多么重要这下知道了吧！<br>可以看出用红框选中的部分就是我们要找的东西。</p>
+<p>提示：<code>PrintStream</code>(System.out) 、<code>StringBuilder</code>、<code>StringBuffer</code>和<code>*Writer</code>都实现了<code>Appendable</code>接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">User user = <span class="keyword">new</span> User(<span class="string">"怪盗kidou"</span>,<span class="number">24</span>,<span class="string">"ikidou@example.com"</span>);</div><div class="line">gson.toJson(user,System.out); <span class="comment">// 写到控制台</span></div></pre></td></tr></table></figure>
+<p><strong>手动方式</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">JsonWriter writer = <span class="keyword">new</span> JsonWriter(<span class="keyword">new</span> OutputStreamWriter(System.out));</div><div class="line">writer.beginObject() <span class="comment">// throws IOException</span></div><div class="line">        .name(<span class="string">"name"</span>).value(<span class="string">"怪盗kidou"</span>)</div><div class="line">        .name(<span class="string">"age"</span>).value(<span class="number">24</span>)</div><div class="line">        .name(<span class="string">"email"</span>).nullValue() <span class="comment">//演示null</span></div><div class="line">        .endObject(); <span class="comment">// throws IOException</span></div><div class="line">writer.flush(); <span class="comment">// throws IOException</span></div><div class="line"><span class="comment">//&#123;"name":"怪盗kidou","age":24,"email":null&#125;</span></div></pre></td></tr></table></figure>
+<p>提示：除了<code>beginObject</code>、<code>endObject</code>还有<code>beginArray</code>和<code>endArray</code>，两者可以相互嵌套，注意配对即可。<code>beginArray</code>后不可以调用<code>name</code>方法，同样<code>beginObject</code>后在调用<code>value</code>之前必须要调用<code>name</code>方法。</p>
+<h2 id="三、-使用GsonBuilder导出null值、格式化输出、日期时间"><a href="#三、-使用GsonBuilder导出null值、格式化输出、日期时间" class="headerlink" title="三、 使用GsonBuilder导出null值、格式化输出、日期时间"></a>三、 使用GsonBuilder导出null值、格式化输出、日期时间</h2><p>一般情况下<code>Gson</code>类提供的 API已经能满足大部分的使用场景，但我们需要更多更特殊、更强大的功能时，这时候就引入一个新的类 <code>GsonBuilder</code>。</p>
+<p><code>GsonBuilder</code>从名上也能知道是用于构建Gson实例的一个类，要想改变Gson默认的设置必须使用该类配置Gson。</p>
+<p><strong>GsonBuilder用法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">               <span class="comment">//各种配置</span></div><div class="line">               .create(); <span class="comment">//生成配置好的Gson</span></div></pre></td></tr></table></figure>
+<p>Gson在默认情况下是不动导出值<code>null</code>的键的，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">    <span class="comment">//省略其它</span></div><div class="line">    <span class="keyword">public</span> String name;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="keyword">public</span> String email;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">User user = <span class="keyword">new</span> User(<span class="string">"怪盗kidou"</span>,<span class="number">24</span>);</div><div class="line">System.out.println(gson.toJson(user)); <span class="comment">//&#123;"name":"怪盗kidou","age":24&#125;</span></div></pre></td></tr></table></figure>
+<p>可以看出，<code>email</code>字段是没有在json中出现的，当我们在调试是、需要导出完整的json串时或API接中要求没有值必须用Null时，就会比较有用。</p>
+<p>使用方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .serializeNulls()</div><div class="line">        .create();</div><div class="line">User user = <span class="keyword">new</span> User(<span class="string">"怪盗kidou"</span>, <span class="number">24</span>);</div><div class="line">System.out.println(gson.toJson(user)); <span class="comment">//&#123;"name":"怪盗kidou","age":24,"email":null&#125;</span></div></pre></td></tr></table></figure>
+<p><strong>格式化输出、日期时间及其它</strong>：</p>
+<p>这些都比较简单就不一一分开写了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        <span class="comment">//序列化null</span></div><div class="line">        .serializeNulls()</div><div class="line">        <span class="comment">// 设置日期时间格式，另有2个重载方法</span></div><div class="line">        <span class="comment">// 在序列化和反序化时均生效</span></div><div class="line">        .setDateFormat(<span class="string">"yyyy-MM-dd"</span>)</div><div class="line">        <span class="comment">// 禁此序列化内部类</span></div><div class="line">        .disableInnerClassSerialization()</div><div class="line">        <span class="comment">//生成不可执行的Json（多了 )]&#125;' 这4个字符）</span></div><div class="line">        .generateNonExecutableJson()</div><div class="line">        <span class="comment">//禁止转义html标签</span></div><div class="line">        .disableHtmlEscaping()</div><div class="line">        <span class="comment">//格式化输出</span></div><div class="line">        .setPrettyPrinting()</div><div class="line">        .create();</div></pre></td></tr></table></figure>
+<p>注意：内部类(Inner Class)和嵌套类(Nested Class)的区别</p>
+<p>这次文章就到这里，欢迎提问互动，如有不对的地方请指正。</p>
+<h1 id="你真的会用Gson吗-Gson使用指南（三）"><a href="#你真的会用Gson吗-Gson使用指南（三）" class="headerlink" title="你真的会用Gson吗?Gson使用指南（三）"></a>你真的会用Gson吗?Gson使用指南（三）</h1><p><strong>本次的主要内容：</strong></p>
+<ul>
+<li>字段过滤的几种方法<ul>
+<li>基于<code>@Expose</code>注解</li>
+<li>基于版本</li>
+<li>基于访问修饰符</li>
+<li>基于策略（作者最常用）</li>
+</ul>
+</li>
+<li>POJO与JSON的字段映射规则</li>
+</ul>
+<h2 id="一、字段过滤的几种方法"><a href="#一、字段过滤的几种方法" class="headerlink" title="一、字段过滤的几种方法"></a>一、字段过滤的几种方法</h2><p>字段过滤Gson中比较常用的技巧，特别是在Android中，在处理业务逻辑时可能需要在设置的POJO中加入一些字段，但显然在序列化的过程中是不需要的，并且如果序列化还可能带来一个问题就是 <strong>循环引用</strong> ，那么在用Gson序列化之前为不防止这样的事件情发生，你不得不作另外的处理。</p>
+<p>以一个商品分类<code>Category</code> 为例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"id"</span>: <span class="number">1</span>,</div><div class="line">  <span class="string">"name"</span>: <span class="string">"电脑"</span>,</div><div class="line">  <span class="string">"children"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: <span class="number">100</span>,</div><div class="line">      <span class="string">"name"</span>: <span class="string">"笔记本"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"id"</span>: <span class="number">101</span>,</div><div class="line">      <span class="string">"name"</span>: <span class="string">"台式机"</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个大分类，可以有很多小分类，那么显然我们在设计<code>Category</code>类时<code>Category</code>本身既可以是大分类，也可以是小分类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Category</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> id;</div><div class="line">    <span class="keyword">public</span> String name;</div><div class="line">    <span class="keyword">public</span> List&lt;Category&gt; children;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是为了处理业务，我们还需要在子分类中保存父分类，最终会变成下面的情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Category</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> id;</div><div class="line">    <span class="keyword">public</span> String name;</div><div class="line">    <span class="keyword">public</span> List&lt;Category&gt; children;</div><div class="line">    <span class="comment">//因业务需要增加，但并不需要序列化</span></div><div class="line">    <span class="keyword">public</span> Category parent; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是上面的<code>parent</code>字段是因业务需要增加的，那么在序列化是并不需要，所以在序列化时就必须将其排除，那么在<code>Gson</code>中如何排除符合条件的字段呢?下面提供4种方法，大家可根据需要自行选择合适的方式。</p>
+<h5 id="基于-Expose注解"><a href="#基于-Expose注解" class="headerlink" title="基于@Expose注解"></a>基于@Expose注解</h5><p><strong>@Expose</strong>提供了两个属性，且都有默认值，开发者可以根据需要设置不同的值。</p>
+<p>@Expose</p>
+<p><strong>@Expose</strong> 注解从名字上就可以看出是暴露的意思，所以该注解是用于对处暴露字段的。可是我们以前用Gson的时候也没有<strong>@Expose</strong> 注解还是不正确的序列化为JSON了么?是的，所以该注解在使用<code>new Gson()</code> 时是不会发生作用。毕竟最常用的API要最简单，所以该注解必须和<code>GsonBuilder</code>配合使用。</p>
+<p><strong>使用方法：</strong> 简单说来就是需要导出的字段上加上<strong>@Expose</strong> 注解，不导出的字段不加。注意是<strong>不导出的不加</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Expose</span> <span class="comment">//</span></div><div class="line"><span class="meta">@Expose</span>(deserialize = <span class="keyword">true</span>,serialize = <span class="keyword">true</span>) <span class="comment">//序列化和反序列化都都生效</span></div><div class="line"><span class="meta">@Expose</span>(deserialize = <span class="keyword">true</span>,serialize = <span class="keyword">false</span>) <span class="comment">//反序列化时生效</span></div><div class="line"><span class="meta">@Expose</span>(deserialize = <span class="keyword">false</span>,serialize = <span class="keyword">true</span>) <span class="comment">//序列化时生效</span></div><div class="line"><span class="meta">@Expose</span>(deserialize = <span class="keyword">false</span>,serialize = <span class="keyword">false</span>) <span class="comment">// 和不写一样</span></div></pre></td></tr></table></figure>
+<p>注：根据上面的图片可以得出，所有值为<code>true</code>的属性都是可以不写的。</p>
+<p>拿上面的例子来说就是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Category</span> </span>&#123;</div><div class="line">    <span class="meta">@Expose</span> <span class="keyword">public</span> <span class="keyword">int</span> id;</div><div class="line">    <span class="meta">@Expose</span> <span class="keyword">public</span> String name;</div><div class="line">    <span class="meta">@Expose</span> <span class="keyword">public</span> List&lt;Category&gt; children;</div><div class="line">    <span class="comment">//不需要序列化,所以不加 @Expose 注解，</span></div><div class="line">    <span class="comment">//等价于 @Expose(deserialize = false,serialize = false)</span></div><div class="line">    <span class="keyword">public</span> Category parent; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在使用Gson时也不能只是简单的<code>new Gson()</code>了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .excludeFieldsWithoutExposeAnnotation()</div><div class="line">        .create();</div><div class="line">gson.toJson(category);</div></pre></td></tr></table></figure>
+<h5 id="基于版本"><a href="#基于版本" class="headerlink" title="基于版本"></a>基于版本</h5><p>Gson在对基于版本的字段导出提供了两个注解 <code>@Since</code> 和 <code>@Until</code>,和<code>GsonBuilder.setVersion(Double)</code>配合使用。<code>@Since</code> 和 <code>@Until</code>都接收一个<code>Double</code>值。</p>
+<p>Since和Until注解</p>
+<p>使用方法：当前版本(GsonBuilder中设置的版本) <strong>大于等于Since</strong>的值时该字段导出，<strong>小于Until</strong>的值时该该字段导出。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SinceUntilSample</span> </span>&#123;</div><div class="line">    <span class="meta">@Since</span>(<span class="number">4</span>)</div><div class="line">    <span class="keyword">public</span> String since;</div><div class="line">    <span class="meta">@Until</span>(<span class="number">5</span>)</div><div class="line">    <span class="keyword">public</span> String until;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sineUtilTest</span><span class="params">(<span class="keyword">double</span> version)</span></span>&#123;</div><div class="line">        SinceUntilSample sinceUntilSample = <span class="keyword">new</span> SinceUntilSample();</div><div class="line">        sinceUntilSample.since = <span class="string">"since"</span>;</div><div class="line">        sinceUntilSample.until = <span class="string">"until"</span>;</div><div class="line">        Gson gson = <span class="keyword">new</span> GsonBuilder().setVersion(version).create();</div><div class="line">        System.out.println(gson.toJson(sinceUntilSample));</div><div class="line">&#125;</div><div class="line"><span class="comment">//当version &lt;4时，结果：&#123;"until":"until"&#125;</span></div><div class="line"><span class="comment">//当version &gt;=4 &amp;&amp; version &lt;5时，结果：&#123;"since":"since","until":"until"&#125;</span></div><div class="line"><span class="comment">//当version &gt;=5时，结果：&#123;"since":"since"&#125;</span></div></pre></td></tr></table></figure>
+<p>注：当一个字段被同时注解时，需两者同时满足条件。</p>
+<h5 id="基于访问修饰符"><a href="#基于访问修饰符" class="headerlink" title="基于访问修饰符"></a>基于访问修饰符</h5><p>什么是修饰符? <code>public</code>、<code>static</code> 、<code>final</code>、<code>private</code>、<code>protected</code> 这些就是，所以这种方式也是比较特殊的。<br>使用方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ModifierSample</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> String finalField = <span class="string">"final"</span>;</div><div class="line">    <span class="keyword">static</span> String staticField = <span class="string">"static"</span>;</div><div class="line">    <span class="keyword">public</span> String publicField = <span class="string">"public"</span>;</div><div class="line">    <span class="keyword">protected</span> String protectedField = <span class="string">"protected"</span>;</div><div class="line">    String defaultField = <span class="string">"default"</span>;</div><div class="line">    <span class="keyword">private</span> String privateField = <span class="string">"private"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用<code>GsonBuilder.excludeFieldsWithModifiers</code>构建gson,支持<code>int</code>形的<strong>可变参数</strong>，值由<code>java.lang.reflect.Modifier</code>提供，下面的程序排除了<code>privateField</code> 、 <code>finalField</code> 和<code>staticField</code> 三个字段。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ModifierSample modifierSample = <span class="keyword">new</span> ModifierSample();</div><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .excludeFieldsWithModifiers(Modifier.FINAL, Modifier.STATIC, Modifier.PRIVATE)</div><div class="line">        .create();</div><div class="line">System.out.println(gson.toJson(modifierSample));</div><div class="line"><span class="comment">// 结果：&#123;"publicField":"public","protectedField":"protected","defaultField":"default"&#125;</span></div></pre></td></tr></table></figure>
+<p>到此为止，Gson提供的所有注解就还有一个<code>@JsonAdapter</code>没有介绍了，而<code>@JsonAdapter</code>将和<code>TypeAdapter</code>将作为该系列第4篇也是最后一篇文章的主要内容。</p>
+<h5 id="基于策略（自定义规则）"><a href="#基于策略（自定义规则）" class="headerlink" title="基于策略（自定义规则）"></a>基于策略（自定义规则）</h5><p>上面介绍的了3种排除字段的方法，说实话我除了@Expose以外，其它的都是只在Demo用上过，用得最多的就是马上要介绍的自定义规则，好处是功能强大、灵活，缺点是相比其它3种方法稍麻烦一点，但也仅仅只是想对其它3种稍麻烦一点而已。</p>
+<p>基于策略是利用Gson提供的<code>ExclusionStrategy</code>接口，同样需要使用<code>GsonBuilder</code>,相关API 2个，分别是<code>addSerializationExclusionStrategy</code> 和<code>addDeserializationExclusionStrategy</code> 分别针对序列化和反序化时。这里以序列化为例。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .addSerializationExclusionStrategy(<span class="keyword">new</span> ExclusionStrategy() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldSkipField</span><span class="params">(FieldAttributes f)</span> </span>&#123;</div><div class="line">                <span class="comment">// 这里作判断，决定要不要排除该字段,return true为排除</span></div><div class="line">                <span class="keyword">if</span> (<span class="string">"finalField"</span>.equals(f.getName())) <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">//按字段名排除</span></div><div class="line">                Expose expose = f.getAnnotation(Expose.class); </div><div class="line">                <span class="keyword">if</span> (expose != <span class="keyword">null</span> &amp;&amp; expose.deserialize() == <span class="keyword">false</span>) <span class="keyword">return</span> <span class="keyword">true</span>; <span class="comment">//按注解排除</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldSkipClass</span><span class="params">(Class&lt;?&gt; clazz)</span> </span>&#123;</div><div class="line">                <span class="comment">// 直接排除某个类 ，return true为排除</span></div><div class="line">                <span class="keyword">return</span> (clazz == <span class="keyword">int</span>.class || clazz == Integer.class);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .create();</div></pre></td></tr></table></figure>
+<p>有没有很强大?</p>
+<h2 id="二、-POJO与JSON的字段映射规则"><a href="#二、-POJO与JSON的字段映射规则" class="headerlink" title="二、 POJO与JSON的字段映射规则"></a>二、 POJO与JSON的字段映射规则</h2><p>之前在<a href="http://www.jianshu.com/p/c88260adaf5e" target="_blank" rel="external">你真的会用Gson吗?Gson使用指南（二）</a> 属性重命名时 介绍了<code>@SerializedName</code>这个注解的使用，本节的内容与上一次差不多的，但既然叫<strong>映射规则</strong>那么说的自然是有规律的情况。<br>还是之前User的例子，已经去除所有注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">User user = <span class="keyword">new</span> User(<span class="string">"怪盗kidou"</span>, <span class="number">24</span>);</div><div class="line">user.emailAddress = <span class="string">"ikidou@example.com"</span>;</div></pre></td></tr></table></figure>
+<p><code>GsonBuilder</code>提供了<code>FieldNamingStrategy</code>接口和<code>setFieldNamingPolicy</code>和<code>setFieldNamingStrategy</code> 两个方法。</p>
+<p><strong>默认实现</strong><br><code>GsonBuilder.setFieldNamingPolicy</code> 方法与Gson提供的另一个枚举类<code>FieldNamingPolicy</code>配合使用，该枚举类提供了5种实现方式分别为：</p>
+<table>
+<thead>
+<tr>
+<th>FieldNamingPolicy</th>
+<th>结果（仅输出emailAddress字段）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDENTITY</td>
+<td>{“emailAddress”:”ikidou@example.com”}</td>
+</tr>
+<tr>
+<td>LOWER_CASE_WITH_DASHES</td>
+<td>{“email-address”:”ikidou@example.com”}</td>
+</tr>
+<tr>
+<td>LOWER_CASE_WITH_UNDERSCORES</td>
+<td>{“email_address”:”ikidou@example.com”}</td>
+</tr>
+<tr>
+<td>UPPER_CAMEL_CASE</td>
+<td>{“EmailAddress”:”ikidou@example.com”}</td>
+</tr>
+<tr>
+<td>UPPER_CAMEL_CASE_WITH_SPACES</td>
+<td>{“Email Address”:”ikidou@example.com”}</td>
+</tr>
+</tbody>
+</table>
+<p><strong>自定义实现</strong><br><code>GsonBuilder.setFieldNamingStrategy</code> 方法需要与Gson提供的<code>FieldNamingStrategy</code>接口配合使用，用于实现将POJO的字段与JSON的字段相对应。上面的<code>FieldNamingPolicy</code>实际上也实现了<code>FieldNamingStrategy</code>接口，也就是说<code>FieldNamingPolicy</code>也可以使用<code>setFieldNamingStrategy</code>方法。</p>
+<p>用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .setFieldNamingStrategy(<span class="keyword">new</span> FieldNamingStrategy() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">translateName</span><span class="params">(Field f)</span> </span>&#123;</div><div class="line">                <span class="comment">//实现自己的规则</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .create();</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong> <code>@SerializedName</code>注解拥有最高优先级，在加有<code>@SerializedName</code>注解的字段上<code>FieldNamingStrategy</code>不生效！</p>
+<h1 id="你真的会用Gson吗-Gson使用指南（四）"><a href="#你真的会用Gson吗-Gson使用指南（四）" class="headerlink" title="你真的会用Gson吗?Gson使用指南（四）"></a>你真的会用Gson吗?Gson使用指南（四）</h1><p>本次文章的主要内容：</p>
+<ul>
+<li>TypeAdapter</li>
+<li>JsonSerializer与JsonDeserializer</li>
+<li>TypeAdapterFactory</li>
+<li>@JsonAdapter注解</li>
+<li>TypeAdapter与 JsonSerializer、JsonDeserializer对比</li>
+<li>TypeAdapter实例</li>
+<li>结语</li>
+<li>后期预告</li>
+</ul>
+<h2 id="一、TypeAdapter"><a href="#一、TypeAdapter" class="headerlink" title="一、TypeAdapter"></a>一、TypeAdapter</h2><p><code>TypeAdapter</code> 是Gson自2.0（源码注释上说的是2.1）开始版本提供的一个抽象类，用于<strong>接管某种类型的序列化和反序列化过程</strong>，包含两个注要方法 <code>write(JsonWriter,T)</code> 和 <code>read(JsonReader)</code> 其它的方法都是<code>final</code>方法并最终调用这两个抽象方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">TypeAdapter</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(JsonWriter out, T value)</span> <span class="keyword">throws</span> IOException</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> T <span class="title">read</span><span class="params">(JsonReader in)</span> <span class="keyword">throws</span> IOException</span>;</div><div class="line">    <span class="comment">//其它final 方法就不贴出来了，包括`toJson`、`toJsonTree`、`toJson`和`nullSafe`方法。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong>TypeAdapter 以及 JsonSerializer 和 JsonDeserializer 都需要与 <code>GsonBuilder.registerTypeAdapter</code> 示或<code>GsonBuilder.registerTypeHierarchyAdapter</code>配合使用，下面将不再重复说明。</p>
+<p>使用示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">User user = <span class="keyword">new</span> User(<span class="string">"怪盗kidou"</span>, <span class="number">24</span>);</div><div class="line">user.emailAddress = <span class="string">"ikidou@example.com"</span>;</div><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        <span class="comment">//为User注册TypeAdapter</span></div><div class="line">        .registerTypeAdapter(User.class, <span class="keyword">new</span> UserTypeAdapter())</div><div class="line">        .create();</div><div class="line">System.out.println(gson.toJson(user));</div></pre></td></tr></table></figure>
+<p>UserTypeAdapter的定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserTypeAdapter</span> <span class="keyword">extends</span> <span class="title">TypeAdapter</span>&lt;<span class="title">User</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(JsonWriter out, User value)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        out.beginObject();</div><div class="line">        out.name(<span class="string">"name"</span>).value(value.name);</div><div class="line">        out.name(<span class="string">"age"</span>).value(value.age);</div><div class="line">        out.name(<span class="string">"email"</span>).value(value.email);</div><div class="line">        out.endObject();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">read</span><span class="params">(JsonReader in)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        User user = <span class="keyword">new</span> User();</div><div class="line">        in.beginObject();</div><div class="line">        <span class="keyword">while</span> (in.hasNext()) &#123;</div><div class="line">            <span class="keyword">switch</span> (in.nextName()) &#123;</div><div class="line">                <span class="keyword">case</span> <span class="string">"name"</span>:</div><div class="line">                    user.name = in.nextString();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">"age"</span>:</div><div class="line">                    user.age = in.nextInt();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                <span class="keyword">case</span> <span class="string">"email"</span>:</div><div class="line">                <span class="keyword">case</span> <span class="string">"email_address"</span>:</div><div class="line">                <span class="keyword">case</span> <span class="string">"emailAddress"</span>:</div><div class="line">                    user.email = in.nextString();</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        in.endObject();</div><div class="line">        <span class="keyword">return</span> user;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当我们为<code>User.class</code> 注册了 <code>TypeAdapter</code>之后，只要是操作<code>User.class</code> 那些之前介绍的<code>@SerializedName</code> 、<code>FieldNamingStrategy</code>、<code>Since</code>、<code>Until</code>、<code>Expos</code>通通都黯然失色，失去了效果，只会调用我们实现的<code>UserTypeAdapter.write(JsonWriter, User)</code> 方法，我想怎么写就怎么写。</p>
+<p>再说一个场景，在该系列的第一篇文章就说到了Gson有一定的容错机制，比如将字符串 <code>&quot;24&quot;</code> 转成int 的<code>24</code>,但如果有些情况下给你返了个空字符串怎么办（有人给我评论问到这个问题）?虽然这是服务器端的问题，但这里我们只是做一个示范。</p>
+<p>int型会出错是吧，根据我们上面介绍的，我注册一个TypeAdapter 把 序列化和反序列化的过程接管不就行了?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .registerTypeAdapter(Integer.class, <span class="keyword">new</span> TypeAdapter&lt;Integer&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(JsonWriter out, Integer value)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">                out.value(String.valueOf(value)); </div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Integer <span class="title">read</span><span class="params">(JsonReader in)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">return</span> Integer.parseInt(in.nextString());</div><div class="line">                &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</div><div class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .create();</div><div class="line">System.out.println(gson.toJson(<span class="number">100</span>)); <span class="comment">// 结果："100"</span></div><div class="line">System.out.println(gson.fromJson(<span class="string">"\"\""</span>,Integer.class)); <span class="comment">// 结果：-1</span></div></pre></td></tr></table></figure>
+<p>注：测试空串的时候一定是<code>&quot;\&quot;\&quot;&quot;</code>而不是<code>&quot;&quot;</code>，<code>&quot;&quot;</code>代表的是没有json串，<code>&quot;\&quot;\&quot;&quot;</code>才代表json里的<code>&quot;&quot;</code>。</p>
+<p>你说这一接管就要管两样好麻烦呀，我明明只想管序列化（或反列化）的过程的，另一个过程我并不关心，难道没有其它更简单的方法么? 当然有！就是接下来要介绍的 <strong>JsonSerializer与JsonDeserializer</strong>。</p>
+<h2 id="二、JsonSerializer与JsonDeserializer"><a href="#二、JsonSerializer与JsonDeserializer" class="headerlink" title="二、JsonSerializer与JsonDeserializer"></a>二、JsonSerializer与JsonDeserializer</h2><p><code>JsonSerializer</code> 和<code>JsonDeserializer</code> 不用像<code>TypeAdapter</code>一样，必须要实现序列化和反序列化的过程，你可以据需要选择，如只接管序列化的过程就用 <code>JsonSerializer</code> ，只接管反序列化的过程就用 <code>JsonDeserializer</code> ，如上面的需求可以用下面的代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .registerTypeAdapter(Integer.class, <span class="keyword">new</span> JsonDeserializer&lt;Integer&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Integer <span class="title">deserialize</span><span class="params">(JsonElement json, Type typeOfT, JsonDeserializationContext context)</span> <span class="keyword">throws</span> JsonParseException </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="keyword">return</span> json.getAsInt();</div><div class="line">                &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</div><div class="line">                    <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .create();</div><div class="line">System.out.println(gson.toJson(<span class="number">100</span>)); <span class="comment">//结果：100</span></div><div class="line">System.out.println(gson.fromJson(<span class="string">"\"\""</span>, Integer.class)); <span class="comment">//结果-1</span></div></pre></td></tr></table></figure>
+<p>下面是所有数字都转成序列化为字符串的例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">JsonSerializer&lt;Number&gt; numberJsonSerializer = <span class="keyword">new</span> JsonSerializer&lt;Number&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> JsonElement <span class="title">serialize</span><span class="params">(Number src, Type typeOfSrc, JsonSerializationContext context)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JsonPrimitive(String.valueOf(src));</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .registerTypeAdapter(Integer.class, numberJsonSerializer)</div><div class="line">        .registerTypeAdapter(Long.class, numberJsonSerializer)</div><div class="line">        .registerTypeAdapter(Float.class, numberJsonSerializer)</div><div class="line">        .registerTypeAdapter(Double.class, numberJsonSerializer)</div><div class="line">        .create();</div><div class="line">System.out.println(gson.toJson(<span class="number">100.0f</span>));<span class="comment">//结果："100.0"</span></div></pre></td></tr></table></figure>
+<p>注：<code>registerTypeAdapter</code>必须使用包装类型，所以<code>int.class</code>,<code>long.class</code>,<code>float.class</code>和<code>double.class</code>是行不通的。同时不能使用父类来替上面的子类型，这也是为什么要分别注册而不直接使用<code>Number.class</code>的原因。</p>
+<p>上面特别说明了<code>registerTypeAdapter</code>不行，那就是有其它方法可行咯?当然！换成<strong>registerTypeHierarchyAdapter </strong>就可以使用<code>Number.class</code>而不用一个一个的当独注册啦！</p>
+<p><strong>registerTypeAdapter与registerTypeHierarchyAdapter的区别：</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>registerTypeAdapter</th>
+<th>registerTypeHierarchyAdapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>支持泛型</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>支持继承</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p>注：如果一个被序列化的对象本身就带有泛型，且注册了相应的<code>TypeAdapter</code>，那么必须调用<code>Gson.toJson(Object,Type)</code>，明确告诉Gson对象的类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Type type = <span class="keyword">new</span> TypeToken&lt;List&lt;User&gt;&gt;() &#123;&#125;.getType();</div><div class="line">TypeAdapter typeAdapter = <span class="keyword">new</span> TypeAdapter&lt;List&lt;User&gt;&gt;() &#123;</div><div class="line">   <span class="comment">//略</span></div><div class="line">&#125;;</div><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">        .registerTypeAdapter(type, typeAdapter)</div><div class="line">        .create();</div><div class="line">List&lt;User&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">list.add(<span class="keyword">new</span> User(<span class="string">"a"</span>,<span class="number">11</span>));</div><div class="line">list.add(<span class="keyword">new</span> User(<span class="string">"b"</span>,<span class="number">22</span>));</div><div class="line"><span class="comment">//注意，多了个type参数</span></div><div class="line">String result = gson.toJson(list, type);</div></pre></td></tr></table></figure>
+<h2 id="三、TypeAdapterFactory"><a href="#三、TypeAdapterFactory" class="headerlink" title="三、TypeAdapterFactory"></a>三、TypeAdapterFactory</h2><p>TypeAdapterFactory,见名知意，用于创建TypeAdapter的工厂类，通过对比<code>Type</code>，确定有没有对应的<code>TypeAdapter</code>，没有就返回null，与<code>GsonBuilder.registerTypeAdapterFactory</code>配合使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder()</div><div class="line">    .registerTypeAdapterFactory(<span class="keyword">new</span> TypeAdapterFactory() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="keyword">public</span> &lt;T&gt; <span class="function">TypeAdapter&lt;T&gt; <span class="title">create</span><span class="params">(Gson gson, TypeToken&lt;T&gt; type)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    .create();</div></pre></td></tr></table></figure>
+<h2 id="四、-JsonAdapter注解"><a href="#四、-JsonAdapter注解" class="headerlink" title="四、@JsonAdapter注解"></a>四、@JsonAdapter注解</h2><p><code>JsonAdapter</code>相较之前介绍的<code>SerializedName</code>、<code>FieldNamingStrategy</code>、<code>Since</code>、<code>Until</code>、<code>Expos</code>这几个注解都是比较特殊的，其它的几个都是用在POJO的字段上，而这一个是用在POJO类上的，接收一个参数，且必须是<code>TypeAdpater</code>，<code>JsonSerializer</code>或<code>JsonDeserializer</code>这三个其中之一。</p>
+<p>上面说<code>JsonSerializer</code>和<code>JsonDeserializer</code>都要配合<code>GsonBuilder.registerTypeAdapter</code>使用，但每次使用都要注册也太麻烦了，<code>JsonAdapter</code>就是为了解决这个痛点的。</p>
+<p>使用方法（以User为例）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@JsonAdapter</span>(UserTypeAdapter.class) <span class="comment">//加在类上</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(String name, <span class="keyword">int</span> age, String email)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">        <span class="keyword">this</span>.email = email;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">public</span> String name;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="meta">@SerializedName</span>(value = <span class="string">"emailAddress"</span>)</div><div class="line">    <span class="keyword">public</span> String email;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用时不用再使用 <code>GsonBuilder</code>去注册<code>UserTypeAdapter</code>了。<br><strong>注：</strong><code>@JsonAdapter</code> 仅支持 <code>TypeAdapter</code>或<code>TypeAdapterFactory</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">User user = <span class="keyword">new</span> User(<span class="string">"怪盗kidou"</span>, <span class="number">24</span>, <span class="string">"ikidou@example.com"</span>);</div><div class="line">System.out.println(gson.toJson(user));</div><div class="line"><span class="comment">//结果：&#123;"name":"怪盗kidou","age":24,"email":"ikidou@example.com"&#125;</span></div><div class="line"><span class="comment">//为区别结果，特意把email字段与@SerializedName注解中设置的不一样</span></div></pre></td></tr></table></figure>
+<p><strong>注意：</strong><code>JsonAdapter</code>的优先级比<code>GsonBuilder.registerTypeAdapter</code>的优先级更高。</p>
+<h2 id="五、TypeAdapter与-JsonSerializer、JsonDeserializer对比"><a href="#五、TypeAdapter与-JsonSerializer、JsonDeserializer对比" class="headerlink" title="五、TypeAdapter与 JsonSerializer、JsonDeserializer对比"></a>五、TypeAdapter与 JsonSerializer、JsonDeserializer对比</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>TypeAdapter</th>
+<th>JsonSerializer、JsonDeserializer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>引入版本</td>
+<td>2.0</td>
+<td>1.x</td>
+</tr>
+<tr>
+<td>Stream API</td>
+<td>支持</td>
+<td>不支持*，需要提前生成<code>JsonElement</code></td>
+</tr>
+<tr>
+<td>内存占用</td>
+<td>小</td>
+<td>比<code>TypeAdapter</code>大</td>
+</tr>
+<tr>
+<td>效率</td>
+<td>高</td>
+<td>比<code>TypeAdapter</code>低</td>
+</tr>
+<tr>
+<td>作用范围</td>
+<td>序列化 <strong>和</strong> 反序列化</td>
+<td>序列化 <strong>或</strong> 反序列化</td>
+</tr>
+</tbody>
+</table>
+<h2 id="六、TypeAdapter实例"><a href="#六、TypeAdapter实例" class="headerlink" title="六、TypeAdapter实例"></a>六、TypeAdapter实例</h2><p>注：这里的TypeAdapter泛指<code>TypeAdapter</code>、<code>JsonSerializer</code>和<code>JsonDeserializer</code>。<br>这里的TypeAdapter 上面讲了一个自动将 字符串形式的数值转换成int型时可能出现 空字符串的问题，下面介绍一个其它读者的需求：</p>
+<blockquote>
+<p>服务器返回的数据中data字段类型不固定，比如请求成功data是一个List,不成功的时候是String类型，这样前端在使用泛型解析的时候，怎么去处理呢？</p>
+</blockquote>
+<p>其实这个问题的原因主要由服务器端造成的，接口设计时没有没有保证数据的一致性，正确的数据返回姿势：<strong>同一个接口任何情况下不得改变返回类型，要么就不要返，要么就返空值，如null、[],{}</strong>。</p>
+<p>但这里还是给出解决方案：<br>方案一：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Gson gson = <span class="keyword">new</span> GsonBuilder().registerTypeHierarchyAdapter(List.class, <span class="keyword">new</span> JsonDeserializer&lt;List&lt;?&gt;&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> List&lt;?&gt; deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) <span class="keyword">throws</span> JsonParseException &#123;</div><div class="line">        <span class="keyword">if</span> (json.isJsonArray())&#123;</div><div class="line">            <span class="comment">//这里要自己负责解析了</span></div><div class="line">            Gson newGson = <span class="keyword">new</span> Gson();</div><div class="line">            <span class="keyword">return</span> newGson.fromJson(json,typeOfT);</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//和接口类型不符，返回空List</span></div><div class="line">            <span class="keyword">return</span> Collections.EMPTY_LIST;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;).create();</div></pre></td></tr></table></figure>
+<p>方案二：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> Gson gson = <span class="keyword">new</span> GsonBuilder().registerTypeHierarchyAdapter(List.class, <span class="keyword">new</span> JsonDeserializer&lt;List&lt;?&gt;&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> List&lt;?&gt; deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) <span class="keyword">throws</span> JsonParseException &#123;</div><div class="line">        <span class="keyword">if</span> (json.isJsonArray()) &#123;</div><div class="line">            JsonArray array = json.getAsJsonArray();</div><div class="line">            Type itemType = ((ParameterizedType) typeOfT).getActualTypeArguments()[<span class="number">0</span>];</div><div class="line">            List list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.size(); i++) &#123;</div><div class="line">                JsonElement element = array.get(i);</div><div class="line">                Object item = context.deserialize(element, itemType);</div><div class="line">                list.add(item);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> list;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//和接口类型不符，返回空List</span></div><div class="line">            <span class="keyword">return</span> Collections.EMPTY_LIST;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;).create();</div></pre></td></tr></table></figure>
+<p>要注意的点：</p>
+<ul>
+<li>必须使用<code>registerTypeHierarchyAdapter</code>方法，不然对List的子类无效，但如果POJO中都是使用List，那么可以使用<code>registerTypeAdapter</code>。</li>
+<li>对于是数组的情况，需要创建一个新的Gson，不可以直接使用context,不然gson又会调我们自定义的<code>JsonDeserializer</code>造成递归调用，方案二没有重新创建Gson，那么就需要提取出List<e>中E的类型，然后分别反序列化适合为E手动注册了TypeAdaper的情况。</e></li>
+<li>从效率上推荐方案二，免去重新实例化Gson和注册其它TypeAdapter的过程。</li>
+</ul>
+<h2 id="结语-1"><a href="#结语-1" class="headerlink" title="结语"></a>结语</h2><p>Gson系列总算是完成了，感觉写得越来越差了，我怕我写得太啰嗦，也不能总是大片大片的贴代码，所以可能有的地方写得并不详细，排版也不美观，但都些都不重点，重点是Gson里我们能用上的都一一介绍一遍，只要你确确实实把我这几篇文章上的内容都学会的话，以后Gson上的任何问题都不再是问题，当然可能很多内容对于实际的开发中用的并不多，但下次有什么疑难杂症就难不倒你了。</p>
+<p>本系列不提供Demo源码，最重要的是自己实验。</p>
+<p>写一篇文章还是要花不少时间和精力，要写示例、调式、组织语言、码字等等，加上关注的人在慢慢的增加的同时既给了我动力也给我不少压力，如有纰漏或者更好的例子都可以和我交流。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术总结/" rel="tag"># 技术总结</a>
+          
+            <a href="/tags/Gson/" rel="tag"># Gson</a>
+          
+            <a href="/tags/转载/" rel="tag"># 转载</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/03/Java动态代理/" rel="next" title="Java动态代理">
+                <i class="fa fa-chevron-left"></i> Java动态代理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/06/Android-Material-Design总结/" rel="prev" title="Android_Material_Design总结">
+                Android_Material_Design总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/16/Gson使用总结/"
+           data-title="Gson使用总结" data-url="https://qjbagugit.github.io/2016/10/16/Gson使用总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Timer" />
+          <p class="site-author-name" itemprop="name">Timer</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              原博客
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/qjbagu/" title="CSDN博客" target="_blank">CSDN博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#转载出处："><span class="nav-number">1.</span> <span class="nav-text">转载出处：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#你真的会用Gson吗-Gson使用指南（一）"><span class="nav-number"></span> <span class="nav-text">你真的会用Gson吗?Gson使用指南（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Gson的基本用法"><span class="nav-number">1.</span> <span class="nav-text">一、Gson的基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、属性重命名-SerializedName-注解的使用"><span class="nav-number">2.</span> <span class="nav-text">二、属性重命名 @SerializedName 注解的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Gson中使用泛型"><span class="nav-number">3.</span> <span class="nav-text">三、Gson中使用泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#你真的会用Gson吗-Gson使用指南（二）"><span class="nav-number"></span> <span class="nav-text">你真的会用Gson吗?Gson使用指南（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Gson的流式反序列化"><span class="nav-number">1.</span> <span class="nav-text">一、Gson的流式反序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Gson的流式序列化"><span class="nav-number">2.</span> <span class="nav-text">二、Gson的流式序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、-使用GsonBuilder导出null值、格式化输出、日期时间"><span class="nav-number">3.</span> <span class="nav-text">三、 使用GsonBuilder导出null值、格式化输出、日期时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#你真的会用Gson吗-Gson使用指南（三）"><span class="nav-number"></span> <span class="nav-text">你真的会用Gson吗?Gson使用指南（三）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、字段过滤的几种方法"><span class="nav-number">1.</span> <span class="nav-text">一、字段过滤的几种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基于-Expose注解"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">基于@Expose注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于版本"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">基于版本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于访问修饰符"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">基于访问修饰符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基于策略（自定义规则）"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">基于策略（自定义规则）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、-POJO与JSON的字段映射规则"><span class="nav-number">2.</span> <span class="nav-text">二、 POJO与JSON的字段映射规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#你真的会用Gson吗-Gson使用指南（四）"><span class="nav-number"></span> <span class="nav-text">你真的会用Gson吗?Gson使用指南（四）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、TypeAdapter"><span class="nav-number">1.</span> <span class="nav-text">一、TypeAdapter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、JsonSerializer与JsonDeserializer"><span class="nav-number">2.</span> <span class="nav-text">二、JsonSerializer与JsonDeserializer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、TypeAdapterFactory"><span class="nav-number">3.</span> <span class="nav-text">三、TypeAdapterFactory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、-JsonAdapter注解"><span class="nav-number">4.</span> <span class="nav-text">四、@JsonAdapter注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、TypeAdapter与-JsonSerializer、JsonDeserializer对比"><span class="nav-number">5.</span> <span class="nav-text">五、TypeAdapter与 JsonSerializer、JsonDeserializer对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、TypeAdapter实例"><span class="nav-number">6.</span> <span class="nav-text">六、TypeAdapter实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语-1"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Timer</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"timerchen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SNK7gVWOKWg8kVTixCIiPJOM-gzGzoHsz", "K6sxKbcSnrBPj9W1lWIImVT9");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

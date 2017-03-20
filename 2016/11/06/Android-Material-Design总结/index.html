@@ -1,0 +1,1075 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,MD风格," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="概述Material Design是Android5.0提出的一个Android及其他平台上的应用的新的设计风格。
+Material Design给我们带来了一些新的控件，比如：Floating Action Button。使用它们并且能够向后兼容是一个比较麻烦的过程。为了简化流程，通常需要第三方的jar包。
+在2015年的Google IO大会上，谷歌推出了Android Design Supp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android_Material_Design总结">
+<meta property="og:url" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/index.html">
+<meta property="og:site_name" content="Timer`s blog">
+<meta property="og:description" content="概述Material Design是Android5.0提出的一个Android及其他平台上的应用的新的设计风格。
+Material Design给我们带来了一些新的控件，比如：Floating Action Button。使用它们并且能够向后兼容是一个比较麻烦的过程。为了简化流程，通常需要第三方的jar包。
+在2015年的Google IO大会上，谷歌推出了Android Design Supp">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/1.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/2.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/3.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/4.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/5.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/6.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/7.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/8.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/9.gif">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/10.gif">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/11.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/12.jpg">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/13.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/14.png">
+<meta property="og:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/15.gif">
+<meta property="og:updated_time" content="2017-03-20T08:01:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android_Material_Design总结">
+<meta name="twitter:description" content="概述Material Design是Android5.0提出的一个Android及其他平台上的应用的新的设计风格。
+Material Design给我们带来了一些新的控件，比如：Floating Action Button。使用它们并且能够向后兼容是一个比较麻烦的过程。为了简化流程，通常需要第三方的jar包。
+在2015年的Google IO大会上，谷歌推出了Android Design Supp">
+<meta name="twitter:image" content="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/"/>
+
+
+
+
+
+  <title> Android_Material_Design总结 | Timer`s blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Timer`s blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Timer">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Timer`s blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Timer`s blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android_Material_Design总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-06T17:35:41+08:00">
+                2016-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/Material-Design/" itemprop="url" rel="index">
+                    <span itemprop="name">Material Design</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/06/Android-Material-Design总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/06/Android-Material-Design总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/06/Android-Material-Design总结/" class="leancloud_visitors" data-flag-title="Android_Material_Design总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Material Design是Android5.0提出的一个Android及其他平台上的应用的新的设计风格。</p>
+<p>Material Design给我们带来了一些新的控件，比如：Floating Action Button。使用它们并且能够向后兼容是一个比较麻烦的过程。为了简化流程，通常需要第三方的jar包。</p>
+<p>在2015年的Google IO大会上，谷歌推出了Android Design Support Library，它带来了一系列的Material Design风格的控件。它向后兼容到Google2.1,并且非常容易使用。这篇文件将通过一个应用给大家介绍这些控件。</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>你可以下载最终的项目代码：<a href="https://github.com/sitepoint-editors/Design-Demo" target="_blank" rel="external">Github</a></p>
+<p>在开始之前我们先设置项目及一些样式。使用Android Studio创建一个<code>Design Demo</code>的项目，并且保证最低的编译版本为15.</p>
+<p>在app模块下的build.gradle的文件中添加以下依赖：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.android.support:design:22.2.1'</span></div><div class="line">compile <span class="string">'com.android.support:cardview-v7:22.2.1'</span></div></pre></td></tr></table></figure>
+<p>第一行我们添加了<code>design support librar</code>，第二行我们添加了一个 <code>cardview</code>包，这个包后面会用到。同步gradle文件，然后下载相关的包。</p>
+<p>在<code>res/values</code>下创建一个<code>colors.xml</code>文件，并添加以下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"primary"</span>&gt;</span>#3F51B5<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"primary_dark"</span>&gt;</span>#303F9F<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"accent"</span>&gt;</span>#FF4081<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>修改<code>strings.xml</code>文件为以下内容，这是我们最终的<code>srings.xml</code>:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"app_name"</span>&gt;</span>Design Demo<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"hello_world"</span>&gt;</span>Hello world!<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"action_settings"</span>&gt;</span>Settings<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nav_item_attachment"</span>&gt;</span>Attachment<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nav_item_images"</span>&gt;</span>Images<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nav_item_location"</span>&gt;</span>My Location<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nav_sub_menu"</span>&gt;</span>Sub Menu<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nav_sub_menu_item01"</span>&gt;</span>Sub Menu Item 1<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nav_sub_menu_item02"</span>&gt;</span>Sub Menu Item 2<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"drawer_header_text"</span>&gt;</span>Drawer Header<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"second_activity_text"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur diam id aliquam scelerisque. Donec ultrices lacus vel dignissim pharetra. Vivamus pharetra augue quis rhoncus placerat. Sed ultricies at risus non cursus. Nam rutrum leo nec placerat consectetur. Vestibulum feugiat eleifend diam, nec interdum augue tincidunt sit amet. Praesent feugiat est auctor lacus consectetur, vitae pellentesque dolor laoreet.<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"title_activity_second"</span>&gt;</span>SecondActivity<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>修改<code>res/values/styles.xml</code>为以下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- Base application theme. --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="comment">&lt;!-- Customize your theme here. --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的代码，我们自定义了应用的 <a href="https://developer.android.com/training/material/theme.html#ColorPalette" target="_blank" rel="external">Color Palette</a>。</p>
+<p>其他的主题设置在下面的图片中指明。</p>
+<p>注意我们在上面的主题设置中并没用使用<code>android:</code>前缀(比如：<code>android:colorPrimaryDark</code>)，因为这是为了向后兼容性。<code>android:</code>需要最低21的api级别。parent theme设置为<code>NoActionBar</code>是因为我们项目中使用ToolBar而不是ActionBar做为标题栏。</p>
+<p><img width="380" height="600" src="/2016/11/06/Android-Material-Design总结/1.png"></p>
+<p>为了使用Toolbar我们在<code>activity_main.xml</code>中添加以下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">".MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的代码中我们删除了RelativeLayout默认的padding，并从库中添加了一个Toolbar。但是如果你的应用支持的api最低为21,那么可以直接定义一个Toolbar，而不是使用兼容支持库中的。</p>
+<p>在<code>MainActivity.java</code>中我们做如下修改：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">    setSupportActionBar(toolbar);</div><div class="line">    ActionBar actionBar = getSupportActionBar();</div><div class="line">    actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);</div><div class="line">    actionBar.setDisplayHomeAsUpEnabled(<span class="keyword">true</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从<a href="https://github.com/sitepoint-editors/Design-Demo/tree/master/app/src/main/res" target="_blank" rel="external">github</a>下载项目所需要的drawable资源文件夹，并复制到项目的res目录中，这样上面的代码就不会出错。</p>
+<p>确认你导入的Toolbar是支持库的。</p>
+<p>在上面的代码中我们得到了一个Toolbar的引用并把它赋给了ActionBar。然后我们得到ActionBar的引用，并设置它的Home Icon为 <a href="http://www.bbc.com/news/magazine-31602745" target="_blank" rel="external">infamous hamburger menu icon</a>。</p>
+<p>运行应用你将看到Toolbar变成了app的ActionBar。</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/2.png"></p>
+<h1 id="NavigationView"><a href="#NavigationView" class="headerlink" title="NavigationView"></a>NavigationView</h1><p>NavigationView是Android中一个普通的控件，以前也有其他的解决方案，但实现过程和NavigationView相比都比较麻烦。</p>
+<p>首先，修改<code>activity_main.xml</code>的内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.DrawerLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/drawer_layout"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></div><div class="line">            <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">            <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.NavigationView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_view"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"start"</span></div><div class="line">        <span class="attr">app:headerLayout</span>=<span class="string">"@layout/drawer_header"</span></div><div class="line">        <span class="attr">app:menu</span>=<span class="string">"@menu/drawer"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.DrawerLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在上边的代码中我们在DrawerLayout中添加了一个NavigationView。在NavigationView中有两个重要的属性：<code>app:headerLayout</code>指出了NavigationView的头部布局；而<code>app:menu</code>指出了NavigationView的列表布局(可在运行时修改)。</p>
+<p>在res/layout下创建一个<code>drawer_header.xml</code>布局文件，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"150dp"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimaryDark"</span></div><div class="line">    <span class="attr">android:padding</span>=<span class="string">"16dp"</span></div><div class="line">    <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span></div><div class="line">    <span class="attr">android:gravity</span>=<span class="string">"bottom"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"@string/drawer_header_text"</span></div><div class="line">        <span class="attr">android:textAppearance</span>=<span class="string">"@style/TextAppearance.AppCompat.Body1"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这样就可以给NavigationView创建一个高为150的头部布局并且以我们设置的colorPrimaryDark颜色为背景。</p>
+<p>下一步创建一个<code>drawer.xml</code>在res/menu目录中，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">group</span> <span class="attr">android:checkableBehavior</span>=<span class="string">"single"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/navigation_item_attachment"</span></div><div class="line">            <span class="attr">android:checked</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_attachment"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"@string/nav_item_attachment"</span> /&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/navigation_item_images"</span></div><div class="line">            <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_image"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"@string/nav_item_images"</span> /&gt;</div><div class="line">        <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/navigation_item_location"</span></div><div class="line">            <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_place"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"@string/nav_item_location"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">group</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:title</span>=<span class="string">"@string/nav_sub_menu"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">menu</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">                <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_emoticon"</span></div><div class="line">                <span class="attr">android:title</span>=<span class="string">"@string/nav_sub_menu_item01"</span> /&gt;</div><div class="line">            <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">                <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_emoticon"</span></div><div class="line">                <span class="attr">android:title</span>=<span class="string">"@string/nav_sub_menu_item02"</span> /&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在上面的代码中，我们给导航界面创建了一个选择列表。第一部分是一个可以单选的列表，单选后会有高亮显示。第二部分我们用一个子标题将其和第一部分分开。</p>
+<p>在<code>MainActivity.java</code>中添加以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> DrawerLayout mDrawerLayout;</div></pre></td></tr></table></figure>
+<p>然后在onCreate方法的最后添加如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);</div></pre></td></tr></table></figure>
+<p>修改<code>onOptionsItemSelected(MenuItem)</code>如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</div><div class="line">    <span class="comment">// Handle action bar item clicks here. The action bar will</span></div><div class="line">    <span class="comment">// automatically handle clicks on the Home/Up button, so long</span></div><div class="line">    <span class="comment">// as you specify a parent activity in AndroidManifest.xml.</span></div><div class="line">    <span class="keyword">int</span> id = item.getItemId();</div><div class="line"></div><div class="line">    <span class="keyword">switch</span> (id) &#123;</div><div class="line">        <span class="keyword">case</span> android.R.id.home:</div><div class="line">            mDrawerLayout.openDrawer(GravityCompat.START);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样当点击Home按包的时候，就会显示导航界面。启动app你会看到以下界面：</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/3.png"></p>
+<p>为了获取导航栏条目的点击事件，我们需要在<code>NavigationView</code>设置<code>OnNavigationItemSelectedListener</code>。将以下代码添加到<code>onCreate(Bundle)</code>方法的底部：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);</div><div class="line">navigationView.setNavigationItemSelectedListener(<span class="keyword">new</span> 		 NavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(MenuItem menuItem)</span> </span>&#123;</div><div class="line">            menuItem.setChecked(<span class="keyword">true</span>);</div><div class="line">            mDrawerLayout.closeDrawers();</div><div class="line">            Toast.makeText(MainActivity.<span class="keyword">this</span>, menuItem.getTitle(), Toast.LENGTH_LONG).show();</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>上面的代码给NavigationView添加了一个列表点击监听事件，并且在点击的时候设置被点击Item为选中状态，然后导航界面关闭，并弹出一个Toast。</p>
+<p>在真正的项目中，就不仅公是弹出一个Toast，而可能会跳到一个Fragment。如果你再次打开导航界面，你会看到相应的条目处于高亮状态。</p>
+<h1 id="Floating-Action-Button-FAB"><a href="#Floating-Action-Button-FAB" class="headerlink" title="Floating Action Button (FAB)"></a>Floating Action Button (FAB)</h1><p>FAB是一个圆形按钮用于在界面上进行重要的交互。FAB提供了一个持久的实现，默认它的颜色是应用主题设置的<code>colorAccent</code>。</p>
+<p>为了更好的和界面中的其他控件协调，FAB除了支持正常尺寸(56dp)大小，还支持MINI尺寸(40dp)大小。</p>
+<p>添加一个FAB，可以在activity_main.xml中添加以下代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.DrawerLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/drawer_layout"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></div><div class="line">            <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">            <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.FloatingActionButton</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/fab"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_alignParentRight</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_marginRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">            <span class="attr">android:layout_marginBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/ic_done"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.NavigationView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_view"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"start"</span></div><div class="line">        <span class="attr">app:headerLayout</span>=<span class="string">"@layout/drawer_header"</span></div><div class="line">        <span class="attr">app:menu</span>=<span class="string">"@menu/drawer"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.DrawerLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>以上代码我们在主界面的右下角添加了一个FAB，并且通过<code>android:src</code>设置了FAB的显示图片。在代码中你可以通过 <code>setImageDrawable()</code>来设置显示图片。</p>
+<p>运行APP你可以看到以下界面：</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/4.png"></p>
+<p>我们后面会在FAB上设置<code>onClickListener</code>。</p>
+<h1 id="Snackbar"><a href="#Snackbar" class="headerlink" title="Snackbar"></a>Snackbar</h1><p>原来我们使用Toast对用户的操作进行快速的响应。现在有了一个新的选择：Snackbar。</p>
+<p>Snackbar显示在界面的下面，并且有一个可选的单独的点击操作。在超时时间到达后，Snackbar会随着动画消失，用户也可以将它们滑动出界面。</p>
+<p>因为Snackbar可以和用户进行交互和滑动隐藏，而且和Toast的api相似，所以它们被认为比Toast更加强大。</p>
+<p>在MainActivity.java中，添加以下代码到<code>onCreate(Bundle)</code>方法的底部：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);</div><div class="line">fab.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        Snackbar.make(findViewById(R.id.drawer_layout), <span class="string">"I'm a Snackbar"</span>, Snackbar.LENGTH_LONG).setAction(<span class="string">"Action"</span>, <span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"Snackbar Action"</span>, Toast.LENGTH_LONG).show();</div><div class="line">                &#125;</div><div class="line">            &#125;).show();</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>在上面的代码中，我们给FAB添加了一个点击事件，当它被点击的时候，一个Snackbar会弹出，并且它会有一个点击操作。当它被点击的时候，会弹出一个Toast。</p>
+<p>注意make()方法的第一个参数，它是一个view，这个view就是用来定位Snackbar会显示在它的底部。运行应用：</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/5.png"></p>
+<p>注意Snackbar是在FAB的上面，后面我们在讲<code>CoordinatorLayout</code>的时候会修正这个问题。</p>
+<h1 id="TabLayout"><a href="#TabLayout" class="headerlink" title="TabLayout"></a>TabLayout</h1><p>在Android上有用Tabs来切换不同的Views的使用方式。Design库里的TabLayout给这种方式提供了一个简单的实现。TabLayout可以被实现成一个将界面的宽度等比分配的样式，或者一个可以横向滚动的不等比分配的样式。</p>
+<p>在<code>activity_main.xml</code>中添加以下内容来添加一个TabLayout：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.DrawerLayout</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/drawer_layout"</span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">                <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span> /&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/tablayout"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">                <span class="attr">app:tabGravity</span>=<span class="string">"fill"</span></div><div class="line">                <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span> /&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/viewpager"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></div><div class="line">                <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.FloatingActionButton</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/fab"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_alignParentRight</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_marginBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">            <span class="attr">android:layout_marginRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/ic_done"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.NavigationView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_view"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"start"</span></div><div class="line">        <span class="attr">app:headerLayout</span>=<span class="string">"@layout/drawer_header"</span></div><div class="line">        <span class="attr">app:menu</span>=<span class="string">"@menu/drawer"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.DrawerLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面我们添加一个TabLayout和一个ViewPager。ViewPager用来进行界面间的切换。</p>
+<p>在<code>MainActivity.java</code>中添加以下子类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DesignDemoFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAB_POSITION = <span class="string">"tab_position"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DesignDemoFragment</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DesignDemoFragment <span class="title">newInstance</span><span class="params">(<span class="keyword">int</span> tabPosition)</span> </span>&#123;</div><div class="line">        DesignDemoFragment fragment = <span class="keyword">new</span> DesignDemoFragment();</div><div class="line">        Bundle args = <span class="keyword">new</span> Bundle();</div><div class="line">        args.putInt(TAB_POSITION, tabPosition);</div><div class="line">        fragment.setArguments(args);</div><div class="line">        <span class="keyword">return</span> fragment;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Nullable</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        Bundle args = getArguments();</div><div class="line">        <span class="keyword">int</span> tabPosition = args.getInt(TAB_POSITION);</div><div class="line">        TextView tv = <span class="keyword">new</span> TextView(getActivity());</div><div class="line">        tv.setGravity(Gravity.CENTER);</div><div class="line">        tv.setText(<span class="string">"Text in Tab #"</span> + tabPosition);</div><div class="line">        <span class="keyword">return</span> tv;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DesignDemoPagerAdapter</span> <span class="keyword">extends</span> <span class="title">FragmentStatePagerAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DesignDemoPagerAdapter</span><span class="params">(FragmentManager fm)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(fm);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> DesignDemoFragment.newInstance(position);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> CharSequence <span class="title">getPageTitle</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Tab "</span> + position;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在<code>onCreate(Bundle)</code>方法的最后添加以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DesignDemoPagerAdapter adapter = <span class="keyword">new</span> DesignDemoPagerAdapter(getSupportFragmentManager());</div><div class="line">ViewPager viewPager = (ViewPager)findViewById(R.id.viewpager);</div><div class="line">viewPager.setAdapter(adapter);</div><div class="line">TabLayout tabLayout = (TabLayout)findViewById(R.id.tablayout);</div><div class="line">tabLayout.setupWithViewPager(viewPager);</div></pre></td></tr></table></figure>
+<p>上面我们创建了一个简单的Fragment，它的内容只是一个TextView。然后我们创建了一个<code>FragmentStatePagerAdapter</code>，把它做为ViewPager的适配器。在<code>DesignDemoPagerAdapter</code>类中的getCount()方法返回有多少个标签页。<code>getItem(int)</code>返回将要被显示在ViewPager中的Fragment。<code>getPageTitle(int)</code>返回标签栏所返回的标题。我们使用<code>setupWithViewPager()</code>将TabLayout和ViewPager绑定，不管它们那个切换，另一个也会做出相应的切换。</p>
+<p>运行应用你可以看到标签页，可以通过滑动ViewPager切换，或者点击TabLayout标签栏进行切换。</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/6.png"></p>
+<h1 id="CoordinatorLayout"><a href="#CoordinatorLayout" class="headerlink" title="CoordinatorLayout"></a>CoordinatorLayout</h1><p><code>CoordinatorLayout</code>是一个设计支持库中的非常有用的控件，可以通过触摸事件控制子控件的响应。</p>
+<p>一个例子就是把一个FAB当做一个子控件放到CoordinatorLayout中。然后我们传递CoordinatorLayout到Snackbar.make()中的第一个参数。</p>
+<p>前面给大家演示了，Snackbar显示在FAB上面。当FAB在CoordinatorLayout中的时候，当Snackbar显示的时候FAB会自动的上移，当Snackbar消失的时候FAB会自动回到原来的位置。在Android3.0以上支持。</p>
+<p>在activity_main.xml做以下修改来添加一个CoordinatorLayout：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.DrawerLayout</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/drawer_layout"</span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/coordinator"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">                <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span> /&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/tablayout"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">                <span class="attr">app:tabGravity</span>=<span class="string">"fill"</span></div><div class="line">                <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span> /&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/viewpager"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></div><div class="line">                <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.FloatingActionButton</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/fab"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"bottom|right"</span></div><div class="line">            <span class="attr">android:layout_marginBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">            <span class="attr">android:layout_marginRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/ic_done"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.NavigationView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_view"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"start"</span></div><div class="line">        <span class="attr">app:headerLayout</span>=<span class="string">"@layout/drawer_header"</span></div><div class="line">        <span class="attr">app:menu</span>=<span class="string">"@menu/drawer"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.DrawerLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>从上面中以看出FAB需要成为CoordinatorLayout的一个子控件，所以我们将上面的RelativeLayout替换成一个CoordinatorLayout。同时注意我们FAB的位置<code>android:layout_gravity=&quot;bottom|right&quot;</code>以确保它在右下角。</p>
+<p>然后在MainActivity.java中我们将CoordinatorLayout做为view参数传递给Snackbar。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Snackbar.make(findViewById(R.id.coordinator), <span class="string">"I'm a Snackbar"</span>, Snackbar.LENGTH_LONG).setAction(<span class="string">"Action"</span>, <span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"Snackbar Action"</span>, Toast.LENGTH_LONG).show();</div><div class="line">                &#125;</div><div class="line">            &#125;).show();</div></pre></td></tr></table></figure>
+<p>运行应用，我们点击FAB，这时Snackbar显示出来，但和以前不一样FAB会随着Snackbar向上移动；然后当Snackbar消失的时候，FAB也会回到原来的位置。</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/7.png"></p>
+<p>CoordinatorLayout的另一个主要的使用方式是应用的标题栏滚动的时候的响应。设计支持库提供了AppBarLayout，它允许Toolbar和其他view(例如：提供标签页的TabLayout)反馈滚动事件给一个被标记为ScrollingViewBehavior的兄弟级View中。</p>
+<p>首先我们先创建一个可以滚动的控件。我们使用RecyclerView去创建一个滚动列表。</p>
+<p>注意：我花了一个小时使用CoordinatorLayout和ListView来配合使用，但是滚动标记并不起作用。简单的搜索我查看了<a href="https://www.reddit.com/r/androiddev/comments/3808fi/coordinatorlayout_does_not_work_with/" target="_blank" rel="external">这里</a>、<a href="http://stackoverflow.com/questions/30612453/scrollingviewbehavior-for-listview" target="_blank" rel="external">这里</a>、<a href="http://stackoverflow.com/questions/30561037/coordinatorlayout-not-working" target="_blank" rel="external">这里</a>。如果你查看地了这些链接，似乎CoordinatorLayout和ListView并不友好(还有<code>GridViews</code> 和<code>ScrollViews</code>)。后面的两个链接提供了一个和ListView配合使用的方案，但是它不是向后兼容的。我这里提出来是希望你不要在同样的问题上卡住。ListViews的支持在后面的更新中可以会支持。</p>
+<p>关于RecyclerView的使用我不做过多的解释，这不是这篇文章的内容。你可以在网上轻松的找到关于RecyclerView的使用说明。</p>
+<p>在app模块的build.gradle文件中添加以下内容，然后同步：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.android.support:recyclerview-v7:22.2.1'</span></div></pre></td></tr></table></figure>
+<p>添加一个布局文件：<em>fragment_list_view.xml</em>，然后添加以下内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/recyclerview"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>添加另一个布局文件： <em>list_row.xml</em>，并把内容修改为如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">          <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">          <span class="attr">android:padding</span>=<span class="string">"16dp"</span></div><div class="line">          <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">          <span class="attr">android:layout_height</span>=<span class="string">"56dp"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/list_item"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>新建一个 <em>DesignDemoRecyclerAdapter.java</em> 内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.echessa.designdemo; <span class="comment">// Rename as Appropriate</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.widget.RecyclerView;</div><div class="line"><span class="keyword">import</span> android.view.LayoutInflater;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by echessa on 7/24/15.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DesignDemoRecyclerAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">DesignDemoRecyclerAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> List&lt;String&gt; mItems;</div><div class="line"></div><div class="line">    DesignDemoRecyclerAdapter(List&lt;String&gt; items) &#123;</div><div class="line">        mItems = items;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup viewGroup, <span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_row, viewGroup, <span class="keyword">false</span>);</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ViewHolder(v);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ViewHolder viewHolder, <span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        String item = mItems.get(i);</div><div class="line">        viewHolder.mTextView.setText(item);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mItems.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> TextView mTextView;</div><div class="line"></div><div class="line">        ViewHolder(View v) &#123;</div><div class="line">            <span class="keyword">super</span>(v);</div><div class="line">            mTextView = (TextView)v.findViewById(R.id.list_item);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>修改MainActivity.java中的<code>DesignDemoFragment.onCreateView()</code> 内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Nullable</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        Bundle args = getArguments();</div><div class="line">        <span class="keyword">int</span> tabPosition = args.getInt(TAB_POSITION);</div><div class="line"></div><div class="line">        ArrayList&lt;String&gt; items = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</div><div class="line">            items.add(<span class="string">"Tab #"</span> + tabPosition + <span class="string">" item #"</span> + i);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        View v =  inflater.inflate(R.layout.fragment_list_view, container, <span class="keyword">false</span>);</div><div class="line">        RecyclerView recyclerView = (RecyclerView)v.findViewById(R.id.recyclerview);</div><div class="line">        recyclerView.setLayoutManager(<span class="keyword">new</span> LinearLayoutManager(getActivity()));</div><div class="line">        recyclerView.setAdapter(<span class="keyword">new</span> DesignDemoRecyclerAdapter(items));</div><div class="line"></div><div class="line">        <span class="keyword">return</span> v;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>这样就可以显示前面的布局文件。现在fragment的界面就是一个列表。运行应用看下：</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/8.png"></p>
+<p>完成这些以后我们就可以看到CoordinatorLayout提供的滚动行为。</p>
+<p>修改<em>activity_main.xml</em>如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.DrawerLayout</span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/drawer_layout"</span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/coordinator"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">                <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|enterAlways"</span>/&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/tablayout"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">                <span class="attr">app:tabGravity</span>=<span class="string">"fill"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.v4.view.ViewPager</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/viewpager"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.FloatingActionButton</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/fab"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"bottom|right"</span></div><div class="line">            <span class="attr">android:layout_marginBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">            <span class="attr">android:layout_marginRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@drawable/ic_done"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.NavigationView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_view"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"start"</span></div><div class="line">        <span class="attr">app:headerLayout</span>=<span class="string">"@layout/drawer_header"</span></div><div class="line">        <span class="attr">app:menu</span>=<span class="string">"@menu/drawer"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.DrawerLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在上面的代码中，我们把Toolbar和TabLayout嵌入到AppBarLayout中。AppBarLayout允许Toolbar和其他Views(例如：TabLayout)对一个标记为ScrollingViewBehavior的兄弟级控件中的滚动行为做出反馈。</p>
+<p>当用户滚动RecyclerView，AppBarLayout会通过子控件的滚动标记进行响应进入屏幕和退出屏幕的行为。</p>
+<p>滚动标记如下：</p>
+<ul>
+<li><strong>scroll</strong>：如果view想滚动出屏幕，可以使用这个标记。如果不使用这个标记，View将被固定在屏幕的顶部。</li>
+<li><strong>enterAlways</strong>：如果控件使用了这个标记，在向下滚动的时候这个控件将变得可见，使”快速返回”模式可用。</li>
+<li><strong>enterAlwaysCollapsed</strong>：如果某个View定义了这个标记，并且设置了<code>minHeight</code>属性，这个View只会在进入的时候先显示minHeight高度，只有当滚动到屏幕的顶部的时候才会全部显示。</li>
+<li><strong>exitUntilCollapsed</strong>：这个标记将会使View在退出的时候会保留<code>minHeight</code>的高度。</li>
+</ul>
+<p>注意：所有使用滚动标记的控件都必须在没有使用滚动标记的控件之前声明。这个可以确保有滚动标记的控件可以在退出的时候剩下固定的控件。</p>
+<p>在我们的应用中我们给Toolbar设置了<code>scroll</code> and <code>enterAlways</code>滚动标记，这样当我们向下滚动的时候Toolbar会滚出屏幕，当我们向上滚动的时候Toolbar又出现。同时需要注意在ViewPager上的<code>app:layout_behavior=&quot;@string/appbar_scrolling_view_behavior</code>标记。设计支持库给我们提供了一个字符串资源<code>@string/appbar_scrolling_view_behavior</code>，它就是<code>AppBarLayout.ScrollingViewBehavior</code>，它会通知AppbarLayout当一个特殊的View在滚动的时候。当View触发滚动事件时，行为就必须确定。</p>
+<p>运行应用看一下Appbar的滚动效果。</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/9.gif"></p>
+<h1 id="CollapsingToolbarLayout"><a href="#CollapsingToolbarLayout" class="headerlink" title="CollapsingToolbarLayout"></a>CollapsingToolbarLayout</h1><p>CollapsingToolbarLayour给Appbar提供了另外一种滚动行为。为了在项目中看到，我们首先建立一个Activity，有一个Toolbar但是没有TabLayout。</p>
+<p>创建一个空白的Activity，名为：<code>SecondActivity</code></p>
+<p>修改<em>activity_second.xml</em> 如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"250dp"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/ThemeOverlay.AppCompat.Dark.ActionBar"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/collapsing_toolbar"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">app:contentScrim</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">            <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|exitUntilCollapsed"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:scaleType</span>=<span class="string">"centerCrop"</span></div><div class="line">                <span class="attr">android:src</span>=<span class="string">"@drawable/image"</span></div><div class="line">                <span class="attr">app:layout_collapseMode</span>=<span class="string">"parallax"</span>/&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></div><div class="line">                <span class="attr">app:layout_collapseMode</span>=<span class="string">"pin"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.CollapsingToolbarLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"24dp"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_margin</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">                    <span class="attr">android:padding</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"Lorem ipsum"</span>/&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"@string/second_activity_text"</span>/&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_marginBottom</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginRight</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">                    <span class="attr">android:padding</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"Sed quam eros"</span>/&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"@string/second_activity_text"</span>/&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_marginBottom</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginRight</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">                    <span class="attr">android:padding</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"Sed a euismod dui"</span>/&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"@string/second_activity_text"</span>/&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_marginBottom</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginRight</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">                    <span class="attr">android:padding</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"Fusce nec lacinia mi"</span>/&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"@string/second_activity_text"</span>/&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.CardView</span></span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_marginBottom</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginLeft</span>=<span class="string">"16dp"</span></div><div class="line">                <span class="attr">android:layout_marginRight</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">                    <span class="attr">android:padding</span>=<span class="string">"16dp"</span>&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"Praesent hendrerit"</span>/&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:text</span>=<span class="string">"@string/second_activity_text"</span>/&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">            <span class="tag">&lt;/<span class="name">android.support.v7.widget.CardView</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在上面的代码中我们使用了CollapsingToolbarLayout，并且设置了它的标记为<code>scroll</code>和 <code>exitUntilCollapsed</code>，这样它的子控件将会滚出屏幕。然而，我们设置Toolbar的app:layout_collapseMode=”pin”，这样就使Toolbar在View收缩的时候能够保留在屏幕的顶部。另一个效果就是CollapsingToolbarLayout的标题会变的更大，当CollapsingToolbarLayout全部显示的时候，同时在CollapsingToolbarLayout收缩的时候变成默认大小。我们在代码中设置标题。剩下的布局包含NestedScrollView和一些卡片在里面。</p>
+<p>修改<em>SecondActivity.java</em>的 <code>onCreate(Bundle)</code>方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_second);</div><div class="line"></div><div class="line">    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);</div><div class="line">    setSupportActionBar(toolbar);</div><div class="line">    getSupportActionBar().setDisplayHomeAsUpEnabled(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">    CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);</div><div class="line">    collapsingToolbar.setTitle(<span class="string">"Second Activity"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里我们设置了Toolbar的返回按钮，并且设置了CollapsingToolbarLayout的标题。</p>
+<p>为了让返回按钮能够工作，在Manifest里的<code>SecondActivity</code>的配置中添加以下元数据：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line">            <span class="attr">android:name</span>=<span class="string">"android.support.PARENT_ACTIVITY"</span></div><div class="line">            <span class="attr">android:value</span>=<span class="string">"com.echessa.designdemo.MainActivity"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>在<em>DesignDemoRecyclerAdapter.java</em>中修改onBindViewHolder()方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ViewHolder viewHolder, <span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    String item = mItems.get(i);</div><div class="line">    viewHolder.mTextView.setText(item);</div><div class="line"></div><div class="line">    viewHolder.mTextView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">            Context context = view.getContext();</div><div class="line">            context.startActivity(<span class="keyword">new</span> Intent(context, SecondActivity.class));</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的代码中我们给RecyclerView的每一行的TextView设置了一个点击事件。这不是实现RecyclerView的Item的点击事件的最佳方式，我只是为了用最少的代码实现界面跳转。</p>
+<p>运行app我们看到如下：</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/10.gif"></p>
+<h1 id="Floating-Labels-for-EditText"><a href="#Floating-Labels-for-EditText" class="headerlink" title="Floating Labels for EditText"></a>Floating Labels for EditText</h1><p>设计支持库的最后一个控件是一个看起来像是一个增强型的EditText。一般情况下，当我们在EditText中进行输入时，提示语会消失。现在你可以把EditText放在一个TextInputLayout中，这样提示语就会浮现在EditText的上面，这样用户就永远可以知道他们要输入什么内容。</p>
+<p>我们修改<em>activity_second.xml</em>中某个CardViews的内容如下。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.TextInputLayout</span></span></div><div class="line">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line"></div><div class="line">                    <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line">                        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">                        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                        <span class="attr">android:inputType</span>=<span class="string">"textEmailAddress"</span></div><div class="line">                        <span class="attr">android:hint</span>=<span class="string">"Email"</span> /&gt;</div><div class="line"></div><div class="line">                <span class="tag">&lt;/<span class="name">android.support.design.widget.TextInputLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>运行应用可以看到以下效果：</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/11.png"></p>
+<p>除了显示提示语，你还可以设置错误信息显示在EditText的下面，通过setError()方法调用。</p>
+<h1 id="结语："><a href="#结语：" class="headerlink" title="结语："></a>结语：</h1><p>到了本教程的结尾了，完整的代码可以在这里<a href="https://github.com/sitepoint-editors/Design-Demo" target="_blank" rel="external">下载</a>。更多的Android Design Support Library信息可以参考 <a href="http://android-developers.blogspot.co.ke/2015/05/android-design-support-library.html" target="_blank" rel="external">Android developers blog</a>。</p>
+<p>我的代码在<a href="https://github.com/qjbagugit/MaterialDemo" target="_blank" rel="external">这里</a>。</p>
+<h1 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h1><h2 id="Material-Design使用："><a href="#Material-Design使用：" class="headerlink" title="Material Design使用："></a>Material Design使用：</h2><p>作为我们开发者，最关心的还是如何在项目中使用Material Design风格：</p>
+<ol>
+<li>设置应用的 <code>targetSdkVersion</code> 和 <code>targetSdkVersion</code> 为21</li>
+<li>在values目录下的style资源文件中创建一个style，让其继承自 <code>android:Theme.Material</code></li>
+<li>在AndroidManifest中指定应用的主题或者Activity的主题为我们设定的样式</li>
+</ol>
+<p>谷歌官方我们提供了三种配色风格的Material Design样式：</p>
+<ol>
+<li>黑色主题 <code>Theme.Material</code></li>
+<li>明亮主题 <code>Theme.Material.Light</code></li>
+<li>明亮主题黑色ActionBar <code>Theme.Material.Light.DarkActionBar</code></li>
+</ol>
+<p>主题属性：</p>
+<ol>
+<li><code>android:colorPrimaryDark</code> 应用的主要暗色调，statusBarColor默认使用该颜色</li>
+<li><code>android:statusBarColor</code> 状态栏颜色，默认使用colorPrimaryDark</li>
+<li><code>android:colorPrimary</code> 应用的主要色调，actionBar默认使用该颜色</li>
+<li><code>android:windowBackground</code> 窗口背景颜色</li>
+<li><code>android:navigationBarColor</code> 底部栏颜色</li>
+<li><code>android:colorForeground</code> 应用的前景色，ListView的分割线，switch滑动区默认使用该颜色</li>
+<li><code>android:colorBackground</code> 应用的背景色，popMenu的背景默认使用该颜色</li>
+<li><code>android:colorAccent</code> 一般控件的选种效果默认采用该颜色</li>
+<li><code>android:colorControlNormal</code> 控件的默认色调　</li>
+<li><code>android:colorControlHighlight</code> 控件按压时的色调</li>
+<li><code>android:colorControlActivated</code> 控件选中时的颜色，默认使用colorAccent</li>
+<li><code>android:colorButtonNormal</code> 默认按钮的背景颜色</li>
+<li><code>android:textColor</code> Button，textView的文字颜色</li>
+<li><code>android:textColorPrimaryDisableOnly</code> RadioButton checkbox等控件的文字</li>
+<li><code>android:textColorPrimary</code> 应用的主要文字颜色，actionBar的标题文字默认使用该颜色</li>
+</ol>
+<p>主题不仅可以对<code>Application</code>和<code>Activity</code>使用，也可以对某一个控件单使用，或者是在xml布局中给一个根节点控件设置android:theme属性，来修改它和它所有子控件的主题。 如果我们要对特定控件实例做自定义修改，更建议大家可以通过控件自身的API进行设置修改。</p>
+<h2 id="Material-Design兼容性："><a href="#Material-Design兼容性：" class="headerlink" title="Material Design兼容性："></a>Material Design兼容性：</h2><p>Material Design主题只有在API级别为21以上才可使用，在v7支持库中提供了部分控件的Material Design主题样式，如果想使应用在android的所有版本上都能统一风格，我们可以对控件效果做自定义或者使用一些第三方的兼容包。目前最有效的做法是针对21版本创建value－21资源目录，使用Material Design风格主题，在其他版本使用v7的Theme.AppCompat.Light风格主题。</p>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><ol>
+<li>在使用CardView的时候，一定要注意，当CardView的宽和高填充父容器的时候，CardView的margin最好要比cardElevation大，不然就看不到立体的效果。</li>
+<li>我们知道ListView有一个onItemClick的事件，但是RecyclerView却没有，那么我们应该怎样去设置呢？其实很简单，关于RecyclerView设置item的点击事件，只需在创建ViewHolder的时候，给填充的View设置单击事件即可。</li>
+<li>在使用android.support.design.widget.AppBarLayout的时候内容区最好使用android.support.v4.widget.NestedScrollView。</li>
+</ol>
+<h2 id="MD的主题色解析图："><a href="#MD的主题色解析图：" class="headerlink" title="MD的主题色解析图："></a>MD的主题色解析图：</h2><p><img width="800" height="600" src="/2016/11/06/Android-Material-Design总结/12.jpg"></p>
+<h2 id="沉浸式状态栏："><a href="#沉浸式状态栏：" class="headerlink" title="沉浸式状态栏："></a>沉浸式状态栏：</h2><p><code>android:windowTranslucentStatus</code>：设置为true则状态栏变透明(4.4以上手机)，此时不做任何处理会出现如图的效果：</p>
+<p><img width="500" height="60" src="/2016/11/06/Android-Material-Design总结/13.png"></p>
+<p><code>android:fitsSystemWindows</code>：设置为true让Activity 中<code>setContentView</code>的布局不覆盖状态栏(即相当于给状态栏设置了padding)，这个属性要在根布局中使用。如果同时设置了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowTranslucentStatus"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">android:fitsSystemWindows="true"</div></pre></td></tr></table></figure>
+<p>将使状态栏透明，标题栏不覆盖状态栏：</p>
+<p><img width="500" height="80" src="/2016/11/06/Android-Material-Design总结/14.png"></p>
+<p>既然4.4以后加入了<code>windowTranslucentStatus</code>属性，那我们就可以使用状态栏的区域了。所以我们就可以设置一个和状态栏等高的View，背景颜色设置成需要的颜色的就可以了。具体代码使用鸿洋大神的<a href="https://github.com/hongyangAndroid/ColorfulStatusBar/blob/master/colorfulstatusbar/src/main/java/com/zhy/colorfulstatusbar/StatusBarCompat.java" target="_blank" rel="external">工具类</a>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StatusBarCompat</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INVALID_VAL = -<span class="number">1</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COLOR_DEFAULT = Color.parseColor(<span class="string">"#20000000"</span>);</div><div class="line"></div><div class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.LOLLIPOP)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compat</span><span class="params">(Activity activity, <span class="keyword">int</span> statusColor)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">            <span class="keyword">if</span> (statusColor != INVALID_VAL) &#123;</div><div class="line">                activity.getWindow().setStatusBarColor(statusColor);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT &amp;&amp; Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">            <span class="keyword">int</span> color = COLOR_DEFAULT;</div><div class="line">            ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);</div><div class="line">            <span class="keyword">if</span> (statusColor != INVALID_VAL) &#123;</div><div class="line">                color = statusColor;</div><div class="line">            &#125;</div><div class="line">            View statusBarView = contentView.getChildAt(<span class="number">0</span>);</div><div class="line">            <span class="comment">//改变颜色时避免重复添加statusBarView</span></div><div class="line">            <span class="keyword">if</span> (statusBarView != <span class="keyword">null</span> &amp;&amp; statusBarView.getMeasuredHeight() == getStatusBarHeight(activity)) &#123;</div><div class="line">                statusBarView.setBackgroundColor(color);</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            statusBarView = <span class="keyword">new</span> View(activity);</div><div class="line">            ViewGroup.LayoutParams lp = <span class="keyword">new</span> ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,</div><div class="line">                    getStatusBarHeight(activity));</div><div class="line">            statusBarView.setBackgroundColor(color);</div><div class="line">            contentView.addView(statusBarView, lp);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">compat</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        compat(activity, INVALID_VAL);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getStatusBarHeight</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> resourceId = context.getResources().getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</div><div class="line">        <span class="keyword">if</span> (resourceId &gt; <span class="number">0</span>) &#123;</div><div class="line">            result = context.getResources().getDimensionPixelSize(resourceId);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如何使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在onCreate()方法中：</span></div><div class="line">StatusBarCompat.compat(<span class="keyword">this</span>, getResources().getColor(R.color.primary_dark));</div></pre></td></tr></table></figure>
+<p>==注意：==</p>
+<ol>
+<li><p>创建<code>values-19</code>文件夹，并创建<code>styles.xml</code>，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"@style/BaseAppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowTranslucentStatus"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>用来设置状态栏透明，并且可被用户使用，以使我们可以添加需要的View。</p>
+</li>
+<li><p>因为5.0提供了setStatusBarColor去设置状态栏颜色，但是这个方法不能在主题中设置<code>windowTranslucentStatus</code>属性。所以我们创建<code>values-21</code>文件夹，并创建<code>styles.xml</code>，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"@style/BaseAppTheme"</span>&gt;</span><span class="undefined"></span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>同时需要注意<code>android:fitsSystemWindows=&quot;true&quot;</code>的使用。如果要控件为<code>DrawerLayout</code>，我测试设置无效，需要在它的子控件中设置，并且<code>NavigationView</code>中的布局不用再设置。</p>
+</li>
+</ol>
+<p>4.4真机实现结果：</p>
+<p><img width="350" height="600" src="/2016/11/06/Android-Material-Design总结/15.gif"></p>
+<h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://www.sitepoint.com/material-design-android-design-support-library/" target="_blank" rel="external">Material Design with the Android Design Support Library</a></p>
+<p><a href="">超简单的实现沉浸式状态栏</a></p>
+<p><a href="http://blog.csdn.net/lmj623565791/article/details/48649563" target="_blank" rel="external">Android 沉浸式状态栏攻略 让你的状态栏变色吧</a></p>
+<p><a href="http://www.jianshu.com/p/a44c119d6ef7" target="_blank" rel="external">Android沉浸式(透明)状态栏适配</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/MD风格/" rel="tag"># MD风格</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/16/Gson使用总结/" rel="next" title="Gson使用总结">
+                <i class="fa fa-chevron-left"></i> Gson使用总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/22/HeadFirst设计模式读书笔记/" rel="prev" title="HeadFirst设计模式读书笔记">
+                HeadFirst设计模式读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/06/Android-Material-Design总结/"
+           data-title="Android_Material_Design总结" data-url="https://qjbagugit.github.io/2016/11/06/Android-Material-Design总结/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Timer" />
+          <p class="site-author-name" itemprop="name">Timer</p>
+          <p class="site-description motion-element" itemprop="description">路漫漫其修远兮，吾将上下而求索</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              原博客
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/qjbagu/" title="CSDN博客" target="_blank">CSDN博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NavigationView"><span class="nav-number">3.</span> <span class="nav-text">NavigationView</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Floating-Action-Button-FAB"><span class="nav-number">4.</span> <span class="nav-text">Floating Action Button (FAB)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Snackbar"><span class="nav-number">5.</span> <span class="nav-text">Snackbar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TabLayout"><span class="nav-number">6.</span> <span class="nav-text">TabLayout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CoordinatorLayout"><span class="nav-number">7.</span> <span class="nav-text">CoordinatorLayout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CollapsingToolbarLayout"><span class="nav-number">8.</span> <span class="nav-text">CollapsingToolbarLayout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Floating-Labels-for-EditText"><span class="nav-number">9.</span> <span class="nav-text">Floating Labels for EditText</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语："><span class="nav-number">10.</span> <span class="nav-text">结语：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录："><span class="nav-number">11.</span> <span class="nav-text">附录：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Material-Design使用："><span class="nav-number">11.1.</span> <span class="nav-text">Material Design使用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Material-Design兼容性："><span class="nav-number">11.2.</span> <span class="nav-text">Material Design兼容性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项："><span class="nav-number">11.3.</span> <span class="nav-text">注意事项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MD的主题色解析图："><span class="nav-number">11.4.</span> <span class="nav-text">MD的主题色解析图：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#沉浸式状态栏："><span class="nav-number">11.5.</span> <span class="nav-text">沉浸式状态栏：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考："><span class="nav-number">12.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Timer</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"timerchen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("SNK7gVWOKWg8kVTixCIiPJOM-gzGzoHsz", "K6sxKbcSnrBPj9W1lWIImVT9");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
